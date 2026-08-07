@@ -97,7 +97,7 @@
   transform: translateY(-2px);
   box-shadow: 0 6px 25px rgba(180, 83, 9, 0.3);
   border-color: var(--abe-accent-deep);
-  background: linear-gradient(135deg, #faf8f9 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
 }
 
 .trigger-icon {
@@ -319,7 +319,7 @@
 .tab-btn.active {
   background: linear-gradient(135deg, rgba(180, 83, 9, 0.9) 0%, var(--abe-accent-deep) 100%);
   color: #fff;
-  box-shadow: 0 2px 8px rgba(74, 25, 66, 0.35);
+  box-shadow: 0 2px 8px rgba(120, 53, 15, 0.35);
 }
 
 .tab-icon {
@@ -379,7 +379,7 @@
   height: 40px;
   color: var(--abe-accent);
   flex-shrink: 0;
-  background: linear-gradient(135deg, #f5eef1 0%, #f1f3f4 100%);
+  background: linear-gradient(135deg, #fef3c7 0%, #f1f3f4 100%);
   border-radius: 10px;
   padding: 8px;
 }

@@ -3,12 +3,12 @@ import { MUUN_SHOP_VIDEO_CLIPS, SCRAPSHALA_SHOP_VIDEOS } from './scrapshalaShopV
 import { bestSellerProducts } from './scrapshalaBestSellers';
 
 const REEL_URLS = SCRAPSHALA_SHOP_VIDEOS;
-const SHOP_CTA_URL = 'https://www.instagram.com/saadaadesigns/';
+const SHOP_CTA_URL = 'https://www.instagram.com/supr.india/';
 
 const IG_STORY_RING =
   'rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_35%,#d62976_68%,#962fbf_100%)] p-[2.5px] sm:p-[3px]';
 
-const BRAND_NAME = 'Saadaa';
+const BRAND_NAME = 'SUPR';
 
 function IconClose() {
   return (

@@ -14,17 +14,21 @@ import reviewData from '../review.json';
 import './HomePage.css';
 
 
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/labelishnya/';
-const AJNAA_LINKTR_URL = 'https://www.ishnya.com/';
-const AJNAA_HASHTAG_URL =
-  'https://www.instagram.com/explore/tags/ishnya/';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
+const AJNAA_LINKTR_URL = 'https://suprwater.com/';
 
-const BRAND_NAME = 'Ishnya';
-const IG_HANDLE = 'labelishnya';
-const IG_DISPLAY = 'ISHNYA | Desi Fusion Wear';
-const IG_POSTS = '2,482';
-const IG_FOLLOWERS = '179K';
-const IG_FOLLOWING = '522';
+const BRAND_NAME = 'SUPR Water';
+const IG_HANDLE = 'supr.india';
+const IG_DISPLAY = 'SUPR™';
+const IG_POSTS = '248';
+const IG_FOLLOWERS = '10.5K';
+const IG_FOLLOWING = '5';
+/** Bio lines under the handle, mirroring the live Instagram profile */
+const IG_BIO_LINES = [
+  'Feel SUPR, Be SUPR.',
+  'Trusted by 2000+ customers 💰',
+  'Available on @letsblinkit, @amazondotin, @naturesbasket',
+];
 
 const getRandomSoldThisWeek = (min = 180, max = 420) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
@@ -442,7 +446,7 @@ const HomePage = ({ onProductClick }) => {
                 <div className="w-32 h-32 rounded-full overflow-hidden">
                   <img
                     src={brandInstagramProfile}
-                    alt="Ishnya on Instagram"
+                    alt="SUPR on Instagram"
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -510,21 +514,9 @@ const HomePage = ({ onProductClick }) => {
 
             <div className="space-y-1">
               <p className="text-gray-900 text-sm font-semibold">{IG_DISPLAY}</p>
-              <p className="text-gray-800 text-sm">Modern desi fits with main character energy</p>
-              <p className="text-gray-800 text-sm">Pret · Fusion · Occasion Wear</p>
-              <p className="text-gray-800 text-sm">📍 Bandra-Linking Road, Mumbai</p>
-              <p className="text-gray-800 text-sm">🌍 Shipping Worldwide</p>
-              <p className="text-sm">
-                <a
-                  href={AJNAA_HASHTAG_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium"
-                  style={{ color: '#DB2A20' }}
-                >
-                  #ishnya
-                </a>
-              </p>
+              {IG_BIO_LINES.map((line) => (
+                <p key={line} className="text-gray-800 text-sm">{line}</p>
+              ))}
               <a
                 href={AJNAA_LINKTR_URL}
                 target="_blank"
@@ -532,7 +524,7 @@ const HomePage = ({ onProductClick }) => {
                 className="text-sm font-medium"
                 style={{ color: '#DB2A20' }}
               >
-                www.ishnya.com
+                www.suprwater.com
               </a>
             </div>
           </div>
@@ -548,7 +540,7 @@ const HomePage = ({ onProductClick }) => {
                   <div className="w-20 h-20 rounded-full overflow-hidden">
                     <img
                       src={brandInstagramProfile}
-                      alt="Ishnya on Instagram"
+                      alt="SUPR on Instagram"
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -573,21 +565,9 @@ const HomePage = ({ onProductClick }) => {
 
             <div className="space-y-0.5">
               <p className="text-gray-900 text-sm font-semibold">{IG_DISPLAY}</p>
-              <p className="text-gray-800 text-sm">Modern desi fits with main character energy</p>
-              <p className="text-gray-800 text-sm">Pret · Fusion · Occasion Wear</p>
-              <p className="text-gray-800 text-sm">📍 Bandra-Linking Road, Mumbai</p>
-              <p className="text-gray-800 text-sm">🌍 Shipping Worldwide</p>
-              <p className="text-sm">
-                <a
-                  href={AJNAA_HASHTAG_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-medium"
-                  style={{ color: '#DB2A20' }}
-                >
-                  #ishnya
-                </a>
-              </p>
+              {IG_BIO_LINES.map((line) => (
+                <p key={line} className="text-gray-800 text-sm">{line}</p>
+              ))}
               <a
                 href={AJNAA_LINKTR_URL}
                 target="_blank"
@@ -595,7 +575,7 @@ const HomePage = ({ onProductClick }) => {
                 className="text-sm font-medium"
                 style={{ color: '#DB2A20' }}
               >
-                www.ishnya.com
+                www.suprwater.com
               </a>
             </div>
 
@@ -911,7 +891,7 @@ const HomePage = ({ onProductClick }) => {
                   <img src={selectedLookVideo.image} alt="" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <p className="text-white text-sm font-semibold leading-none">Ishnya</p>
+                  <p className="text-white text-sm font-semibold leading-none">SUPR</p>
                   <p className="text-white/70 text-xs mt-0.5">{selectedLookVideo.views} views</p>
                 </div>
               </div>
@@ -970,7 +950,7 @@ const HomePage = ({ onProductClick }) => {
 
               {/* Share */}
               <button
-                onClick={() => navigator.share ? navigator.share({ title: selectedLookVideo.title, text: `Check out ${selectedLookVideo.title} from Ishnya`, url: window.location.href }) : navigator.clipboard?.writeText(window.location.href)}
+                onClick={() => navigator.share ? navigator.share({ title: selectedLookVideo.title, text: `Check out ${selectedLookVideo.title} from SUPR Water`, url: window.location.href }) : navigator.clipboard?.writeText(window.location.href)}
                 className="flex flex-col items-center gap-1"
               >
                 <div className="w-11 h-11 rounded-full bg-black/40 flex items-center justify-center">

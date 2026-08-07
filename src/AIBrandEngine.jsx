@@ -2,7 +2,7 @@ import React, { useId, useState } from 'react';
 import './AIBrandEngine.css';
 
 const SHOP_URL = 'https://suprwater.com/';
-const INSTAGRAM_URL = 'https://www.instagram.com/suprwater/';
+const INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
 
 function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
   return (
@@ -258,7 +258,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
         },
         {
           label: 'Community',
-          value: '@suprwater',
+          value: '@supr.india',
           description:
             'Training clips, recipes, and real customer reviews — hydration with SUPR goodness.',
         },

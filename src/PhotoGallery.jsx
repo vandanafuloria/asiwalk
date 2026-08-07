@@ -95,7 +95,7 @@ export default function PhotoGallery({
             onClick={() => setLightbox(i)}
             aria-label={`Open gallery photo ${i + 1}`}
           >
-            <img src={src} alt={`Ishnya look ${i + 1}`} loading="lazy" />
+            <img src={src} alt={`SUPR moment ${i + 1}`} loading="lazy" />
           </button>
         ))}
       </div>
@@ -114,7 +114,7 @@ export default function PhotoGallery({
           <button type="button" className="pg-lb-nav pg-lb-prev" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">‹</button>
           <button type="button" className="pg-lb-nav pg-lb-next" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">›</button>
           <div className="pg-lb-inner" onClick={(e) => e.stopPropagation()}>
-            <img src={GALLERY_IMAGES[lightbox]} alt={`Ishnya look ${lightbox + 1}`} />
+            <img src={GALLERY_IMAGES[lightbox]} alt={`SUPR moment ${lightbox + 1}`} />
             {(() => {
               const detail = getGalleryProductDetail(lightbox);
               return (

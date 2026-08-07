@@ -100,17 +100,17 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
               </div>
 
               <div className="product-description">
-                <p>{product.description || 'Premium decor piece designed to elevate your living space with warmth and style.'}</p>
+                <p>{product.description || 'Clear whey isolate protein that drinks like a chilled juice — light, refreshing, and easy on the stomach.'}</p>
               </div>
 
               <div className="product-features">
                 <h3>Features:</h3>
                 <ul>
                   {(product.features || [
-                    'High-quality materials',
-                    'Modern design',
-                    'Easy to clean',
-                    'Durable construction'
+                    '24g protein per bottle',
+                    'Zero sugar, zero carbs',
+                    'Mixes completely clear',
+                    'Ready to drink'
                   ]).map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}

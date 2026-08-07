@@ -3,8 +3,11 @@ import instagramTrustReal from './assets/instagram-trust-real.jpg';
 
 const AMAZON_LOGO =
   'https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg';
-const NYKAA_LOGO =
-  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMZ4VQq3AUwc6kAUXJM6eg2QCxmocOhXMvQQ&s';
+const QuickCommerceIcon = () => (
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB2A20" aria-hidden>
+    <path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5z" />
+  </svg>
+);
 
 const InstaRealIcon = () => (
   <img
@@ -54,34 +57,35 @@ function RatingBadge({ value }) {
  * Single rotated trust strip — exactly 5 slides: 10K+ / Instagram / Amazon / Nykaa / comfort.
  */
 export default function InstagramTrustCarousel({
-  instagramUrl = 'https://www.instagram.com/labelishnya/',
-  followersLabel = '179K',
-  shopUrl = 'https://ishnya.com/',
+  instagramUrl = 'https://www.instagram.com/supr.india/',
+  instagramHandle = '@supr.india',
+  followersLabel = '10.5K',
+  shopUrl = 'https://suprwater.com/',
   amazonUrl = 'https://www.amazon.in/',
-  nykaaUrl = 'https://www.myntra.com/',
+  quickCommerceUrl = 'https://blinkit.com/',
 }) {
   const trustSlides = useMemo(
     () => [
       {
         key: 'trusted',
         href: shopUrl,
-        ariaLabel: 'Trusted customers — visit Ishnya',
+        ariaLabel: 'Trusted customers — visit SUPR Water',
         icon: <StarRow />,
-        text: 'Trusted by 10,000+ Customers',
+        text: 'Trusted by 2,000+ Customers',
         badge: null,
       },
       {
         key: 'instagram',
         href: instagramUrl,
-        ariaLabel: 'Ishnya on Instagram',
+        ariaLabel: 'SUPR on Instagram',
         icon: <InstaRealIcon />,
-        text: `${followersLabel} followers · @labelishnya`,
+        text: `${followersLabel} followers · ${instagramHandle}`,
         badge: null,
       },
       {
         key: 'amazon',
         href: amazonUrl,
-        ariaLabel: 'Ishnya on Amazon India',
+        ariaLabel: 'SUPR on Amazon India',
         icon: (
           <img src={AMAZON_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
@@ -89,25 +93,23 @@ export default function InstagramTrustCarousel({
         badge: '4.5',
       },
       {
-        key: 'nykaa',
-        href: nykaaUrl,
-        ariaLabel: 'Ishnya on Myntra',
-        icon: (
-          <img src={NYKAA_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
-        ),
-        text: '900+ reviews · Myntra',
-        badge: '4.6',
+        key: 'quick-commerce',
+        href: quickCommerceUrl,
+        ariaLabel: 'SUPR on Blinkit and Nature’s Basket',
+        icon: <QuickCommerceIcon />,
+        text: 'Now on Blinkit & Nature’s Basket',
+        badge: null,
       },
       {
-        key: 'comfort',
+        key: 'formula',
         href: shopUrl,
-        ariaLabel: 'Desi fusion wear — Ishnya',
+        ariaLabel: 'Clear whey protein water — SUPR',
         icon: <ComfortIcon />,
-        text: 'Pret · Fusion · Occasion Wear',
+        text: 'Clear Whey · Zero Sugar · 24g Protein',
         badge: null,
       },
     ],
-    [followersLabel, instagramUrl, shopUrl, amazonUrl, nykaaUrl]
+    [followersLabel, instagramHandle, instagramUrl, shopUrl, amazonUrl, quickCommerceUrl]
   );
 
   const [trustIdx, setTrustIdx] = useState(0);

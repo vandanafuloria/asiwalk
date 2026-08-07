@@ -51,12 +51,12 @@ const PRODUCT_PAGE_IMAGES = [...MUUN_HOME_GALLERY_IMAGES];
 
 // Brand Name
 const BRAND_NAME = 'SUPR Water';
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/labelishnya/';
-const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '179K';
-const AJNAA_INSTAGRAM_HANDLE = '@labelishnya';
-const AJNAA_INSTAGRAM_DISPLAY = 'ISHNYA | Desi Fusion Wear';
-const AJNAA_INSTAGRAM_POSTS = '2,482';
-const AJNAA_INSTAGRAM_FOLLOWING = '522';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
+const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '10.5K';
+const AJNAA_INSTAGRAM_HANDLE = '@supr.india';
+const AJNAA_INSTAGRAM_DISPLAY = 'SUPR™';
+const AJNAA_INSTAGRAM_POSTS = '248';
+const AJNAA_INSTAGRAM_FOLLOWING = '5';
 
 /** Reviews & star ratings — black */
 const REVIEW_ACCENT = '#111111';
@@ -132,7 +132,7 @@ const PDP_KEYWORD_TAGS = [
 /** Trust row below CTAs */
 const PDP_TRUST_FEATURES = [
   {
-    label: 'Easy Exchange',
+    label: 'Ready To Drink',
     icon: (
       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -148,7 +148,7 @@ const PDP_TRUST_FEATURES = [
     ),
   },
   {
-    label: 'Inclusive Sizing',
+    label: 'Zero Added Sugar',
     icon: (
       <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
         <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -1040,7 +1040,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.8"/>
                       <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
                     </svg>
-                    @labelishnya
+                    {AJNAA_INSTAGRAM_HANDLE}
                   </a>
                 </div>
                 <div className="overflow-x-auto pb-2 scrollbar-hide" style={{ scrollbarWidth: 'none' }}>
@@ -1104,7 +1104,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                   onClick={(e) => e.stopPropagation()}
                   role="dialog"
                   aria-modal="true"
-                  aria-label="Saadaa reels"
+                  aria-label="SUPR reels"
                 >
                   {/* Desktop: previous preview */}
                   <div className="hidden w-[148px] shrink-0 flex-col md:flex">
@@ -1178,7 +1178,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                           <img src={thumbImg} alt="" className="w-full h-full object-cover" />
                         </div>
                         <div className="min-w-0">
-                          <p className="text-white text-sm font-semibold leading-none truncate">Saadaa</p>
+                          <p className="text-white text-sm font-semibold leading-none truncate">SUPR</p>
                           <p className="text-white/75 text-xs mt-0.5 truncate">
                             Reel {idx + 1} of {n}
                           </p>
@@ -1250,7 +1250,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                         type="button"
                         onClick={() =>
                           navigator.share
-                            ? navigator.share({ title: 'Saadaa', text: reelLabel, url: window.location.href })
+                            ? navigator.share({ title: 'SUPR', text: reelLabel, url: window.location.href })
                             : navigator.clipboard?.writeText(window.location.href)
                         }
                         className="flex flex-col items-center gap-1"
@@ -1278,7 +1278,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                         className="inline-flex w-full items-center justify-center py-3 rounded-none text-sm font-bold text-white bg-[#B99B7B] hover:opacity-95 transition-opacity"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        Follow @labelishnya
+                        Follow {AJNAA_INSTAGRAM_HANDLE}
                       </a>
                     </div>
                   </div>
@@ -1474,7 +1474,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       href={AJNAA_INSTAGRAM_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      aria-label="Open @labelishnya on Instagram"
+                      aria-label={`Open ${AJNAA_INSTAGRAM_HANDLE} on Instagram`}
                       className="flex items-center gap-3.5 rounded-none border border-stone-200/70 bg-white px-3.5 py-3 transition-colors hover:bg-stone-50/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B99B7B]/35 focus-visible:ring-offset-2"
                       style={{ textDecoration: 'none' }}
                     >
@@ -1508,7 +1508,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                           <p className="text-[11px] leading-snug text-stone-600">
                             <span className="font-semibold tabular-nums text-stone-800">{AJNAA_INSTAGRAM_FOLLOWERS_LABEL}</span>
                             {' '}
-                            followers · Modern desi fits
+                            followers · Feel SUPR, Be SUPR.
                           </p>
                         </div>
                       </div>
@@ -1533,12 +1533,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                 <div className="px-6 pb-2 pt-4">
                   <h4 className="mb-2.5 font-serif text-lg font-normal tracking-tight text-stone-900 md:text-xl">
-                    What Ishnya customers are saying
+                    What SUPR customers are saying
                   </h4>
                   <p className="text-[14px] leading-[1.65] text-stone-600">
                     {isAISummaryExpanded ? (
                       <>
-                        Shoppers love the comfortable Indo-Western fits, festive-ready prints, and contemporary silhouettes. Reviews highlight soft fabrics, flattering drapes, and pieces that work from everyday to celebrations. Customers frequently praise packaging, fast shipping, and friendly support.{' '}
+                        Drinkers love that it tastes like a chilled juice rather than a thick, milky shake. Reviews highlight zero bloating, no chalky aftertaste, and how cleanly it mixes — several mention it is the first protein their stomach accepts. Customers frequently praise the 24g of protein at 130 calories, fast shipping, and packs that arrive sealed and intact.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(false)}
@@ -1549,7 +1549,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       </>
                     ) : (
                       <>
-                        Customers love the comfort-first Indo-Western fits — stylish enough for festivities, easy enough for everyday wear.{' '}
+                        Customers love that it drinks like a chilled juice — 24g of protein with zero sugar and no bloating.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(true)}
@@ -1615,7 +1615,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
                       <div>
                         <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">CUSTOMER PHOTOS</h3>
-                        <p className="text-sm text-stone-600">Real looks from the Ishnya community</p>
+                        <p className="text-sm text-stone-600">Real moments from the SUPR community</p>
                       </div>
                       <span className="rounded-none bg-stone-100 px-3 py-1 text-xs font-medium tabular-nums text-stone-600">
                         {customerReviewImages.length} uploads
