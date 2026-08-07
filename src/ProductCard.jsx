@@ -21,12 +21,12 @@ function StarRow({ rating = 0, reviewCount = 0 }) {
                 </clipPath>
               </defs>
             )}
-            <path d={STAR_PATH} fill="none" stroke="#c41e3a" strokeWidth="1.5" />
+            <path d={STAR_PATH} fill="none" stroke="#111111" strokeWidth="1.5" />
             {(full || half) && (
               <path
                 d={STAR_PATH}
-                fill="#c41e3a"
-                stroke="#c41e3a"
+                fill="#111111"
+                stroke="#111111"
                 strokeWidth="1.5"
                 clipPath={half ? `url(#${clipId})` : undefined}
               />

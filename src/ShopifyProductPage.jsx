@@ -46,11 +46,11 @@ function formatSoldLabel(n) {
 }
 
 
-// Product images — Ishnya fashion defaults
+// Product images — SUPR defaults
 const PRODUCT_PAGE_IMAGES = [...MUUN_HOME_GALLERY_IMAGES];
 
 // Brand Name
-const BRAND_NAME = 'Ishnya';
+const BRAND_NAME = 'SUPR Water';
 const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/labelishnya/';
 const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '179K';
 const AJNAA_INSTAGRAM_HANDLE = '@labelishnya';
@@ -58,41 +58,45 @@ const AJNAA_INSTAGRAM_DISPLAY = 'ISHNYA | Desi Fusion Wear';
 const AJNAA_INSTAGRAM_POSTS = '2,482';
 const AJNAA_INSTAGRAM_FOLLOWING = '522';
 
-/** Reviews UI — Ishnya red */
-const REVIEW_ACCENT = '#c41e3a';
-const REVIEW_RING_TRACK = '#fce7eb';
-const REVIEW_SOFT = 'rgba(196, 30, 58, 0.10)';
-const REVIEW_ACCENT_BORDER = 'rgba(196, 30, 58, 0.30)';
+/** Reviews & star ratings — black */
+const REVIEW_ACCENT = '#111111';
+const REVIEW_RING_TRACK = '#e7e5e4';
+const REVIEW_SOFT = 'rgba(17, 17, 17, 0.06)';
+const REVIEW_ACCENT_BORDER = 'rgba(17, 17, 17, 0.22)';
+const RATING_ACCENT = '#111111';
+/** Price text & primary CTAs */
+const PDP_CTA = '#111111';
 const PDP_ACCENT = '#c41e3a';
 
 // Product Video — draggable floating card
 const PRODUCT_VIDEO = PDP_DRAGGABLE_VIDEO;
 
 // Product Details
-const PRODUCT_NAME = 'REZAAR — Navy Blue Drape Skirt Co-Ord Set with Shirt Top';
-const PRODUCT_PRICE = 3200;
-const PRODUCT_ORIGINAL_PRICE = 4500;
-const PRODUCT_DISCOUNT = 28;
-const PRODUCT_SKU = 'ISH-REZAAR-NAVY';
+const PRODUCT_NAME = 'MANGO ORANGE (MULTI PACK)';
+const PRODUCT_SUBTITLE = 'PROTEIN WATER';
+const PRODUCT_PRICE = 999;
+const PRODUCT_ORIGINAL_PRICE = 1199;
+const PRODUCT_DISCOUNT = 17;
 const PRODUCT_DESCRIPTION =
-  'An Indo-Western co-ord with a navy drape skirt and matching shirt top — contemporary desi fusion for work, travel, and celebrations.';
-const PRODUCT_BRAND = 'Ishnya';
-const PRODUCT_COLORS = [
-  { name: 'NAVY BLUE', image: MUUN_HOME_PRODUCT_IMAGES[0] },
-  { name: 'RED PRINT', image: MUUN_HOME_PRODUCT_IMAGES[1] },
-  { name: 'BOTTLE GREEN', image: MUUN_HOME_PRODUCT_IMAGES[2] },
-  { name: 'HOT PINK', image: MUUN_HOME_PRODUCT_IMAGES[3] },
+  "Experience the invigorating tanginess and abundant protein in every sip. SuprWater's Mango Orange Protein Water not only satisfies your thirst but also energizes your body with a lively citrus kick. Elevate your hydration routine today!";
+const PRODUCT_BRAND = 'SUPR Water';
+
+/** Bullet highlights under the description */
+const PRODUCT_HIGHLIGHTS = [
+  'Formulated in the US',
+  'Cleanest and Purest form of protein',
+  'Ready to drink',
+  'On the go nutrition',
+  '24g of protein and SUPR goodness in 130 calories',
+  '7g of BCAA',
 ];
-const PRODUCT_SIZES = ['36', '38', '40', '42', '44', '46'];
-const PRODUCT_BUST_SIZES = {
-  '36': 'Bust 36"',
-  '38': 'Bust 38"',
-  '40': 'Bust 40"',
-  '42': 'Bust 42"',
-  '44': 'Bust 44"',
-  '46': 'Bust 46"',
-};
-const PRODUCT_KURTA_TYPES = ['Co-Ord Set', 'Kurta Set'];
+
+/** Net quantity variants — each pack carries its own price */
+const PRODUCT_PACKS = [
+  { id: 'p3', label: 'Pack of 3 (330ml each)', bottles: 3, price: 999, originalPrice: 1199, sku: 'SUPR-MO-330-P3' },
+  { id: 'p12', label: 'Pack of 12 (330 ml each)', bottles: 12, price: 3599, originalPrice: 4796, sku: 'SUPR-MO-330-P12' },
+  { id: 'p24', label: 'Pack of 24 (330 ml each)', bottles: 24, price: 6999, originalPrice: 9592, sku: 'SUPR-MO-330-P24' },
+];
 /** Social proof — shown next to rating & reviews on the buy box */
 const PRODUCT_REVIEW_COUNT = 548;
 const PRODUCT_SOLD_COUNT = 860;
@@ -112,17 +116,17 @@ const RELATED_PRODUCTS = bestSellerProducts.slice(0, 4).map((p) => ({
 const PDP_REEL_LABELS = MUUN_SHOP_VIDEO_CLIPS.map((c) => c.title);
 
 const PDP_BREADCRUMB_MID = 'SPECIAL PRICES';
-const PDP_BREADCRUMB_LAST = 'REZAAR — Navy Blue Drape Skirt Co-Ord Set';
-const PDP_GIFT_PROMO = 'Easy exchange available';
-const PDP_COUPON_CODE = 'ISHNYA10';
-const PDP_COUPON_COPY = 'Get 10% off on your first purchase — use code ISHNYA10';
+const PDP_BREADCRUMB_LAST = 'MANGO ORANGE (MULTI PACK)';
+const PDP_GIFT_PROMO = 'Free shipping on packs of 12 and above';
+const PDP_COUPON_CODE = 'SUPR10';
+const PDP_COUPON_COPY = 'Get 10% off on your first order — use code SUPR10';
 
 /** Feature keyword pills under the product title */
 const PDP_KEYWORD_TAGS = [
-  'Desi Fusion ✨',
-  'Comfort Fit 👗',
-  'Occasion Ready 🎉',
-  'Soft Breathable Fabric',
+  '24g Protein 💪',
+  'Zero Sugar',
+  'Tastes Like Juice 🥭',
+  '130 Calories',
 ];
 
 /** Trust row below CTAs */
@@ -167,16 +171,16 @@ const PDP_TRUST_FEATURES = [
 
 // Fallback blurbs for image modals
 const dummyReviews = [
-  { name: 'Priya Sharma', rating: 5, title: 'So flattering!', text: 'The co-ord drapes beautifully and feels soft all day. Perfect desi fusion look for brunch and functions.', date: '1/20/2025', type: 'product' },
-  { name: 'Anjali Mehta', rating: 5, title: 'Exactly like Instagram', text: 'Ordered after seeing @labelishnya reels — print, fit, and colour are just as good in person. Obsessed.', date: '1/18/2025', type: 'product' },
-  { name: 'Riya Patel', rating: 4, title: 'Gifted to my sister', text: 'Bought the embroidered set as a birthday gift — she loved the fit and how easy it is to style. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
-  { name: 'Kavya Reddy', rating: 5, title: 'Comfortable occasion wear', text: 'Finally festive clothes I can dance in. Ishnya nails Pret · Fusion · Occasion Wear.', date: '1/12/2025', type: 'product' },
-  { name: 'Meera Singh', rating: 5, title: 'My new favourite label', text: 'Been ordering for 3 months. Soft fabrics, flattering cuts, and packaging always feels special.', date: '1/10/2025', type: 'product' },
-  { name: 'Sneha Verma', rating: 5, title: 'Main character energy', text: 'Wore the navy drape set out and got so many compliments. Feels expensive and effortless.', date: '1/08/2025', type: 'product' },
-  { name: 'Divya Nair', rating: 4, title: 'Travel ready', text: 'Packed well for a weekend trip and still looked polished at dinner. Would repurchase.', date: '1/05/2025', type: 'product' },
-  { name: 'Pooja Mehta', rating: 5, title: 'Mum approved', text: 'Bought this for my mum — she loves how comfortable and elegant it feels. Instant fan.', date: '1/03/2025', type: 'product' },
-  { name: 'Neha Kapoor', rating: 5, title: 'Second purchase already', text: 'First bought a co-ord, then a kurta set — same beautiful quality across pieces.', date: '12/30/2024', type: 'product' },
-  { name: 'Aarti Desai', rating: 5, title: 'Inclusive sizing win', text: 'Found my size easily and the fit is so flattering. Ishnya really designs for real women.', date: '12/28/2024', type: 'product' },
+  { name: 'Priya Sharma', rating: 5, title: 'Tastes like juice!', text: 'Light, fruity and completely clear — nothing like a thick milky shake. I finish the bottle in minutes.', date: '1/20/2025', type: 'product' },
+  { name: 'Anjali Mehta', rating: 5, title: 'Zero bloating', text: 'Whey concentrate always made me feel heavy. This digests so easily I can drink it before a run.', date: '1/18/2025', type: 'product' },
+  { name: 'Riya Patel', rating: 4, title: 'Gifted to my brother', text: 'Bought the 3-pack for my brother after his workouts — he loved the mango orange. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
+  { name: 'Kavya Reddy', rating: 5, title: 'Refreshing post-workout', text: 'Chilled after training it is genuinely refreshing. The electrolytes make a real difference.', date: '1/12/2025', type: 'product' },
+  { name: 'Meera Singh', rating: 5, title: 'My new daily protein', text: 'Been drinking it for 3 months. 24g protein, zero sugar, and it never feels like a chore.', date: '1/10/2025', type: 'product' },
+  { name: 'Sneha Verma', rating: 5, title: 'Mixes perfectly clear', text: 'One scoop in cold water, ten seconds of shaking, no clumps or foam at all.', date: '1/08/2025', type: 'product' },
+  { name: 'Divya Nair', rating: 4, title: 'Travel ready', text: 'Carried bottles on a work trip — no shaker, no milk, no mess. Would repurchase.', date: '1/05/2025', type: 'product' },
+  { name: 'Pooja Mehta', rating: 5, title: 'Easy on the stomach', text: 'Bought this for my mum who is lactose sensitive — no gas, no heaviness. Instant fan.', date: '1/03/2025', type: 'product' },
+  { name: 'Neha Kapoor', rating: 5, title: 'Second purchase already', text: 'Started with the bottles, then bought the 20 scoop tub — same clean taste in both.', date: '12/30/2024', type: 'product' },
+  { name: 'Aarti Desai', rating: 5, title: 'No chalky aftertaste', text: 'Crisp and fruity right to the last sip. Hard to believe there is this much protein in it.', date: '12/28/2024', type: 'product' },
 ];
 
 
@@ -273,13 +277,17 @@ function AccordionRow({ label, content }) {
 }
 
 const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
-  // Use passed product data when available, fall back to defaults
+  const [selectedPackId, setSelectedPackId] = useState(PRODUCT_PACKS[0].id);
+  const selectedPack =
+    PRODUCT_PACKS.find((p) => p.id === selectedPackId) || PRODUCT_PACKS[0];
+
+  // Use passed product data when available, fall back to the selected pack
   const productName    = passedProduct?.title         || PRODUCT_NAME;
-  const productPrice   = passedProduct?.currentPrice  || PRODUCT_PRICE;
-  const productOriginal= passedProduct?.originalPrice || PRODUCT_ORIGINAL_PRICE;
+  const productPrice   = passedProduct?.currentPrice  || selectedPack.price;
+  const productOriginal= passedProduct?.originalPrice || selectedPack.originalPrice;
   const productDiscount= passedProduct?.originalPrice
     ? Math.round(((passedProduct.originalPrice - passedProduct.currentPrice) / passedProduct.originalPrice) * 100)
-    : PRODUCT_DISCOUNT;
+    : Math.round(((selectedPack.originalPrice - selectedPack.price) / selectedPack.originalPrice) * 100);
   const productImages = passedProduct?.galleryImages?.length
     ? passedProduct.galleryImages
     : passedProduct?.image
@@ -304,9 +312,6 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   const [reviewsToShow, setReviewsToShow] = useState(3);
   const [expandedReviews, setExpandedReviews] = useState({});
   const [productSortBy, setProductSortBy] = useState('most-recent');
-  const [selectedKurtaType, setSelectedKurtaType] = useState('Co-Ord Set');
-  const [selectedSize, setSelectedSize] = useState('36');
-  const [selectedColor, setSelectedColor] = useState(PRODUCT_COLORS[0]?.name || 'NAVY BLUE');
 
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
@@ -743,25 +748,25 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                         key={i}
                         type="button"
                         onClick={() => setSelectedImage(i)}
-                        className="overflow-hidden bg-gray-100 border transition-all"
+                        className="overflow-hidden bg-white border transition-all"
                         style={{
                           width: 72,
-                          height: 96,
+                          height: 72,
                           borderColor: selectedImage === i ? '#111' : '#e5e7eb',
                           borderWidth: selectedImage === i ? 2 : 1,
                         }}
                       >
-                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-cover object-top" />
+                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-contain" />
                       </button>
                     ))}
                   </div>
 
                   {/* Main image */}
-                  <div className="relative flex-1 overflow-hidden bg-gray-50 border border-gray-200" style={{ aspectRatio: '3/4' }}>
+                  <div className="relative flex-1 overflow-hidden bg-white border border-gray-200" style={{ aspectRatio: '1/1' }}>
                     <img
                       src={imgs[selectedImage] || imgs[0]}
                       alt={productName}
-                      className="w-full h-full object-cover object-top cursor-zoom-in"
+                      className="w-full h-full object-contain cursor-zoom-in"
                     />
                     <button
                       type="button"
@@ -781,14 +786,14 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                         key={i}
                         type="button"
                         onClick={() => setSelectedImage(i)}
-                        className="shrink-0 overflow-hidden bg-gray-100 border-2 transition-all"
+                        className="shrink-0 overflow-hidden bg-white border-2 transition-all"
                         style={{
                           width: '64px',
-                          height: '80px',
-                          borderColor: selectedImage === i ? '#111' : 'transparent',
+                          height: '64px',
+                          borderColor: selectedImage === i ? '#111' : '#e5e7eb',
                         }}
                       >
-                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-cover object-top" />
+                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-contain" />
                       </button>
                     ))}
                   </div>
@@ -796,12 +801,15 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               );
             })()}
 
-            {/* Buy box — Ishnya style */}
+            {/* Buy box */}
             <div className="flex-1 flex flex-col gap-0 min-w-0 pt-1">
 
-              <h1 className="mb-3 text-[22px] md:text-[26px] font-medium leading-snug text-gray-800 tracking-tight">
-                {productName}{selectedSize ? ` - ${selectedSize}` : ''}
+              <h1 className="mb-1 text-[22px] md:text-[26px] font-normal uppercase leading-snug tracking-[0.12em] text-gray-800">
+                {productName}
               </h1>
+              <p className="mb-3 text-[13px] uppercase tracking-[0.16em] text-gray-500">
+                {PRODUCT_SUBTITLE}
+              </p>
 
               {/* Feature keyword pills */}
               <div className="mb-4 flex flex-wrap gap-2">
@@ -832,8 +840,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <svg key={i} width="16" height="16" viewBox="0 0 24 24" aria-hidden>
                       <path
                         d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                        fill={i <= Math.round(productRating) ? PDP_ACCENT : 'none'}
-                        stroke={PDP_ACCENT}
+                        fill={i <= Math.round(productRating) ? RATING_ACCENT : 'none'}
+                        stroke={RATING_ACCENT}
                         strokeWidth="1.4"
                       />
                     </svg>
@@ -848,7 +856,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               {/* SKU + stock */}
               <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
                 <span className="text-gray-500">
-                  SKU: <span className="text-gray-700">{PRODUCT_SKU}</span>
+                  SKU: <span className="text-gray-700">{selectedPack.sku}</span>
                 </span>
                 <span className="font-semibold" style={{ color: PDP_ACCENT }}>
                   In Stock
@@ -864,80 +872,44 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               <SocialProofTicker />
 
               {/* Price */}
-              <div className="mb-5 flex items-baseline gap-3 flex-wrap">
-                <span className="text-xl md:text-2xl font-bold text-gray-900">
-                  Rs. {Number(productPrice).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+              <div className="mb-1 flex items-baseline gap-3 flex-wrap">
+                <span className="text-xl md:text-2xl font-normal tracking-[0.08em] text-gray-900">
+                  MRP ₹. {Number(productPrice).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                 </span>
                 {productOriginal > productPrice && (
-                  <span className="text-base line-through" style={{ color: PDP_ACCENT }}>
-                    Rs. {Number(productOriginal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-base line-through" style={{ color: PDP_CTA }}>
+                    ₹. {Number(productOriginal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 )}
               </div>
+              <p className="mb-5 text-[13px] text-gray-500">(Inclusive of all taxes)</p>
 
-              {/* Color swatches */}
-              {PRODUCT_COLORS.length > 0 && (
-                <div className="mb-5">
-                  <p className="mb-2 text-xs font-semibold tracking-wide text-gray-800 uppercase">
-                    Color — <span className="font-bold">{selectedColor}</span>
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {PRODUCT_COLORS.map((c) => (
+              {/* Net quantity — pack selector */}
+              <div className="mb-5">
+                <p className="mb-2 text-[13px] text-gray-700">Net Quantity:</p>
+                <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Net quantity">
+                  {PRODUCT_PACKS.map((pack) => {
+                    const active = selectedPackId === pack.id;
+                    return (
                       <button
-                        key={c.name}
+                        key={pack.id}
                         type="button"
-                        onClick={() => {
-                          setSelectedColor(c.name);
-                          const idx = productImages.findIndex((u) => u === c.image);
-                          if (idx >= 0) setSelectedImage(idx);
-                        }}
-                        className="overflow-hidden bg-white transition-all"
+                        role="radio"
+                        aria-checked={active}
+                        onClick={() => setSelectedPackId(pack.id)}
+                        className="px-4 py-2.5 text-[13px] transition-colors"
                         style={{
-                          width: 56,
-                          height: 72,
-                          border: selectedColor === c.name ? '2px solid #111' : '1px solid #d1d5db',
+                          border: `1px solid ${active ? '#111' : '#e5e7eb'}`,
+                          color: active ? '#111' : '#9ca3af',
+                          backgroundColor: '#fff',
                         }}
-                        aria-label={c.name}
                       >
-                        <img src={c.image} alt={c.name} className="w-full h-full object-cover object-top" />
+                        {pack.label}
                       </button>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {/* Size */}
-              <div className="mb-2">
-                <p className="mb-2 text-xs font-semibold tracking-wide text-gray-800 uppercase">Size</p>
-                <div className="flex flex-wrap gap-2">
-                  {PRODUCT_SIZES.map((size) => (
-                    <button
-                      key={size}
-                      type="button"
-                      onClick={() => setSelectedSize(size)}
-                      className="flex h-11 w-11 items-center justify-center text-sm font-medium border transition-colors"
-                      style={{
-                        borderColor: '#111',
-                        backgroundColor: selectedSize === size ? '#111' : '#fff',
-                        color: selectedSize === size ? '#fff' : '#111',
-                      }}
-                    >
-                      {size}
-                    </button>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
-
-              <button
-                type="button"
-                className="mb-5 inline-flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden>
-                  <path strokeLinecap="round" d="M4 7h16M4 12h10M4 17h14" />
-                  <path strokeLinecap="round" d="M18 10v8M15 15h6" />
-                </svg>
-                Size Chart
-              </button>
 
               {/* Quantity */}
               <div className="mb-5 inline-flex items-center border border-gray-300 w-fit">
@@ -962,18 +934,31 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 </button>
               </div>
 
+              {/* Description + highlights */}
+              <div className="mb-5">
+                <p className="text-[13px] leading-relaxed text-gray-600">{PRODUCT_DESCRIPTION}</p>
+                <ul className="mt-4 space-y-1.5">
+                  {PRODUCT_HIGHLIGHTS.map((item) => (
+                    <li key={item} className="flex gap-2 text-[13px] leading-relaxed text-gray-600">
+                      <span aria-hidden>*</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               {/* CTAs */}
               <button
                 type="button"
                 className="mb-2 flex h-12 w-full items-center justify-center text-sm font-bold tracking-[0.14em] text-white uppercase transition-opacity hover:opacity-90"
-                style={{ backgroundColor: PDP_ACCENT }}
+                style={{ backgroundColor: PDP_CTA }}
               >
                 Add to Cart
               </button>
               <button
                 type="button"
                 className="mb-6 flex h-12 w-full items-center justify-center text-sm font-bold tracking-[0.14em] text-white uppercase transition-opacity hover:opacity-90"
-                style={{ backgroundColor: PDP_ACCENT }}
+                style={{ backgroundColor: PDP_CTA }}
               >
                 Buy It Now
               </button>
@@ -995,19 +980,24 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                   content: PRODUCT_DESCRIPTION,
                 },
                 {
-                  label: 'FABRIC & CARE',
+                  label: 'NUTRITION & INGREDIENTS',
                   content:
-                    'Soft, breathable fabrics suited to Indian weather. Follow the care label — gentle wash recommended to preserve prints and embroidery.',
+                    'Per 330ml bottle: 24g clear whey isolate protein, 7g BCAA, 130 calories, zero added sugar, zero carbs. Water, whey protein isolate, natural mango and orange flavour, electrolytes, citric acid, sucralose.',
                 },
                 {
-                  label: 'RETURN / EXCHANGE POLICY',
+                  label: 'HOW TO USE',
                   content:
-                    'Easy exchange available via the Return / Exchange flow on ishnya.com. Unused items in original packaging are eligible as per policy.',
+                    'Ready to drink — no shaker, no mixing. Best served chilled. Have one bottle post-workout, between meals, or any time you need protein on the go. Store in a cool, dry place and refrigerate after opening.',
+                },
+                {
+                  label: 'RETURN POLICY',
+                  content:
+                    'As a consumable product, opened bottles cannot be returned. Damaged or leaking packs are replaced free — raise a request within 48 hours of delivery with an unboxing photo.',
                 },
                 {
                   label: 'SHIPPING POLICY',
                   content:
-                    'Fast dispatch across India with COD available. International shipping options available at checkout for select destinations.',
+                    'Fast dispatch across India with COD available. Free shipping on packs of 12 and above. Orders are packed in protective cartons to prevent transit damage.',
                 },
               ].map(({ label, content }) => (
                 <AccordionRow key={label} label={label} content={content} />
@@ -1574,11 +1564,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                 <div className="px-6 pb-4 pt-3 flex flex-wrap items-center gap-2 text-[12px] leading-relaxed">
                   {[
-                    { label: 'Desi Fusion', bg: '#fdf2f8', text: '#9d174d', border: '#fbcfe8' },
-                    { label: 'Comfort Fit', bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
-                    { label: 'Occasion Ready', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
-                    { label: 'Flattering Drape', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
-                    { label: 'Main Character Energy', bg: '#fff1f2', text: '#9f1239', border: '#fecdd3' },
+                    { label: 'Tastes Like Juice', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
+                    { label: 'Zero Bloating', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
+                    { label: 'Mixes Clear', bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
+                    { label: 'No Chalky Aftertaste', bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
+                    { label: 'Post-Workout Refresh', bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
                   ].map((kw) => (
                     <span
                       key={kw.label}

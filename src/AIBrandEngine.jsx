@@ -1,8 +1,8 @@
 import React, { useId, useState } from 'react';
 import './AIBrandEngine.css';
 
-const SHOP_URL = 'https://ishnya.com/';
-const INSTAGRAM_URL = 'https://www.instagram.com/labelishnya/';
+const SHOP_URL = 'https://suprwater.com/';
+const INSTAGRAM_URL = 'https://www.instagram.com/suprwater/';
 
 function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
   return (
@@ -19,9 +19,9 @@ function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
     >
       <defs>
         <linearGradient id={gradientId} x1="12" y1="12" x2="36" y2="36" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#e07a8a" />
-          <stop offset="0.45" stopColor="#c41e3a" />
-          <stop offset="1" stopColor="#8b1530" />
+          <stop stopColor="#fbbf24" />
+          <stop offset="0.45" stopColor="#f59e0b" />
+          <stop offset="1" stopColor="#b45309" />
         </linearGradient>
       </defs>
       <path
@@ -96,217 +96,217 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
 
   const brandInfo = {
     collection: {
-      title: 'Signature Collections',
+      title: 'Flavours & Packs',
       iconType: 'collection',
       content: [
         {
-          label: 'Indo-Western',
-          value: 'Desi Fusion Edit',
+          label: 'Ready To Drink',
+          value: 'Mango Orange 330ml',
           description:
-            'Indian aesthetics meet contemporary cuts — kurtas, drapes, and silhouettes made for the modern woman.',
+            'Clear whey isolate protein water with 24g of protein and 7g of BCAA in a sealed 330ml bottle — chill it and go.',
         },
         {
-          label: 'Co-Ord Sets',
-          value: 'Matched Separates',
+          label: 'Multi Packs',
+          value: 'Packs of 3 · 12 · 24',
           description:
-            'From Rozana drape skirts to printed shirt sets — effortless two-pieces you can style together or apart.',
+            'Start with a 3-pack to try the flavour, then stock the fridge with 12 or 24 as the per-bottle price drops.',
         },
         {
-          label: 'Suit & Sharara',
-          value: 'Festive & Everyday',
+          label: 'Powder',
+          value: '20 Scoop Tub',
           description:
-            'Suit sets, farshi salwars, and shararas designed for celebrations without sacrificing all-day comfort.',
+            'Clear whey isolate powder with electrolytes — 15g protein and 3g BCAA per scoop, mixed in cold water.',
         },
       ],
       highlights: [
-        'Bestsellers span Indo-Western, co-ords, shirts, and the Daily Edit.',
-        'New arrivals drop regularly — prints, embroidery, and statement colourways.',
-        'Inclusive sizing so more women can find their fit and feel confident.',
+        'Every format is clear whey isolate — never a milky concentrate.',
+        'Zero added sugar and zero carbs across the entire range.',
+        'Mango Orange leads the line-up, with more flavours in development.',
       ],
     },
     style: {
-      title: 'How It Wears',
+      title: 'How It Drinks',
       iconType: 'style',
       content: [
         {
-          label: 'Comfort First',
-          value: 'Soft, Moveable Fits',
+          label: 'Juice, Not Shake',
+          value: 'Light & Refreshing',
           description:
-            'Beautiful enough for compliments, comfortable enough for a full day — work, travel, family, or festivities.',
+            'Clear, fruity, and crisp to the last sip — far closer to a chilled juice than a thick protein shake.',
         },
         {
-          label: 'Contemporary Desi',
-          value: 'Neither Too Ethnic Nor Too Western',
+          label: 'Zero Bloating',
+          value: 'Easy On The Stomach',
           description:
-            'Born to fill the gap between typical Indian wear and plain western — fusion that feels current, not costume.',
+            'Isolate filters out most of the lactose and fat, so nothing sits heavy in your gut afterwards.',
         },
         {
-          label: 'Versatile Looks',
-          value: 'AM to PM Ready',
+          label: 'Mixes Clear',
+          value: 'No Clumps, No Foam',
           description:
-            'One co-ord for brunch, one embroidered set for evening — pieces that shift with your day.',
+            'Ten seconds of shaking in cold water and the powder disappears — no chalky residue at the bottom.',
         },
       ],
       highlights: [
-        'Designed for women who move between office, travel, and celebrations.',
-        'Trendy silhouettes with wearable, flattering proportions.',
-        'Affordable fashion without compromising on finish or feel.',
+        'Made for people who could never finish a milky shake.',
+        'Served chilled it works as hydration, not just supplementation.',
+        'No chalky aftertaste — the most repeated line in customer reviews.',
       ],
     },
     craft: {
-      title: 'Prints & Craft',
+      title: 'Inside The Bottle',
       iconType: 'craft',
       content: [
         {
-          label: 'Signature Prints',
-          value: 'Lotus · Bandhani · Ajrakh',
+          label: 'Protein',
+          value: '24g Per Bottle',
           description:
-            'From blue lotus drapes to bandhani shirts and Ajrakh-inspired prints — artistry you can wear every day.',
+            '100% clear whey isolate — the cleanest and purest form of whey, with 7g of BCAA to support recovery.',
         },
         {
-          label: 'Embroidery & Detail',
-          value: 'Hand-Finished Touches',
+          label: 'Calories',
+          value: '130 Per Serve',
           description:
-            'Aari work, festive jacquards, and embroidered necklines that elevate co-ords, dresses, and three-piece sets.',
+            'All of the protein and none of the sugar or carbs — 130 calories that fit a cut as easily as a bulk.',
         },
         {
-          label: 'Feel of Fabric',
-          value: 'Breathable & Easy',
+          label: 'Electrolytes',
+          value: 'Hydration Built In',
           description:
-            'Soft cottons and light weaves chosen for Indian weather — looks polished, feels breezy.',
+            'Added electrolytes replace what you sweat out, so one bottle covers protein and rehydration together.',
         },
       ],
       highlights: [
-        'Colour stories that pop — wine, emerald, magenta, indigo, and festive brights.',
-        'Details like drapes, high-lows, cowl pants, and flared silhouettes for movement.',
-        'Packaging and presentation customers call “perfect” every time.',
+        'Formulated in the US to a clean, short ingredient list.',
+        'Zero added sugar, zero carbs, and no artificial colours.',
+        'Suits lactose-sensitive drinkers who react badly to concentrate.',
       ],
     },
     occasion: {
-      title: 'Dress for Every Moment',
+      title: 'When To Drink It',
       iconType: 'occasion',
       content: [
         {
-          label: 'Daily Edit',
-          value: 'Everyday Ethnic',
+          label: 'Post-Workout',
+          value: 'Recovery Window',
           description:
-            'Printed shirts, straight kurtas, and easy co-ords for workdays and weekends that still feel special.',
+            'Twenty-four grams within reach the moment you rack the weights — no shaker, no blender, no milk.',
         },
         {
-          label: 'Festive Wear',
-          value: 'Celebration Ready',
+          label: 'On The Go',
+          value: 'Desk, Commute, Travel',
           description:
-            'Shararas, pathani sets, embroidered dresses, and statement colours for weddings, poojas, and parties.',
+            'Sealed and ready to drink, so it travels in a gym bag or a car door without any mess to clean up.',
         },
         {
-          label: 'Travel & City',
-          value: 'On-the-Go Glam',
+          label: 'Between Meals',
+          value: 'Protein Without A Meal',
           description:
-            'Lightweight sets that pack well, photograph beautifully, and keep you comfortable on the move.',
+            'Bridges the gap when lunch runs late — protein that will not leave you too full for dinner.',
         },
       ],
       highlights: [
-        'One wardrobe language from desk to dinner to destination.',
-        'Customers love the festive edit for comfort + style in equal measure.',
-        'Influencer-approved looks that still feel wearable in real life.',
+        'One bottle a day makes a daily protein target far easier to hit.',
+        'Light enough to drink before a run without anything sloshing around.',
+        'Chilled in Indian heat it doubles as a genuine refresher.',
       ],
     },
     shipping: {
-      title: 'Delivery & Exchange',
+      title: 'Delivery & Support',
       iconType: 'shipping',
       content: [
         {
           label: 'Fast Dispatch',
           value: 'Ships Quickly',
           description:
-            'Orders move fast — customers often note almost-instant shipping and responsive updates.',
+            'Orders move fast and travel in protective cartons, so bottles arrive sealed and intact.',
         },
         {
           label: 'COD Available',
-          value: 'Pay on Delivery',
+          value: 'Pay On Delivery',
           description:
-            'Cash on delivery and easy checkout options so shopping feels low-friction and secure.',
+            'Cash on delivery and secure checkout options so a first order feels low risk.',
         },
         {
-          label: 'Easy Exchange',
-          value: 'Hassle-Free Returns',
+          label: 'Free Shipping',
+          value: 'Packs Of 12 & Above',
           description:
-            'Need a size swap? Use the Return / Exchange flow on ishnya.com for a smooth post-purchase experience.',
+            'Bulk packs ship free — comfortably the cheapest way to keep the fridge stocked.',
         },
       ],
       highlights: [
-        'International shipping available alongside domestic delivery.',
-        'Friendly support via phone, WhatsApp, and email from the Dadar West studio.',
+        'Damaged or leaking packs are replaced free within 48 hours.',
+        'Friendly support over WhatsApp, phone, and email.',
         'Secure checkout with genuine quality assurance.',
       ],
     },
     brand: {
-      title: 'Ishnya',
+      title: 'SUPR Water',
       iconType: 'brand',
       content: [
         {
           label: 'Brand Promise',
-          value: 'Desi Fusion for Modern Women',
+          value: 'Protein You Actually Enjoy',
           description:
-            'An Indo-Western apparel label that blends Indian aesthetics with contemporary silhouettes — confidence, comfort, and you.',
+            'Clear whey isolate that drinks like juice — built for everyone who gave up on chalky, milky shakes.',
         },
         {
-          label: 'Born in Bombay',
-          value: 'Homegrown Label',
+          label: 'Formulated In The US',
+          value: 'Clean Label',
           description:
-            'Created to close the gap between western wear and typical Indian wear — for women who live in between.',
+            'The cleanest and purest form of protein, with nothing in the bottle that does not need to be there.',
         },
         {
           label: 'Community',
-          value: '@labelishnya',
+          value: '@suprwater',
           description:
-            'New drops, styling reels, and real customer looks on Instagram — Pret · Desi · Fusion.',
+            'Training clips, recipes, and real customer reviews — hydration with SUPR goodness.',
         },
       ],
       highlights: [
-        'Clothes that look beautiful and make you feel completely yourself.',
-        'Inclusive sizing and accessible pricing without diluting design.',
-        'Loved for festive wear, contemporary cuts, and warm customer service.',
+        'Ready-to-drink nutrition for people who are moving all day.',
+        '24g of protein and SUPR goodness in just 130 calories.',
+        'Loved for the taste first and the macros second.',
       ],
     },
   };
 
   const graphData = {
     satisfaction: {
-      label: 'Style love',
+      label: 'Taste love',
       data: [84, 86, 88, 90, 91, 93, 95],
-      color: '#c41e3a',
+      color: '#b45309',
     },
     results: {
-      label: 'Fit & comfort',
+      label: 'Digests easy',
       data: [78, 80, 83, 85, 87, 90, 92],
-      color: '#e07a8a',
+      color: '#f59e0b',
     },
     repeat: {
-      label: 'Repeat shoppers',
+      label: 'Repeat buyers',
       data: [62, 65, 68, 72, 75, 78, 82],
-      color: '#8b1530',
+      color: '#78350f',
     },
     delivery: {
       label: 'Delivery experience',
       data: [86, 87, 89, 90, 92, 93, 95],
-      color: '#c41e3a',
+      color: '#b45309',
     },
     rating: {
       label: 'Avg. product rating',
       data: [4.3, 4.4, 4.5, 4.6, 4.7, 4.7, 4.8],
-      color: '#e07a8a',
+      color: '#f59e0b',
     },
     recommend: {
       label: 'Would recommend',
       data: [81, 83, 85, 88, 90, 92, 94],
-      color: '#8b1530',
+      color: '#78350f',
     },
   };
 
   const metrics = [
-    { id: 'satisfaction', label: 'Love' },
-    { id: 'results', label: 'Fit' },
+    { id: 'satisfaction', label: 'Taste' },
+    { id: 'results', label: 'Gut' },
     { id: 'repeat', label: 'Repeat' },
     { id: 'delivery', label: 'Ship' },
     { id: 'rating', label: 'Stars' },
@@ -346,7 +346,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
     return (
       <div className="chart-container">
         <div className="chart-header">
-          <h5 className="chart-title">Ishnya style snapshot</h5>
+          <h5 className="chart-title">SUPR nutrition snapshot</h5>
           <div className="chart-value">{displayValue}</div>
         </div>
         <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} className="chart-svg" preserveAspectRatio="xMidYMid meet">
@@ -418,7 +418,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           ))}
         </div>
         <p className="chart-footnote">
-          Illustrative trend only. Based on customer themes: fit, comfort, design love, and delivery.
+          Illustrative trend only. Based on customer themes: taste, digestion, repeat orders, and delivery.
         </p>
       </div>
     );
@@ -426,10 +426,10 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
 
   const tabs = [
     { id: 'metrics', label: 'Signals', iconType: 'metrics' },
-    { id: 'collection', label: 'Edit', iconType: 'collection' },
-    { id: 'style', label: 'Style', iconType: 'style' },
-    { id: 'craft', label: 'Craft', iconType: 'craft' },
-    { id: 'occasion', label: 'Wear', iconType: 'occasion' },
+    { id: 'collection', label: 'Range', iconType: 'collection' },
+    { id: 'style', label: 'Taste', iconType: 'style' },
+    { id: 'craft', label: 'Formula', iconType: 'craft' },
+    { id: 'occasion', label: 'When', iconType: 'occasion' },
     { id: 'shipping', label: 'Ship', iconType: 'shipping' },
     { id: 'brand', label: 'Brand', iconType: 'brand' },
   ];
@@ -445,7 +445,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             type="button"
             className={`ai-brand-engine-trigger${compact ? ' abe-compact' : ''}`}
             onClick={() => setIsExpanded(true)}
-            aria-label="Open fashion insights for Ishnya"
+            aria-label="Open nutrition insights for SUPR Water"
           >
             <div className="trigger-icon">
               <span className="ai-gemini-rotator" aria-hidden="true">
@@ -454,29 +454,29 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             </div>
             {!compact && (
               <div className="trigger-text">
-                <span className="trigger-label">Style insights</span>
-                <span className="trigger-sublabel">Ishnya</span>
+                <span className="trigger-label">Nutrition insights</span>
+                <span className="trigger-sublabel">SUPR Water</span>
               </div>
             )}
             <span className="trigger-badge">AI</span>
           </button>
           {!compact && (
             <div className="ai-brand-engine-tooltip" role="note">
-              Collections, fit & fusion fashion — tap to explore
+              Formula, flavours & how it drinks — tap to explore
               <span className="ai-brand-engine-tooltip__arrow" aria-hidden />
             </div>
           )}
         </div>
       ) : (
-        <div className="ai-brand-engine-panel" role="dialog" aria-label="Ishnya fashion insights">
+        <div className="ai-brand-engine-panel" role="dialog" aria-label="SUPR Water nutrition insights">
           <div className="panel-header">
             <div className="header-left">
               <div className="header-icon">
                 <PremiumAIIcon gradientId={`${baseId}-head`} style={{ width: 36, height: 36 }} size={36} />
               </div>
               <div>
-                <h3 className="panel-title">AI Style Engine</h3>
-                <p className="panel-subtitle">Ishnya · Indo-Western for Modern Women</p>
+                <h3 className="panel-title">AI Nutrition Engine</h3>
+                <p className="panel-subtitle">SUPR Water · Clear Whey Protein Water</p>
               </div>
             </div>
             <button type="button" className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -541,7 +541,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
                 </div>
                 <div className="panel-content-cta">
                   <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--primary">
-                    Shop Ishnya
+                    Shop SUPR Water
                   </a>
                   <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--ghost">
                     Instagram
@@ -556,14 +556,14 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
               <span className="footer-badge-icon" aria-hidden>
                 <PremiumAIIcon gradientId={`${baseId}-foot`} size={18} />
               </span>
-              <span>Pret · Desi · Fusion · Born in Bombay</span>
+              <span>Clear Whey · Zero Sugar · Ready To Drink</span>
             </div>
             <p className="footer-note">
-              Style notes are for inspiration. Check size guides and product details on{' '}
+              Nutrition notes are for general guidance. Check the full ingredient and nutrition panel on{' '}
               <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
-                ishnya.com
+                suprwater.com
               </a>{' '}
-              before you buy. Easy exchange available when you need a better fit.
+              before you buy, and speak to a doctor if you have a medical condition.
             </p>
           </div>
         </div>

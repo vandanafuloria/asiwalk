@@ -21,15 +21,15 @@ const GALLERY_IMAGES = GALLERY_SRCS.map((src, i) => {
     originalPrice: p.originalPrice,
     rating: p.rating,
     reviewCount: p.reviewCount,
-    category: 'Indo-Western',
+    category: 'Protein Water',
     description:
-      'Ishnya Indo-Western apparel — contemporary desi fusion designed for comfort, confidence, and everyday celebrations.',
+      'SUPR clear whey isolate — 24g of protein that drinks like a chilled juice, with zero sugar and no bloating.',
     features: [
-      'Comfort-first fits',
-      'Inclusive sizing',
-      'Festive & everyday ready',
-      'Easy exchange',
-      'Born in Bombay',
+      '24g protein per bottle',
+      'Zero sugar, zero carbs',
+      'Mixes completely clear',
+      'Ready to drink',
+      'Formulated in the US',
     ],
     alt: p.title,
   };

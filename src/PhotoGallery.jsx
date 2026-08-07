@@ -1,26 +1,27 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './PhotoGallery.css';
 
-// Customer gallery — Ishnya looks (synced with PDP reviews)
-import g01 from './assets/photo_gallery/gallery_01.png';
-import g02 from './assets/photo_gallery/gallery_02.png';
-import g03 from './assets/photo_gallery/gallery_03.png';
-import g04 from './assets/photo_gallery/gallery_04.png';
-import g05 from './assets/photo_gallery/gallery_05.png';
-import g06 from './assets/photo_gallery/gallery_06.png';
-import g07 from './assets/photo_gallery/gallery_07.png';
-import g08 from './assets/photo_gallery/gallery_08.png';
-import g09 from './assets/photo_gallery/gallery_09.png';
-import g10 from './assets/photo_gallery/gallery_10.png';
-import g11 from './assets/photo_gallery/gallery_11.png';
-import g12 from './assets/photo_gallery/gallery_12.png';
-import g13 from './assets/photo_gallery/gallery_13.png';
-import g14 from './assets/photo_gallery/gallery_14.png';
 import { bestSellerProducts } from './scrapshalaBestSellers';
 
+/** Unsplash CDN — 4:5 crop keeps the masonry columns even */
+const unsplash = (id) => `https://images.unsplash.com/${id}?w=800&h=1000&fit=crop&q=80`;
+
+/** Customer gallery — protein drinks, hydration & training moments */
 export const GALLERY_IMAGES = [
-  g01, g02, g03, g04, g05, g06, g07,
-  g08, g09, g10, g11, g12, g13, g14,
+  unsplash('photo-1600271886742-f049cd451bba'), // orange juice, tall glass
+  unsplash('photo-1621263764928-df1444c5e859'), // citrus & mint cooler
+  unsplash('photo-1548839140-29a749e1cf4d'),    // water poured into a glass
+  unsplash('photo-1622597467836-f3285f2131b8'), // fruit smoothies in jars
+  unsplash('photo-1571019613454-1cb2f99b2d8b'), // core workout
+  unsplash('photo-1553530666-ba11a7da3888'),    // berry protein smoothies
+  unsplash('photo-1559839914-17aae19cec71'),    // bottle & glass, minimal
+  unsplash('photo-1544367567-0f2fcb009e0b'),    // yoga at sunset
+  unsplash('photo-1610970881699-44a5587cabec'), // green smoothie
+  unsplash('photo-1613478223719-2ab802602423'), // fresh citrus juice
+  unsplash('photo-1550505095-81378a674395'),    // chilled water bottle
+  unsplash('photo-1594737625785-a6cbdabd333c'), // dumbbell training
+  unsplash('photo-1502741224143-90386d7f8c82'), // strawberry shake, overhead
+  unsplash('photo-1579722820308-d74e571900a9'), // mixing a post-workout drink
 ];
 
 const INITIAL_SHOW = 12;
@@ -48,7 +49,7 @@ function getGalleryProductDetail(index) {
 
 export default function PhotoGallery({
   title = 'Our Gallery',
-  subtitle = 'Real looks from the Ishnya community — Indo-Western styles in everyday moments.',
+  subtitle = 'Real moments from the SUPR community — protein, hydration, and everyday training.',
 }) {
   const [lightbox, setLightbox] = useState(null); // index or null
   const [showAll, setShowAll] = useState(false);
