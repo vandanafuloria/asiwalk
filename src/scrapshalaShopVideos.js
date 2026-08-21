@@ -4,44 +4,29 @@
  */
 export const MUUN_SHOP_VIDEO_CLIPS = [
   {
-    url: 'https://cdn.shopify.com/videos/c/o/v/6420dafa18524ad1845b4af31d67c577.mov',
+    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/562ee5d4dbc24ebca53706e886a03f05/562ee5d4dbc24ebca53706e886a03f05.HD-1080p-4.8Mbps-56671200.mp4?v=0',
     title: 'Elegant designs for everyday',
-    instagramUrl: 'https://www.instagram.com/p/DDMlJ-4y4Hh/'
+    instagramUrl: 'https://www.instagram.com/p/DcShHhHhq2L/'
   },
   {
-    url: 'https://cdn.shopify.com/videos/c/o/v/32c0c509dac34459af2182ab977929f4.mp4',
+    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/73a8236b639145cba991b4c4360c3782/73a8236b639145cba991b4c4360c3782.HD-1080p-2.5Mbps-54813077.mp4?v=0',
     title: 'Crafted with care',
-    instagramUrl: 'https://www.instagram.com/p/Da2wOm8ALSo/'
+    instagramUrl: 'https://www.instagram.com/p/DcQ58j7huqP/'
   },
   {
-    url: 'https://cdn.shopify.com/videos/c/o/v/8116db2e7b3d4b6fb58fc585318e415c.mp4',
+    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/acc16b8e9dd04545872da55eb29e8a3b/acc16b8e9dd04545872da55eb29e8a3b.HD-1080p-2.5Mbps-54813076.mp4?v=0',
     title: 'Style meets function',
-    instagramUrl: 'https://www.instagram.com/p/DanmS0OzG8o/'
+    instagramUrl: 'https://www.instagram.com/p/DcQTa3Zhqwv/'
   },
   {
-    url: 'https://cdn.shopify.com/videos/c/o/v/f24efb9ac7d14a42baf0323d539531e8.mp4',
+    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/86b5e4fa4609430a85a90dbd75a3aa7a/86b5e4fa4609430a85a90dbd75a3aa7a.HD-1080p-2.5Mbps-54813083.mp4?v=0',
     title: 'Timeless pieces',
-    instagramUrl: 'https://www.instagram.com/p/DWbXdBnE7O_/'
+    instagramUrl: 'https://www.instagram.com/p/DcP888-BNDl/'
   },
   {
-    url: 'https://cdn.shopify.com/videos/c/o/v/fab3e8a1531548e3a41d0c70a32bdfaa.mp4',
+    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/34028910391244cbb5c0df753c432926/34028910391244cbb5c0df753c432926.HD-1080p-2.5Mbps-54813590.mp4?v=0',
     title: 'Modern aesthetics',
-    instagramUrl: 'https://www.instagram.com/p/DWTfG1Ok-LH/'
-  },
-  {
-    url: 'https://cdn.shopify.com/videos/c/o/v/4df1578f84c6414488281ad46f73b0af.mp4',
-    title: 'Quality craftsmanship',
-    instagramUrl: 'https://www.instagram.com/p/DWWRECqk3Ej/'
-  },
-  {
-    url: 'https://cdn.shopify.com/videos/c/o/v/c5e4e10d2a2340559e04b41c0e756789.mp4',
-    title: 'Designer collections',
-    instagramUrl: 'https://www.instagram.com/p/DVtNyAUEkHj/'
-  },
-  {
-    url: 'https://cdn.shopify.com/videos/c/o/v/dc32e0682f524ffeb1e48e5bd95da941.mp4',
-    title: 'Made to be worn often',
-    instagramUrl: 'https://www.instagram.com/p/DVc6FvHEslp/'
+    instagramUrl: 'https://www.instagram.com/p/DcQTa3Zhqwv/'
   },
 ];
 

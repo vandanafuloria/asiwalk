@@ -30,7 +30,7 @@ function ShopifyApp() {
       {currentPage === 'home' ? (
         <HomePage onProductClick={handleProductClick} />
       ) : (
-        <ShopifyProductPage product={selectedProduct} onHomeClick={handleHomeClick} />
+        <ShopifyProductPage product={selectedProduct} onHomeClick={handleHomeClick} onProductClick={handleProductClick} />
       )}
     </div>
   );

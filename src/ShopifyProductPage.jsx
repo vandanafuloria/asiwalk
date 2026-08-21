@@ -4,7 +4,7 @@ import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
 import AIBrandEngine from './AIBrandEngine';
 import PhotoGallery, { GALLERY_IMAGES } from './PhotoGallery';
-import ProductCard from './ProductCard';
+import { ProductCollectionCard } from './PopularCollections';
 import TrustSignalsRotator from './TrustSignals';
 import PdpHeroReviewRotator from './PdpHeroReviewRotator';
 
@@ -26,8 +26,8 @@ import reviewData from '../review.json';
 import { INSTAGRAM_POST_URLS } from './instagramPosts';
 
 /** Review images — use gallery images */
-const PRODUCT_REVIEW_IMAGES = GALLERY_IMAGES;
-const BRAND_REVIEW_IMAGES = [...GALLERY_IMAGES].reverse();
+const BRAND_REVIEW_IMAGES = GALLERY_IMAGES;
+const PRODUCT_REVIEW_IMAGES = [...GALLERY_IMAGES].reverse();
 
 function getReviewTitle(text) {
   const first = text.split(/[.!,]/)[0].trim();
@@ -59,11 +59,11 @@ const AJNAA_INSTAGRAM_POSTS = '248';
 const AJNAA_INSTAGRAM_FOLLOWING = '5';
 
 /** Reviews & star ratings — black */
-const REVIEW_ACCENT = '#111111';
+const REVIEW_ACCENT = '#C96B5A';
 const REVIEW_RING_TRACK = '#e7e5e4';
-const REVIEW_SOFT = 'rgba(17, 17, 17, 0.06)';
-const REVIEW_ACCENT_BORDER = 'rgba(17, 17, 17, 0.22)';
-const RATING_ACCENT = '#111111';
+const REVIEW_SOFT = 'rgba(201, 107, 90, 0.08)';
+const REVIEW_ACCENT_BORDER = 'rgba(201, 107, 90, 0.25)';
+const RATING_ACCENT = '#C96B5A';
 /** Price text & primary CTAs */
 const PDP_CTA = '#111111';
 const PDP_ACCENT = '#c41e3a';
@@ -276,7 +276,7 @@ function AccordionRow({ label, content }) {
   );
 }
 
-const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
+const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClick }) => {
   const [selectedPackId, setSelectedPackId] = useState(PRODUCT_PACKS[0].id);
   const selectedPack =
     PRODUCT_PACKS.find((p) => p.id === selectedPackId) || PRODUCT_PACKS[0];
@@ -300,6 +300,16 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [wishlisted, setWishlisted] = useState(false);
+  const [selectedColorIndex, setSelectedColorIndex] = useState(0);
+  const [stockLeft] = useState(() => Math.floor(Math.random() * 8) + 3);
+  const deliveryWindow = (() => {
+    const fmt = (d) => d.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
+    const start = new Date();
+    start.setDate(start.getDate() + 3);
+    const end = new Date();
+    end.setDate(end.getDate() + 7);
+    return `${fmt(start)} - ${fmt(end)}`;
+  })();
   const [pincodeInput, setPincodeInput] = useState('');
   const [isAISummaryExpanded, setIsAISummaryExpanded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -733,70 +743,68 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
             <span className="font-medium text-gray-800">{PDP_BREADCRUMB_LAST}</span>
           </nav>
 
-          {/* ── Desktop: [thumb strip] [main image] [buy box] ── */}
-          <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-8">
+          {/* ── Desktop: [main image + thumbs] [buy box] ── */}
+          <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-10">
 
             {/* Gallery cluster */}
             {(() => {
               const imgs = productImages.length ? productImages : [productHeader];
               return (
-                <div className="w-full lg:w-[52%] shrink-0 flex flex-col-reverse lg:flex-row gap-3 lg:sticky lg:top-6 self-start">
-                  {/* Vertical thumbs — left on desktop */}
-                  <div className="hidden lg:flex flex-col gap-2 w-[72px] shrink-0 max-h-[640px] overflow-y-auto scrollbar-hide">
-                    {imgs.map((img, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setSelectedImage(i)}
-                        className="overflow-hidden bg-white border transition-all"
-                        style={{
-                          width: 72,
-                          height: 72,
-                          borderColor: selectedImage === i ? '#111' : '#e5e7eb',
-                          borderWidth: selectedImage === i ? 2 : 1,
-                        }}
-                      >
-                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-contain" />
-                      </button>
-                    ))}
-                  </div>
-
+                <div className="w-full lg:w-[50%] shrink-0 flex flex-col gap-3 lg:sticky lg:top-6 self-start">
                   {/* Main image */}
-                  <div className="relative flex-1 overflow-hidden bg-white border border-gray-200" style={{ aspectRatio: '1/1' }}>
+                  <div className="relative w-full overflow-hidden bg-[#f2e6d8] rounded-lg" style={{ aspectRatio: '4/5' }}>
                     <img
                       src={imgs[selectedImage] || imgs[0]}
                       alt={productName}
-                      className="w-full h-full object-contain cursor-zoom-in"
+                      className="w-full h-full object-cover cursor-zoom-in"
                     />
                     <button
                       type="button"
-                      className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center bg-white/90 border border-gray-200 text-gray-700 shadow-sm"
-                      aria-label="Expand image"
+                      className="absolute top-3 left-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#c1694f] shadow-sm"
+                      aria-label="Zoom image"
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <path strokeLinecap="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
                       </svg>
                     </button>
+                    <button
+                      type="button"
+                      onClick={() => setWishlisted((w) => !w)}
+                      className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm"
+                      aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+                    >
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill={wishlisted ? '#c1694f' : 'none'} stroke="#c1694f" strokeWidth="2">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                      </svg>
+                    </button>
+                    <span
+                      className="absolute bottom-4 right-4 text-2xl"
+                      style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: 'rgba(20,12,12,0.8)' }}
+                    >
+                      Kruthika
+                    </span>
                   </div>
 
-                  {/* Mobile horizontal thumbs */}
-                  <div className="flex lg:hidden gap-2 overflow-x-auto pb-1 scrollbar-hide">
-                    {imgs.map((img, i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setSelectedImage(i)}
-                        className="shrink-0 overflow-hidden bg-white border-2 transition-all"
-                        style={{
-                          width: '64px',
-                          height: '64px',
-                          borderColor: selectedImage === i ? '#111' : '#e5e7eb',
-                        }}
-                      >
-                        <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-contain" />
-                      </button>
-                    ))}
-                  </div>
+                  {/* Thumbs */}
+                  {imgs.length > 1 && (
+                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                      {imgs.map((img, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setSelectedImage(i)}
+                          className="shrink-0 overflow-hidden bg-white border-2 rounded transition-all"
+                          style={{
+                            width: '68px',
+                            height: '68px',
+                            borderColor: selectedImage === i ? '#c1694f' : '#e5e7eb',
+                          }}
+                        >
+                          <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               );
             })()}
@@ -804,115 +812,72 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
             {/* Buy box */}
             <div className="flex-1 flex flex-col gap-0 min-w-0 pt-1">
 
-              <h1 className="mb-1 text-[22px] md:text-[26px] font-normal uppercase leading-snug tracking-[0.12em] text-gray-800">
+              <h1 className="mb-3 text-2xl md:text-3xl font-bold leading-snug" style={{ color: '#3d1f1f' }}>
                 {productName}
               </h1>
-              <p className="mb-3 text-[13px] uppercase tracking-[0.16em] text-gray-500">
-                {PRODUCT_SUBTITLE}
-              </p>
-
-              {/* Feature keyword pills */}
-              <div className="mb-4 flex flex-wrap gap-2">
-                {PDP_KEYWORD_TAGS.map((tag, i) => {
-                  const colors = [
-                    { bg: '#fdf2f8', text: '#9d174d', border: '#fbcfe8' },
-                    { bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
-                    { bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
-                    { bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
-                  ];
-                  const c = colors[i % colors.length];
-                  return (
-                    <span
-                      key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-medium"
-                      style={{ background: c.bg, color: c.text, border: `1px solid ${c.border}` }}
-                    >
-                      {tag}
-                    </span>
-                  );
-                })}
-              </div>
-
-              {/* Stars + reviews */}
-              <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="flex gap-0.5">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <svg key={i} width="16" height="16" viewBox="0 0 24 24" aria-hidden>
-                      <path
-                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                        fill={i <= Math.round(productRating) ? RATING_ACCENT : 'none'}
-                        stroke={RATING_ACCENT}
-                        strokeWidth="1.4"
-                      />
-                    </svg>
-                  ))}
-                </span>
-                <span className="text-sm text-gray-500">{productReviews} reviews</span>
-                <button type="button" className="text-sm text-gray-500 underline underline-offset-2 hover:text-gray-800">
-                  Be the first review
-                </button>
-              </div>
-
-              {/* SKU + stock */}
-              <div className="mb-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
-                <span className="text-gray-500">
-                  SKU: <span className="text-gray-700">{selectedPack.sku}</span>
-                </span>
-                <span className="font-semibold" style={{ color: PDP_ACCENT }}>
-                  In Stock
-                </span>
-              </div>
-
-              {/* Marketplace badge rotator — keep as-is */}
-              <div className="mb-2">
-                <MarketplaceBadgeRotator />
-              </div>
-
-              {/* Live social proof — cart / purchases / viewers */}
-              <SocialProofTicker />
 
               {/* Price */}
-              <div className="mb-1 flex items-baseline gap-3 flex-wrap">
-                <span className="text-xl md:text-2xl font-normal tracking-[0.08em] text-gray-900">
-                  MRP ₹. {Number(productPrice).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                </span>
+              <div className="mb-3 flex items-center gap-2.5 flex-wrap">
                 {productOriginal > productPrice && (
-                  <span className="text-base line-through" style={{ color: PDP_CTA }}>
-                    ₹. {Number(productOriginal).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  <span className="text-base text-gray-400 line-through">
+                    Rs. {Number(productOriginal).toLocaleString('en-IN')}.00
                   </span>
                 )}
+                <span className="text-2xl font-bold" style={{ color: '#3d1f1f' }}>
+                  Rs. {Number(productPrice).toLocaleString('en-IN')}.00
+                </span>
+                {productOriginal > productPrice && (
+                  <>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">Sale</span>
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold text-white" style={{ background: '#3d1f1f' }}>
+                      -{productDiscount}%
+                    </span>
+                  </>
+                )}
               </div>
-              <p className="mb-5 text-[13px] text-gray-500">(Inclusive of all taxes)</p>
 
-              {/* Net quantity — pack selector */}
-              <div className="mb-5">
-                <p className="mb-2 text-[13px] text-gray-700">Net Quantity:</p>
-                <div className="flex flex-wrap gap-2" role="radiogroup" aria-label="Net quantity">
-                  {PRODUCT_PACKS.map((pack) => {
-                    const active = selectedPackId === pack.id;
-                    return (
+              {/* Color variants — only shown when the product actually has them */}
+              {Array.isArray(passedProduct?.colorVariants) && passedProduct.colorVariants.length > 0 && (
+                <div className="mb-4">
+                  <p className="mb-2 text-sm text-gray-700">
+                    Color: <span className="font-semibold" style={{ color: '#3d1f1f' }}>{passedProduct.colorVariants[selectedColorIndex]}</span>
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {passedProduct.colorVariants.map((color, i) => (
                       <button
-                        key={pack.id}
+                        key={color}
                         type="button"
-                        role="radio"
-                        aria-checked={active}
-                        onClick={() => setSelectedPackId(pack.id)}
-                        className="px-4 py-2.5 text-[13px] transition-colors"
+                        onClick={() => setSelectedColorIndex(i)}
+                        className="px-4 py-2.5 text-sm rounded-md transition-colors"
                         style={{
-                          border: `1px solid ${active ? '#111' : '#e5e7eb'}`,
-                          color: active ? '#111' : '#9ca3af',
-                          backgroundColor: '#fff',
+                          border: `1px solid ${selectedColorIndex === i ? '#3d1f1f' : '#e5e7eb'}`,
+                          color: selectedColorIndex === i ? '#fff' : '#57534e',
+                          backgroundColor: selectedColorIndex === i ? '#3d1f1f' : '#fff',
                         }}
                       >
-                        {pack.label}
+                        {color}
                       </button>
-                    );
-                  })}
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Low stock indicator */}
+              <div className="mb-5">
+                <p className="mb-1.5 text-sm font-semibold" style={{ color: '#3d1f1f' }}>
+                  Low stock: {stockLeft} left
+                </p>
+                <div className="h-1.5 w-full max-w-[280px] rounded-full bg-[#1c1c1c] overflow-hidden">
+                  <div
+                    className="h-full rounded-full"
+                    style={{ width: `${Math.min(100, (stockLeft / 15) * 100)}%`, background: '#e08a4e' }}
+                  />
                 </div>
               </div>
 
               {/* Quantity */}
-              <div className="mb-5 inline-flex items-center border border-gray-300 w-fit">
+              <p className="mb-2 text-sm font-semibold" style={{ color: '#3d1f1f' }}>Quantity</p>
+              <div className="mb-5 inline-flex items-center border border-gray-300 rounded-lg w-fit">
                 <button
                   type="button"
                   className="flex h-11 w-11 items-center justify-center text-lg text-gray-700 hover:bg-gray-50"
@@ -934,44 +899,52 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 </button>
               </div>
 
-              {/* Description + highlights */}
-              <div className="mb-5">
-                <p className="text-[13px] leading-relaxed text-gray-600">{PRODUCT_DESCRIPTION}</p>
-                <ul className="mt-4 space-y-1.5">
-                  {PRODUCT_HIGHLIGHTS.map((item) => (
-                    <li key={item} className="flex gap-2 text-[13px] leading-relaxed text-gray-600">
-                      <span aria-hidden>*</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
               {/* CTAs */}
-              <button
-                type="button"
-                className="mb-2 flex h-12 w-full items-center justify-center text-sm font-bold tracking-[0.14em] text-white uppercase transition-opacity hover:opacity-90"
-                style={{ backgroundColor: PDP_CTA }}
-              >
-                Add to Cart
-              </button>
-              <button
-                type="button"
-                className="mb-6 flex h-12 w-full items-center justify-center text-sm font-bold tracking-[0.14em] text-white uppercase transition-opacity hover:opacity-90"
-                style={{ backgroundColor: PDP_CTA }}
-              >
-                Buy It Now
-              </button>
-
-              {/* Trust row */}
-              <div className="mb-5 grid grid-cols-2 gap-2">
-                {PDP_TRUST_FEATURES.map((f) => (
-                  <div key={f.label} className="flex items-center gap-2 border border-gray-100 bg-gray-50 px-3 py-2">
-                    <span style={{ color: PDP_ACCENT }}>{f.icon}</span>
-                    <span className="text-xs font-medium text-gray-700">{f.label}</span>
-                  </div>
-                ))}
+              <div className="mb-5 flex gap-3 flex-wrap">
+                <button
+                  type="button"
+                  className="flex h-12 flex-1 min-w-[160px] items-center justify-center gap-2 rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: '#C96B5A' }}
+                >
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
+                  Add To Cart
+                </button>
+                <button
+                  type="button"
+                  className="flex h-12 flex-1 min-w-[160px] items-center justify-center rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: '#7a2e2e' }}
+                >
+                  Buy Now
+                </button>
               </div>
+
+              {/* Guaranteed safe checkout */}
+              <div className="mb-3 flex items-center gap-2 text-sm text-gray-700">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Guaranteed safe checkout
+              </div>
+
+              {/* Live social proof — cart / purchases / viewers */}
+              <SocialProofTicker />
+
+              {/* Delivery estimate */}
+              <div className="mb-2 flex items-center justify-between gap-3 flex-wrap border border-dashed border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-700">
+                <span className="flex items-center gap-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9"/><path strokeLinecap="round" d="M12 7v5l3 3"/>
+                  </svg>
+                  Estimated delivery between <strong>{deliveryWindow}</strong>
+                </span>
+                <button type="button" className="text-sm underline underline-offset-2 hover:text-gray-900">Know More</button>
+              </div>
+
+              {/* Shipping info */}
+              <p className="mb-1 text-sm text-gray-600">📦 Most orders ship within 1–3 days. Pre-order items ship within 10–15 days.</p>
+              <p className="mb-5 text-sm text-gray-600">🚚 Free shipping in India on orders above ₹ 999</p>
 
               {/* Accordions */}
               {[
@@ -1327,9 +1300,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               {bestSellerProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0 cursor-pointer"
+                  className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0"
                 >
-                  <ProductCard product={product} />
+                  <ProductCollectionCard product={product} onClick={onProductClick} />
                 </div>
               ))}
             </div>
@@ -2014,9 +1987,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               {bestSellerProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0 cursor-pointer"
+                  className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0"
                 >
-                  <ProductCard product={product} />
+                  <ProductCollectionCard product={product} onClick={onProductClick} />
                 </div>
               ))}
             </div>

@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
-import ProductCard from './ProductCard';
+import PopularCollections from './PopularCollections';
 import AIBrandEngine from './AIBrandEngine';
 import LiveUserCounter from './LiveUserCounter';
 import ActivityBanner from './ActivityBanner';
-import brandInstagramProfile from './assets/logo.png';
 import { MUUN_SHOP_VIDEO_CLIPS } from './scrapshalaShopVideos';
 import { bestSellerProducts } from './scrapshalaBestSellers';
 import InstagramTrustCarousel from './InstagramTrustCarousel';
@@ -14,20 +13,21 @@ import reviewData from '../review.json';
 import './HomePage.css';
 
 
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
-const AJNAA_LINKTR_URL = 'https://suprwater.com/';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
+const AJNAA_LINKTR_URL = 'https://kruthikajewellery.com/';
 
 const BRAND_NAME = 'SUPR Water';
-const IG_HANDLE = 'supr.india';
-const IG_DISPLAY = 'SUPR™';
-const IG_POSTS = '248';
-const IG_FOLLOWERS = '10.5K';
-const IG_FOLLOWING = '5';
+const IG_HANDLE = 'kruthika_jewellery';
+const IG_DISPLAY = 'KRUTHIKA';
+const IG_POSTS = '8,912';
+const IG_FOLLOWERS = '726K';
+const IG_FOLLOWING = '3';
+const IG_CATEGORY = 'Jewellery/watches';
 /** Bio lines under the handle, mirroring the live Instagram profile */
 const IG_BIO_LINES = [
-  'Feel SUPR, Be SUPR.',
-  'Trusted by 2000+ customers 💰',
-  'Available on @letsblinkit, @amazondotin, @naturesbasket',
+  'Premium Imitation Jewellery',
+  'Trusted by 45,000+ Customers since 2017',
+  '4.8/5 Satisfaction Ratings | Shipping Worldwide',
 ];
 
 const getRandomSoldThisWeek = (min = 180, max = 420) =>
@@ -56,6 +56,7 @@ const videoProducts = MUUN_SHOP_VIDEO_CLIPS.map((clip, i) => {
     originalPrice: bp.originalPrice,
     discount,
     soldThisWeek: getRandomSoldThisWeek(),
+    sourceProduct: bp,
   };
 });
 
@@ -291,31 +292,11 @@ const HomePage = ({ onProductClick }) => {
       {/* Live User Counter */}
       <LiveUserCounter className={`fixed left-4 z-50 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-[46px]'}`} />
 
-      {/* Big Deals Section */}
-      <section className="w-full py-12 md:py-16 bg-white">
-        <div className="w-full px-4">
-          <div className="flex items-center justify-between mb-8 md:mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Big Deals</h2>
-            <button className="text-base md:text-lg font-bold text-gray-900 hover:opacity-70 transition-opacity">View All</button>
-          </div>
-          <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
-            <div className="flex gap-6 md:gap-8 min-w-max pb-2">
-              {bestSellerProducts.map((product) => (
-                <div
-                  key={product.id}
-                  className="flex-shrink-0 cursor-pointer w-[260px] md:w-[340px] lg:w-[380px]"
-                  onClick={() => onProductClick && onProductClick(product)}
-                >
-                  <ProductCard
-                    product={product}
-                    onClick={() => onProductClick && onProductClick(product)}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Popular Collections Section */}
+      <PopularCollections
+        products={bestSellerProducts}
+        onProductClick={(product) => onProductClick && onProductClick(product)}
+      />
 
 
 
@@ -324,8 +305,8 @@ const HomePage = ({ onProductClick }) => {
       <section className="w-full py-12 md:py-16 bg-white">
         <div className="w-full px-4">
           {/* Pill / Story-style thumbnails */}
-          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
-            <div className="flex gap-3 md:gap-4 min-w-max pb-2">
+          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 md:overflow-visible md:flex md:justify-center">
+            <div className="flex gap-3 md:gap-4 min-w-max pb-2 md:mx-auto">
               {videoProducts.map((product) => (
                 <button
                   key={product.id}
@@ -369,8 +350,8 @@ const HomePage = ({ onProductClick }) => {
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Shop the Look</h2>
             <button className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-opacity">View All</button>
           </div>
-          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
-            <div className="flex gap-6 md:gap-8 min-w-max pb-2">
+          <div className="overflow-x-auto scrollbar-hide -mx-4 px-4 md:overflow-visible md:flex md:justify-center">
+            <div className="flex gap-6 md:gap-8 min-w-max pb-2 md:mx-auto">
               {videoProducts.map((product) => (
                 <div
                   key={product.id}
@@ -421,6 +402,20 @@ const HomePage = ({ onProductClick }) => {
                     {/* Product info */}
                     <div className="px-3 py-2">
                       <p className="text-sm font-medium text-gray-900 line-clamp-1">{product.title}</p>
+                      <div className="flex items-center gap-2 mt-1">
+                        <span className="text-sm font-bold text-gray-900">₹{product.currentPrice?.toLocaleString('en-IN')}</span>
+                        {product.originalPrice > product.currentPrice && (
+                          <span className="text-xs text-gray-400 line-through">₹{product.originalPrice?.toLocaleString('en-IN')}</span>
+                        )}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={(e) => { e.stopPropagation(); }}
+                        className="mt-2 w-full py-1.5 rounded text-xs font-bold text-white transition-opacity hover:opacity-90"
+                        style={{ background: '#C96B5A' }}
+                      >
+                        Add to Cart
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -431,100 +426,83 @@ const HomePage = ({ onProductClick }) => {
       </section>
 
 
-      {false && (
-      <section className="w-full py-6 md:py-10 bg-white hidden">
-        <div className="w-full px-4">
+      {/* Instagram Profile Section */}
+      <section className="w-full py-10 md:py-14" style={{ backgroundColor: '#fdf1e6' }}>
+        <div className="w-full px-4 max-w-4xl mx-auto">
 
-          {/* ── DESKTOP layout (md+): left | center | right ── */}
-          <div className="hidden md:grid grid-cols-3 items-center gap-16">
+          {/* ── DESKTOP layout (md+) ── */}
+          <div className="hidden md:grid grid-cols-[auto_1fr] items-start gap-10">
 
             <div className="flex justify-center">
               <div
                 className="rounded-full p-[3px]"
                 style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}
               >
-                <div className="w-32 h-32 rounded-full overflow-hidden">
-                  <img
-                    src={brandInstagramProfile}
-                    alt="SUPR on Instagram"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                <div className="w-32 h-32 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                  <span
+                    className="text-2xl"
+                    style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: '#7a1f2b' }}
+                  >
+                    Kruthika
+                  </span>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col items-center gap-3 text-center">
-              <div className="flex items-center gap-3">
-                <a
-                  href={AJNAA_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-900 font-semibold text-xl hover:opacity-70 transition-opacity"
-                >
-                  {IG_HANDLE}
-                </a>
-                <span className="text-gray-400 text-base tracking-widest">···</span>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-2xl" style={{ color: '#3d1f1f' }}>{IG_HANDLE}</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-label="Verified">
+                  <path fill="#3897f0" d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z"/>
+                  <path fill="#fff" d="M9.71 15.06L6.4 11.75l1.42-1.42 1.89 1.89 4.48-4.48 1.42 1.42z"/>
+                </svg>
+                <span className="text-[#3d1f1f]/30" aria-hidden>···</span>
               </div>
+              <p className="text-sm font-semibold tracking-[0.2em]" style={{ color: '#7a4a3f' }}>{IG_DISPLAY}</p>
+
               <div className="flex gap-8">
-                <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">{IG_POSTS}</p>
-                  <p className="text-gray-400 text-sm">posts</p>
+                <div>
+                  <span className="font-bold text-base" style={{ color: '#3d1f1f' }}>{IG_POSTS}</span>
+                  <span className="text-[#3d1f1f]/60 text-base ml-1.5">posts</span>
                 </div>
-                <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">{IG_FOLLOWERS}</p>
-                  <p className="text-gray-400 text-sm">followers</p>
+                <div>
+                  <span className="font-bold text-base" style={{ color: '#3d1f1f' }}>{IG_FOLLOWERS}</span>
+                  <span className="text-[#3d1f1f]/60 text-base ml-1.5">followers</span>
                 </div>
-                <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">{IG_FOLLOWING}</p>
-                  <p className="text-gray-400 text-sm">following</p>
+                <div>
+                  <span className="font-bold text-base" style={{ color: '#3d1f1f' }}>{IG_FOLLOWING}</span>
+                  <span className="text-[#3d1f1f]/60 text-base ml-1.5">following</span>
                 </div>
               </div>
-              <div className="flex gap-2 pt-1">
-                <a
-                  href={AJNAA_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-8 py-1.5 rounded-lg text-sm font-semibold text-white"
-                  style={{ backgroundColor: '#DB2A20' }}
-                >
-                  Follow
-                </a>
-                <a
-                  href={AJNAA_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-1.5 rounded-lg text-sm font-semibold text-white hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: '#363636' }}
-                >
-                  Message
-                </a>
-                <button
-                  type="button"
-                  className="w-9 h-8 rounded-lg flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: '#363636' }}
-                  aria-label="More options"
-                >
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-                    <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-3h-1.26c-.19-.73-.49-1.42-.87-2.05l.89-.89a1 1 0 0 0 0-1.41l-2.41-2.41a1 1 0 0 0-1.41 0l-.89.89A8.007 8.007 0 0 0 16 2.26V1a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1.26c-.73.19-1.42.49-2.05.87l-.89-.89a1 1 0 0 0-1.41 0L5.24 4.65a1 1 0 0 0 0 1.41l.89.89A8.007 8.007 0 0 0 5.26 9H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1.26c.19.73.49 1.42.87 2.05l-.89.89a1 1 0 0 0 0 1.41l2.41 2.41a1 1 0 0 0 1.41 0l.89-.89c.63.38 1.32.68 2.05.87V22a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1.26c.73-.19 1.42-.49 2.05-.87l.89.89a1 1 0 0 0 1.41 0l2.41-2.41a1 1 0 0 0 0-1.41l-.89-.89c.38-.63.68-1.32.87-2.05H22a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
 
-            <div className="space-y-1">
-              <p className="text-gray-900 text-sm font-semibold">{IG_DISPLAY}</p>
-              {IG_BIO_LINES.map((line) => (
-                <p key={line} className="text-gray-800 text-sm">{line}</p>
-              ))}
+              <div className="space-y-0.5">
+                <p className="text-[#3d1f1f]/50 text-sm">{IG_CATEGORY}</p>
+                {IG_BIO_LINES.map((line) => (
+                  <p key={line} className="text-sm" style={{ color: '#3d1f1f' }}>{line}</p>
+                ))}
+                <a
+                  href={AJNAA_LINKTR_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-sm font-medium transition-colors pt-1"
+                  style={{ color: '#7a4a3f' }}
+                >
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 13a5 5 0 007.07 0l2.83-2.83a5 5 0 00-7.07-7.07l-1.5 1.5"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M14 11a5 5 0 00-7.07 0l-2.83 2.83a5 5 0 007.07 7.07l1.5-1.5"/>
+                  </svg>
+                  kruthikajewellery.com and 1 more
+                </a>
+              </div>
+
               <a
-                href={AJNAA_LINKTR_URL}
+                href={AJNAA_INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium"
-                style={{ color: '#DB2A20' }}
+                className="mt-1 w-fit px-8 py-1.5 rounded-lg text-sm font-semibold text-white"
+                style={{ backgroundColor: '#0095f6' }}
               >
-                www.suprwater.com
+                Follow
               </a>
             </div>
           </div>
@@ -537,82 +515,72 @@ const HomePage = ({ onProductClick }) => {
                   className="rounded-full p-[3px]"
                   style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}
                 >
-                  <div className="w-20 h-20 rounded-full overflow-hidden">
-                    <img
-                      src={brandInstagramProfile}
-                      alt="SUPR on Instagram"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                  <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center">
+                    <span
+                      className="text-base"
+                      style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: '#7a1f2b' }}
+                    >
+                      Kruthika
+                    </span>
                   </div>
                 </div>
               </div>
               <div className="flex flex-1 justify-around">
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">{IG_POSTS}</p>
-                  <p className="text-gray-400 text-xs">posts</p>
+                  <p className="font-semibold text-base" style={{ color: '#3d1f1f' }}>{IG_POSTS}</p>
+                  <p className="text-[#3d1f1f]/60 text-xs">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">{IG_FOLLOWERS}</p>
-                  <p className="text-gray-400 text-xs">followers</p>
+                  <p className="font-semibold text-base" style={{ color: '#3d1f1f' }}>{IG_FOLLOWERS}</p>
+                  <p className="text-[#3d1f1f]/60 text-xs">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">{IG_FOLLOWING}</p>
-                  <p className="text-gray-400 text-xs">following</p>
+                  <p className="font-semibold text-base" style={{ color: '#3d1f1f' }}>{IG_FOLLOWING}</p>
+                  <p className="text-[#3d1f1f]/60 text-xs">following</p>
                 </div>
               </div>
             </div>
 
+            <div className="flex items-center gap-2">
+              <span className="font-bold text-lg" style={{ color: '#3d1f1f' }}>{IG_HANDLE}</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" aria-label="Verified">
+                <path fill="#3897f0" d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34z"/>
+                <path fill="#fff" d="M9.71 15.06L6.4 11.75l1.42-1.42 1.89 1.89 4.48-4.48 1.42 1.42z"/>
+              </svg>
+            </div>
+
             <div className="space-y-0.5">
-              <p className="text-gray-900 text-sm font-semibold">{IG_DISPLAY}</p>
+              <p className="text-[#3d1f1f]/50 text-sm">{IG_CATEGORY}</p>
               {IG_BIO_LINES.map((line) => (
-                <p key={line} className="text-gray-800 text-sm">{line}</p>
+                <p key={line} className="text-sm" style={{ color: '#3d1f1f' }}>{line}</p>
               ))}
               <a
                 href={AJNAA_LINKTR_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium"
-                style={{ color: '#DB2A20' }}
+                className="flex items-center gap-1.5 text-sm font-medium pt-1"
+                style={{ color: '#7a4a3f' }}
               >
-                www.suprwater.com
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M10 13a5 5 0 007.07 0l2.83-2.83a5 5 0 00-7.07-7.07l-1.5 1.5"/>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M14 11a5 5 0 00-7.07 0l-2.83 2.83a5 5 0 007.07 7.07l1.5-1.5"/>
+                </svg>
+                kruthikajewellery.com and 1 more
               </a>
             </div>
 
-            <div className="flex gap-2">
-              <a
-                href={AJNAA_INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center"
-                style={{ backgroundColor: '#DB2A20' }}
-              >
-                Follow
-              </a>
-              <a
-                href={AJNAA_INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center"
-                style={{ backgroundColor: '#363636' }}
-              >
-                Message
-              </a>
-              <button
-                type="button"
-                className="w-9 h-8 rounded-lg flex items-center justify-center shrink-0"
-                style={{ backgroundColor: '#363636' }}
-                aria-label="More options"
-              >
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
-                  <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-3h-1.26c-.19-.73-.49-1.42-.87-2.05l.89-.89a1 1 0 0 0 0-1.41l-2.41-2.41a1 1 0 0 0-1.41 0l-.89.89A8.007 8.007 0 0 0 16 2.26V1a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1.26c-.73.19-1.42.49-2.05.87l-.89-.89a1 1 0 0 0-1.41 0L5.24 4.65a1 1 0 0 0 0 1.41l.89.89A8.007 8.007 0 0 0 5.26 9H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1.26c.19.73.49 1.42.87 2.05l-.89.89a1 1 0 0 0 0 1.41l2.41 2.41a1 1 0 0 0 1.41 0l.89-.89c.63.38 1.32.68 2.05.87V22a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1.26c.73-.19 1.42-.49 2.05-.87l.89.89a1 1 0 0 0 1.41 0l2.41-2.41a1 1 0 0 0 0-1.41l-.89-.89c.38-.63.68-1.32.87-2.05H22a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z" />
-                </svg>
-              </button>
-            </div>
+            <a
+              href={AJNAA_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-1.5 rounded-lg text-sm font-semibold text-white text-center"
+              style={{ backgroundColor: '#0095f6' }}
+            >
+              Follow
+            </a>
           </div>
         </div>
       </section>
-      )}
 
       {/* Instagram Reels Carousel Section */}
       <section className="w-full py-8 md:py-12 bg-white overflow-hidden">
@@ -728,7 +696,7 @@ const HomePage = ({ onProductClick }) => {
                       <div className="flex-1 min-w-0">
                         <p className="text-white text-xs font-medium line-clamp-1">{p.title}</p>
                         <p className="text-yellow-300 text-sm font-bold">₹{p.currentPrice?.toLocaleString('en-IN')}</p>
-                        <button className="mt-1 px-3 py-0.5 rounded text-xs font-bold text-white bg-[#B99B7B]">
+                        <button className="mt-1 px-3 py-0.5 rounded text-xs font-bold text-white bg-[#C96B5A]">
                           Add
                         </button>
                       </div>
@@ -759,7 +727,7 @@ const HomePage = ({ onProductClick }) => {
                       <p className="text-white text-sm font-bold">₹{p.currentPrice?.toLocaleString('en-IN')}</p>
                       <button
                         onClick={(e) => { e.stopPropagation(); }}
-                        className="mt-1.5 px-3 py-1 rounded text-xs font-bold text-white bg-[#B99B7B] hover:opacity-90 transition-opacity"
+                        className="mt-1.5 px-3 py-1 rounded text-xs font-bold text-white bg-[#C96B5A] hover:opacity-90 transition-opacity"
                       >
                         Add to Cart
                       </button>
@@ -975,16 +943,22 @@ const HomePage = ({ onProductClick }) => {
               </div>
               <div className="flex gap-2">
                 <button
-                  onClick={(e) => e.stopPropagation()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (onProductClick && selectedLookVideo.sourceProduct) {
+                      onProductClick(selectedLookVideo.sourceProduct);
+                    }
+                    setSelectedLookVideo(null);
+                  }}
                   className="flex-1 py-3 rounded-none text-sm font-bold text-white border border-white/40"
                   style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}
                 >
-                  Wishlist
+                  View Details
                 </button>
                 <button
                   onClick={(e) => e.stopPropagation()}
                   className="flex-1 py-3 rounded-none text-sm font-bold text-white"
-                  style={{ background: '#B99B7B' }}
+                  style={{ background: '#C96B5A' }}
                 >
                   Add to Cart
                 </button>

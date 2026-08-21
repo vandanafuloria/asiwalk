@@ -3,25 +3,37 @@ import './PhotoGallery.css';
 
 import { bestSellerProducts } from './scrapshalaBestSellers';
 
-/** Unsplash CDN — 4:5 crop keeps the masonry columns even */
-const unsplash = (id) => `https://images.unsplash.com/${id}?w=800&h=1000&fit=crop&q=80`;
+import galleryPhoto1 from './assets/photos/kruthika-review-01.png';
+import galleryPhoto2 from './assets/photos/kruthika-review-02.png';
+import galleryPhoto3 from './assets/photos/kruthika-review-03.png';
+import galleryPhoto4 from './assets/photos/kruthika-review-04.png';
+import galleryPhoto5 from './assets/photos/kruthika-review-05.png';
+import galleryPhoto6 from './assets/photos/kruthika-review-06.png';
+import galleryPhoto7 from './assets/photos/kruthika-review-07.png';
+import galleryPhoto8 from './assets/photos/kruthika-review-08.png';
+import galleryPhoto9 from './assets/photos/kruthika-review-09.png';
+import galleryPhoto10 from './assets/photos/kruthika-review-10.png';
+import galleryPhoto11 from './assets/photos/kruthika-review-11.png';
+import galleryPhoto12 from './assets/photos/kruthika-review-12.png';
+import galleryPhoto13 from './assets/photos/kruthika-review-13.png';
+import galleryPhoto14 from './assets/photos/kruthika-review-14.png';
 
-/** Customer gallery — protein drinks, hydration & training moments */
+/** Customer gallery — Kruthika Jewellery photos, ascending by capture time */
 export const GALLERY_IMAGES = [
-  unsplash('photo-1600271886742-f049cd451bba'), // orange juice, tall glass
-  unsplash('photo-1621263764928-df1444c5e859'), // citrus & mint cooler
-  unsplash('photo-1548839140-29a749e1cf4d'),    // water poured into a glass
-  unsplash('photo-1622597467836-f3285f2131b8'), // fruit smoothies in jars
-  unsplash('photo-1571019613454-1cb2f99b2d8b'), // core workout
-  unsplash('photo-1553530666-ba11a7da3888'),    // berry protein smoothies
-  unsplash('photo-1559839914-17aae19cec71'),    // bottle & glass, minimal
-  unsplash('photo-1544367567-0f2fcb009e0b'),    // yoga at sunset
-  unsplash('photo-1610970881699-44a5587cabec'), // green smoothie
-  unsplash('photo-1613478223719-2ab802602423'), // fresh citrus juice
-  unsplash('photo-1550505095-81378a674395'),    // chilled water bottle
-  unsplash('photo-1594737625785-a6cbdabd333c'), // dumbbell training
-  unsplash('photo-1502741224143-90386d7f8c82'), // strawberry shake, overhead
-  unsplash('photo-1579722820308-d74e571900a9'), // mixing a post-workout drink
+  galleryPhoto1,
+  galleryPhoto2,
+  galleryPhoto3,
+  galleryPhoto4,
+  galleryPhoto5,
+  galleryPhoto6,
+  galleryPhoto7,
+  galleryPhoto8,
+  galleryPhoto9,
+  galleryPhoto10,
+  galleryPhoto11,
+  galleryPhoto12,
+  galleryPhoto13,
+  galleryPhoto14,
 ];
 
 const INITIAL_SHOW = 12;
