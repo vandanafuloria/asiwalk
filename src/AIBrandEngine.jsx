@@ -1,8 +1,8 @@
 import React, { useId, useState } from 'react';
 import './AIBrandEngine.css';
 
-const SHOP_URL = 'https://suprwater.com/';
-const INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
+const SHOP_URL = 'https://kruthikajewellery.com/';
+const INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
 
 function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
   return (
@@ -96,119 +96,119 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
 
   const brandInfo = {
     collection: {
-      title: 'Flavours & Packs',
+      title: 'Collections',
       iconType: 'collection',
       content: [
         {
-          label: 'Ready To Drink',
-          value: 'Mango Orange 330ml',
+          label: 'Necklaces & Haarams',
+          value: 'Temple · Victorian · AD',
           description:
-            'Clear whey isolate protein water with 24g of protein and 7g of BCAA in a sealed 330ml bottle — chill it and go.',
+            'From everyday CZ sets to grand peacock and Lakshmi haarams — pieces that photograph like real gold.',
         },
         {
-          label: 'Multi Packs',
-          value: 'Packs of 3 · 12 · 24',
+          label: 'Earrings & Bangles',
+          value: 'Chandeliers · Coin · Floral',
           description:
-            'Start with a 3-pack to try the flavour, then stock the fridge with 12 or 24 as the per-bottle price drops.',
+            'Lightweight chandelier earrings, Lakshmi coin bangles, and CZ blossom sets made for long functions.',
         },
         {
-          label: 'Powder',
-          value: '20 Scoop Tub',
+          label: 'Bridal & Hair',
+          value: 'Jada · Tikka · Vaddanam',
           description:
-            'Clear whey isolate powder with electrolytes — 15g protein and 3g BCAA per scoop, mixed in cold water.',
+            'Maang tikkas, jada billas, earchains, and hip belts to finish a bridal or festive look.',
         },
       ],
       highlights: [
-        'Every format is clear whey isolate — never a milky concentrate.',
-        'Zero added sugar and zero carbs across the entire range.',
-        'Mango Orange leads the line-up, with more flavours in development.',
+        'Premium imitation jewellery trusted since 2017.',
+        'Best sellers, new arrivals, and full bridal sets in one place.',
+        'Colour options on many earrings, bangles, and necklace sets.',
       ],
     },
     style: {
-      title: 'How It Drinks',
+      title: 'How It Looks',
       iconType: 'style',
       content: [
         {
-          label: 'Juice, Not Shake',
-          value: 'Light & Refreshing',
+          label: 'Gold-Like Finish',
+          value: 'Rich Polish',
           description:
-            'Clear, fruity, and crisp to the last sip — far closer to a chilled juice than a thick protein shake.',
+            'Antique and gold-tone polish that reads as real jewellery in person and on camera — not brassy or cheap.',
         },
         {
-          label: 'Zero Bloating',
-          value: 'Easy On The Stomach',
+          label: 'Stone Work',
+          value: 'AD · CZ · Kemp · Jadau',
           description:
-            'Isolate filters out most of the lactose and fat, so nothing sits heavy in your gut afterwards.',
+            'American diamond, CZ, kemp, and jadau details set to catch light without looking gaudy.',
         },
         {
-          label: 'Mixes Clear',
-          value: 'No Clumps, No Foam',
+          label: 'Lightweight Wear',
+          value: 'All-Evening Comfort',
           description:
-            'Ten seconds of shaking in cold water and the powder disappears — no chalky residue at the bottom.',
+            'Designed to sit through puja, sangeet, and reception without pinching or pulling.',
         },
       ],
       highlights: [
-        'Made for people who could never finish a milky shake.',
-        'Served chilled it works as hydration, not just supplementation.',
-        'No chalky aftertaste — the most repeated line in customer reviews.',
+        'The most repeated line in reviews: everyone thought it was real gold.',
+        'Looks match the product photos — colour, size, and stone placement.',
+        'Temple motifs with a fraction of the weight of real temple jewellery.',
       ],
     },
     craft: {
-      title: 'Inside The Bottle',
+      title: 'Make & Finish',
       iconType: 'craft',
       content: [
         {
-          label: 'Protein',
-          value: '24g Per Bottle',
+          label: 'Metal',
+          value: 'Gold Polished',
           description:
-            '100% clear whey isolate — the cleanest and purest form of whey, with 7g of BCAA to support recovery.',
+            'Anti-tarnish, gold-polished pieces built to stay bright after multiple wears when stored with care.',
         },
         {
-          label: 'Calories',
-          value: '130 Per Serve',
+          label: 'Skin',
+          value: 'Hypoallergenic',
           description:
-            'All of the protein and none of the sugar or carbs — 130 calories that fit a cut as easily as a bulk.',
+            'Nickel-free and skin-friendly finishes for customers who usually cannot wear costume jewellery.',
         },
         {
-          label: 'Electrolytes',
-          value: 'Hydration Built In',
+          label: 'Detail',
+          value: 'Premium Setting',
           description:
-            'Added electrolytes replace what you sweat out, so one bottle covers protein and rehydration together.',
+            'Stones sit neatly, edges are finished, and pieces feel solid rather than hollow or flimsy.',
         },
       ],
       highlights: [
-        'Formulated in the US to a clean, short ingredient list.',
-        'Zero added sugar, zero carbs, and no artificial colours.',
-        'Suits lactose-sensitive drinkers who react badly to concentrate.',
+        'Anti-tarnish and hypoallergenic tags across best sellers.',
+        'Finish that still looks premium after repeat functions.',
+        'Gift-ready packaging — many customers order a second set to send.',
       ],
     },
     occasion: {
-      title: 'When To Drink It',
+      title: 'When To Wear It',
       iconType: 'occasion',
       content: [
         {
-          label: 'Post-Workout',
-          value: 'Recovery Window',
+          label: 'Weddings',
+          value: 'Bride · Guest · Family',
           description:
-            'Twenty-four grams within reach the moment you rack the weights — no shaker, no blender, no milk.',
+            'Bridal haarams and statement necklaces that hold up through outdoor functions and evening photographs.',
         },
         {
-          label: 'On The Go',
-          value: 'Desk, Commute, Travel',
+          label: 'Festive',
+          value: 'Diwali · Pujas · Sangeet',
           description:
-            'Sealed and ready to drink, so it travels in a gym bag or a car door without any mess to clean up.',
+            'Temple, peacock, and Lakshmi pieces that complete a silk saree without needing a gold locker.',
         },
         {
-          label: 'Between Meals',
-          value: 'Protein Without A Meal',
+          label: 'Gifting',
+          value: 'Ready To Wrap',
           description:
-            'Bridges the gap when lunch runs late — protein that will not leave you too full for dinner.',
+            'Arrives packed like a present — a favourite for sisters, friends, and overseas family.',
         },
       ],
       highlights: [
-        'One bottle a day makes a daily protein target far easier to hit.',
-        'Light enough to drink before a run without anything sloshing around.',
-        'Chilled in Indian heat it doubles as a genuine refresher.',
+        'Wore it for a cousin’s wedding is one of the most common review lines.',
+        'Overseas customers order for Diwali and family functions abroad.',
+        'One necklace is often enough to finish a guest look.',
       ],
     },
     shipping: {
@@ -216,69 +216,69 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
       iconType: 'shipping',
       content: [
         {
-          label: 'Fast Dispatch',
-          value: 'Ships Quickly',
+          label: 'India Shipping',
+          value: 'Free Above ₹999',
           description:
-            'Orders move fast and travel in protective cartons, so bottles arrive sealed and intact.',
+            'Orders across India move quickly, with free shipping once the cart crosses ₹999.',
         },
         {
-          label: 'COD Available',
-          value: 'Pay On Delivery',
+          label: 'Worldwide',
+          value: 'Packed For Travel',
           description:
-            'Cash on delivery and secure checkout options so a first order feels low risk.',
+            'International orders arrive carefully packed — a frequent praise from the US, Canada, and beyond.',
         },
         {
-          label: 'Free Shipping',
-          value: 'Packs Of 12 & Above',
+          label: 'Checkout',
+          value: 'Secure Payments',
           description:
-            'Bulk packs ship free — comfortably the cheapest way to keep the fridge stocked.',
+            'Secure checkout, trusted by 45,000+ customers, so a first order feels low risk.',
         },
       ],
       highlights: [
-        'Damaged or leaking packs are replaced free within 48 hours.',
-        'Friendly support over WhatsApp, phone, and email.',
-        'Secure checkout with genuine quality assurance.',
+        'Extra savings as the cart grows — up to 18% off on larger orders.',
+        'Gift-ready packing that travels well.',
+        'Support if a piece needs a second look after delivery.',
       ],
     },
     brand: {
-      title: 'SUPR Water',
+      title: 'Kruthika Jewellery',
       iconType: 'brand',
       content: [
         {
           label: 'Brand Promise',
-          value: 'Protein You Actually Enjoy',
+          value: 'Looks Like Real Gold',
           description:
-            'Clear whey isolate that drinks like juice — built for everyone who gave up on chalky, milky shakes.',
+            'Premium imitation jewellery that photographs and wears like the real thing — without the gold-locker price.',
         },
         {
-          label: 'Formulated In The US',
-          value: 'Clean Label',
+          label: 'Trust',
+          value: 'Since 2017',
           description:
-            'The cleanest and purest form of protein, with nothing in the bottle that does not need to be there.',
+            '45,000+ customers and a 4.8/5 satisfaction rating built on finish, packing, and repeat orders.',
         },
         {
           label: 'Community',
-          value: '@supr.india',
+          value: '@kruthika_jewellery',
           description:
-            'Training clips, recipes, and real customer reviews — hydration with SUPR goodness.',
+            'Bridal looks, customer photos, and new arrivals — 726K followers shopping the same collections.',
         },
       ],
       highlights: [
-        'Ready-to-drink nutrition for people who are moving all day.',
-        '24g of protein and SUPR goodness in just 130 calories.',
-        'Loved for the taste first and the macros second.',
+        'Premium imitation jewellery for weddings, festivals, and gifting.',
+        'Anti-tarnish, hypoallergenic, gold-polished pieces.',
+        'Loved first for how real it looks, then for how light it feels.',
       ],
     },
   };
 
   const graphData = {
     satisfaction: {
-      label: 'Taste love',
+      label: 'Looks like gold',
       data: [84, 86, 88, 90, 91, 93, 95],
       color: '#b45309',
     },
     results: {
-      label: 'Digests easy',
+      label: 'Finish holds',
       data: [78, 80, 83, 85, 87, 90, 92],
       color: '#f59e0b',
     },
@@ -305,8 +305,8 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
   };
 
   const metrics = [
-    { id: 'satisfaction', label: 'Taste' },
-    { id: 'results', label: 'Gut' },
+    { id: 'satisfaction', label: 'Look' },
+    { id: 'results', label: 'Finish' },
     { id: 'repeat', label: 'Repeat' },
     { id: 'delivery', label: 'Ship' },
     { id: 'rating', label: 'Stars' },
@@ -346,7 +346,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
     return (
       <div className="chart-container">
         <div className="chart-header">
-          <h5 className="chart-title">SUPR nutrition snapshot</h5>
+          <h5 className="chart-title">Kruthika jewellery snapshot</h5>
           <div className="chart-value">{displayValue}</div>
         </div>
         <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} className="chart-svg" preserveAspectRatio="xMidYMid meet">
@@ -418,7 +418,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           ))}
         </div>
         <p className="chart-footnote">
-          Illustrative trend only. Based on customer themes: taste, digestion, repeat orders, and delivery.
+          Illustrative trend only. Based on customer themes: real-gold look, finish, repeat orders, and delivery.
         </p>
       </div>
     );
@@ -427,9 +427,9 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
   const tabs = [
     { id: 'metrics', label: 'Signals', iconType: 'metrics' },
     { id: 'collection', label: 'Range', iconType: 'collection' },
-    { id: 'style', label: 'Taste', iconType: 'style' },
-    { id: 'craft', label: 'Formula', iconType: 'craft' },
-    { id: 'occasion', label: 'When', iconType: 'occasion' },
+    { id: 'style', label: 'Look', iconType: 'style' },
+    { id: 'craft', label: 'Finish', iconType: 'craft' },
+    { id: 'occasion', label: 'Wear', iconType: 'occasion' },
     { id: 'shipping', label: 'Ship', iconType: 'shipping' },
     { id: 'brand', label: 'Brand', iconType: 'brand' },
   ];
@@ -445,7 +445,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             type="button"
             className={`ai-brand-engine-trigger${compact ? ' abe-compact' : ''}`}
             onClick={() => setIsExpanded(true)}
-            aria-label="Open nutrition insights for SUPR Water"
+            aria-label="Open jewellery insights for Kruthika"
           >
             <div className="trigger-icon">
               <span className="ai-gemini-rotator" aria-hidden="true">
@@ -454,29 +454,29 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             </div>
             {!compact && (
               <div className="trigger-text">
-                <span className="trigger-label">Nutrition insights</span>
-                <span className="trigger-sublabel">SUPR Water</span>
+                <span className="trigger-label">Jewellery insights</span>
+                <span className="trigger-sublabel">Kruthika</span>
               </div>
             )}
             <span className="trigger-badge">AI</span>
           </button>
           {!compact && (
             <div className="ai-brand-engine-tooltip" role="note">
-              Formula, flavours & how it drinks — tap to explore
+              Collections, finish & how it wears — tap to explore
               <span className="ai-brand-engine-tooltip__arrow" aria-hidden />
             </div>
           )}
         </div>
       ) : (
-        <div className="ai-brand-engine-panel" role="dialog" aria-label="SUPR Water nutrition insights">
+        <div className="ai-brand-engine-panel" role="dialog" aria-label="Kruthika jewellery insights">
           <div className="panel-header">
             <div className="header-left">
               <div className="header-icon">
                 <PremiumAIIcon gradientId={`${baseId}-head`} style={{ width: 36, height: 36 }} size={36} />
               </div>
               <div>
-                <h3 className="panel-title">AI Nutrition Engine</h3>
-                <p className="panel-subtitle">SUPR Water · Clear Whey Protein Water</p>
+                <h3 className="panel-title">AI Brand Engine</h3>
+                <p className="panel-subtitle">Kruthika Jewellery · Premium Imitation</p>
               </div>
             </div>
             <button type="button" className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -541,7 +541,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
                 </div>
                 <div className="panel-content-cta">
                   <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--primary">
-                    Shop SUPR Water
+                    Shop Kruthika
                   </a>
                   <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--ghost">
                     Instagram
@@ -556,14 +556,14 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
               <span className="footer-badge-icon" aria-hidden>
                 <PremiumAIIcon gradientId={`${baseId}-foot`} size={18} />
               </span>
-              <span>Clear Whey · Zero Sugar · Ready To Drink</span>
+              <span>Anti-Tarnish · Hypoallergenic · Gold Polished</span>
             </div>
             <p className="footer-note">
-              Nutrition notes are for general guidance. Check the full ingredient and nutrition panel on{' '}
+              Style notes are for general guidance. Check size, colour, and care on{' '}
               <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
-                suprwater.com
+                kruthikajewellery.com
               </a>{' '}
-              before you buy, and speak to a doctor if you have a medical condition.
+              before you buy.
             </p>
           </div>
         </div>

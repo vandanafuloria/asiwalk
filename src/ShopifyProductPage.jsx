@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
-import MarketplaceBadgeRotator from './MarketplaceBadgeRotator';
+import { MarketplaceBadgeRow } from './MarketplaceBadgeRotator';
 import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
 import AIBrandEngine from './AIBrandEngine';
@@ -50,13 +50,13 @@ function formatSoldLabel(n) {
 const PRODUCT_PAGE_IMAGES = [...MUUN_HOME_GALLERY_IMAGES];
 
 // Brand Name
-const BRAND_NAME = 'SUPR Water';
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/supr.india/';
-const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '10.5K';
-const AJNAA_INSTAGRAM_HANDLE = '@supr.india';
-const AJNAA_INSTAGRAM_DISPLAY = 'SUPR™';
-const AJNAA_INSTAGRAM_POSTS = '248';
-const AJNAA_INSTAGRAM_FOLLOWING = '5';
+const BRAND_NAME = 'Kruthika Jewellery';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
+const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '726K';
+const AJNAA_INSTAGRAM_HANDLE = '@kruthika_jewellery';
+const AJNAA_INSTAGRAM_DISPLAY = 'KRUTHIKA';
+const AJNAA_INSTAGRAM_POSTS = '8,912';
+const AJNAA_INSTAGRAM_FOLLOWING = '3';
 
 /** Reviews & star ratings — black */
 const REVIEW_ACCENT = '#C96B5A';
@@ -123,10 +123,12 @@ const PDP_COUPON_COPY = 'Get 10% off on your first order — use code SUPR10';
 
 /** Feature keyword pills under the product title */
 const PDP_KEYWORD_TAGS = [
-  '24g Protein 💪',
-  'Zero Sugar',
-  'Tastes Like Juice 🥭',
-  '130 Calories',
+  'Anti-Tarnish',
+  'Hypoallergenic',
+  'Gold Polished',
+  'Lightweight',
+  'Skin Friendly',
+  'Premium Finish',
 ];
 
 /** Trust row below CTAs */
@@ -171,16 +173,16 @@ const PDP_TRUST_FEATURES = [
 
 // Fallback blurbs for image modals
 const dummyReviews = [
-  { name: 'Priya Sharma', rating: 5, title: 'Tastes like juice!', text: 'Light, fruity and completely clear — nothing like a thick milky shake. I finish the bottle in minutes.', date: '1/20/2025', type: 'product' },
-  { name: 'Anjali Mehta', rating: 5, title: 'Zero bloating', text: 'Whey concentrate always made me feel heavy. This digests so easily I can drink it before a run.', date: '1/18/2025', type: 'product' },
-  { name: 'Riya Patel', rating: 4, title: 'Gifted to my brother', text: 'Bought the 3-pack for my brother after his workouts — he loved the mango orange. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
-  { name: 'Kavya Reddy', rating: 5, title: 'Refreshing post-workout', text: 'Chilled after training it is genuinely refreshing. The electrolytes make a real difference.', date: '1/12/2025', type: 'product' },
-  { name: 'Meera Singh', rating: 5, title: 'My new daily protein', text: 'Been drinking it for 3 months. 24g protein, zero sugar, and it never feels like a chore.', date: '1/10/2025', type: 'product' },
-  { name: 'Sneha Verma', rating: 5, title: 'Mixes perfectly clear', text: 'One scoop in cold water, ten seconds of shaking, no clumps or foam at all.', date: '1/08/2025', type: 'product' },
-  { name: 'Divya Nair', rating: 4, title: 'Travel ready', text: 'Carried bottles on a work trip — no shaker, no milk, no mess. Would repurchase.', date: '1/05/2025', type: 'product' },
-  { name: 'Pooja Mehta', rating: 5, title: 'Easy on the stomach', text: 'Bought this for my mum who is lactose sensitive — no gas, no heaviness. Instant fan.', date: '1/03/2025', type: 'product' },
-  { name: 'Neha Kapoor', rating: 5, title: 'Second purchase already', text: 'Started with the bottles, then bought the 20 scoop tub — same clean taste in both.', date: '12/30/2024', type: 'product' },
-  { name: 'Aarti Desai', rating: 5, title: 'No chalky aftertaste', text: 'Crisp and fruity right to the last sip. Hard to believe there is this much protein in it.', date: '12/28/2024', type: 'product' },
+  { name: 'Priya Sharma', rating: 5, title: 'Looks like real gold', text: 'Wore this for a wedding and everyone asked which jeweller I went to. The polish is rich and it stayed comfortable all evening.', date: '1/20/2025', type: 'product' },
+  { name: 'Anjali Mehta', rating: 5, title: 'No tarnish, no rash', text: 'I have sensitive skin and this was completely fine. Finish still looks new after two functions.', date: '1/18/2025', type: 'product' },
+  { name: 'Riya Patel', rating: 4, title: 'Gifted to my sister', text: 'Bought the necklace as a gift — she loved the packaging and the stones. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
+  { name: 'Kavya Reddy', rating: 5, title: 'Wedding guest ready', text: 'One piece and the outfit was complete. Lightweight, photographs beautifully, looks expensive.', date: '1/12/2025', type: 'product' },
+  { name: 'Meera Singh', rating: 5, title: 'Exactly like the photos', text: 'Colour and size matched the listing. Packed like a gift. Already browsing matching earrings.', date: '1/10/2025', type: 'product' },
+  { name: 'Sneha Verma', rating: 5, title: 'Shipped overseas perfectly', text: 'Ordered from the US and it arrived beautifully packed. Wore it for Diwali — so many compliments.', date: '1/08/2025', type: 'product' },
+  { name: 'Divya Nair', rating: 4, title: 'Temple look, light weight', text: 'Lakshmi motifs look authentic without the heaviness of real temple jewellery. Wish I had ordered the matching set.', date: '1/05/2025', type: 'product' },
+  { name: 'Pooja Mehta', rating: 5, title: 'Bought a second set', text: 'Gifted one set, then ordered bangles for myself. Finish is consistently premium.', date: '1/03/2025', type: 'product' },
+  { name: 'Neha Kapoor', rating: 5, title: 'Compliments all night', text: 'Wore the AD necklace to a sangeet and people kept asking for the jeweller’s name.', date: '12/30/2024', type: 'product' },
+  { name: 'Aarti Desai', rating: 5, title: 'Anti-tarnish really holds', text: 'Stored it properly and it still shines like the day it arrived. Will order bridal next.', date: '12/28/2024', type: 'product' },
 ];
 
 
@@ -318,6 +320,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
   const [isGridModalOpen, setIsGridModalOpen] = useState(false);
   const [gridModalImages, setGridModalImages] = useState([]);
   const [gridModalReview, setGridModalReview] = useState(null);
+  const [openedFromGrid, setOpenedFromGrid] = useState(false);
   const [activeTab, setActiveTab] = useState('product');
   const [reviewsToShow, setReviewsToShow] = useState(3);
   const [expandedReviews, setExpandedReviews] = useState({});
@@ -558,12 +561,24 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
   }, [reviews, brandReviews, allReviewImages]);
 
   // Handle image click to open modal
-  const handleImageClick = (index) => {
-    setSelectedModalImageIndex(index);
-    const imageSrc = allReviewImages[index];
+  const handleImageClick = (index, fromGrid = false) => {
+    const safeIndex =
+      index >= 0 && index < allReviewImages.length ? index : 0;
+    setSelectedModalImageIndex(safeIndex);
+    const imageSrc = allReviewImages[safeIndex];
     const review = findReviewForImage(imageSrc);
     setSelectedReview(review);
+    setOpenedFromGrid(fromGrid);
     setIsModalOpen(true);
+  };
+
+  const handleBackFromReview = () => {
+    setIsModalOpen(false);
+    setSelectedReview(null);
+    if (openedFromGrid) {
+      setIsGridModalOpen(true);
+    }
+    setOpenedFromGrid(false);
   };
 
   // Handle modal navigation
@@ -590,6 +605,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedReview(null);
+    setOpenedFromGrid(false);
   };
 
   // Handle keyboard navigation
@@ -812,9 +828,62 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
             {/* Buy box */}
             <div className="flex-1 flex flex-col gap-0 min-w-0 pt-1">
 
-              <h1 className="mb-3 text-2xl md:text-3xl font-bold leading-snug" style={{ color: '#3d1f1f' }}>
+              <h1 className="mb-2 text-2xl md:text-3xl font-bold leading-snug" style={{ color: '#3d1f1f' }}>
                 {productName}
               </h1>
+
+              {/* Rating, reviews, Amazon + Myntra */}
+              <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-2">
+                <div className="flex items-center gap-1.5">
+                  <span className="flex gap-0.5" aria-hidden>
+                    {[1, 2, 3, 4, 5].map((i) => (
+                      <svg key={i} width="15" height="15" viewBox="0 0 24 24">
+                        <path
+                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                          fill={i <= Math.round(productRating) ? RATING_ACCENT : 'none'}
+                          stroke={RATING_ACCENT}
+                          strokeWidth="1.4"
+                        />
+                      </svg>
+                    ))}
+                  </span>
+                  <span className="text-sm font-semibold tabular-nums" style={{ color: '#3d1f1f' }}>
+                    {Number(productRating).toFixed(1)}
+                  </span>
+                  <a
+                    href="#reviews-section"
+                    className="text-sm text-gray-500 underline-offset-2 hover:underline"
+                  >
+                    ({Number(productReviews).toLocaleString('en-IN')} reviews)
+                  </a>
+                </div>
+                <span className="hidden h-4 w-px bg-gray-200 sm:inline" aria-hidden />
+                <MarketplaceBadgeRow />
+              </div>
+
+              {/* Keywords */}
+              <div className="mb-4 flex flex-wrap gap-1.5">
+                {(passedProduct?.tags?.length ? passedProduct.tags : PDP_KEYWORD_TAGS).map((tag, i) => {
+                  const colors = [
+                    { bg: '#fdf2f8', text: '#9d174d', border: '#fbcfe8' },
+                    { bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
+                    { bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
+                    { bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
+                    { bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
+                    { bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
+                  ];
+                  const c = colors[i % colors.length];
+                  return (
+                    <span
+                      key={tag}
+                      className="rounded-full border px-2.5 py-0.5 text-[11px] font-medium"
+                      style={{ background: c.bg, color: c.text, borderColor: c.border }}
+                    >
+                      {tag}
+                    </span>
+                  );
+                })}
+              </div>
 
               {/* Price */}
               <div className="mb-3 flex items-center gap-2.5 flex-wrap">
@@ -1481,7 +1550,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                           <p className="text-[11px] leading-snug text-stone-600">
                             <span className="font-semibold tabular-nums text-stone-800">{AJNAA_INSTAGRAM_FOLLOWERS_LABEL}</span>
                             {' '}
-                            followers · Feel SUPR, Be SUPR.
+                            followers · Premium imitation jewellery.
                           </p>
                         </div>
                       </div>
@@ -1506,12 +1575,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
                 <div className="px-6 pb-2 pt-4">
                   <h4 className="mb-2.5 font-serif text-lg font-normal tracking-tight text-stone-900 md:text-xl">
-                    What SUPR customers are saying
+                    What Kruthika customers are saying
                   </h4>
                   <p className="text-[14px] leading-[1.65] text-stone-600">
                     {isAISummaryExpanded ? (
                       <>
-                        Drinkers love that it tastes like a chilled juice rather than a thick, milky shake. Reviews highlight zero bloating, no chalky aftertaste, and how cleanly it mixes — several mention it is the first protein their stomach accepts. Customers frequently praise the 24g of protein at 130 calories, fast shipping, and packs that arrive sealed and intact.{' '}
+                        Customers say the pieces look like real gold in person and photograph even better. Reviews highlight the rich polish, lightweight wear through long functions, and finishes that stay bright after multiple uses. Shoppers frequently praise the gift-ready packaging, skin-friendly metal, and reliable shipping — including orders that arrive well packed overseas.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(false)}
@@ -1522,7 +1591,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                       </>
                     ) : (
                       <>
-                        Customers love that it drinks like a chilled juice — 24g of protein with zero sugar and no bloating.{' '}
+                        Customers love that it looks like real gold — rich polish, lightweight, and it holds up through weddings and functions.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(true)}
@@ -1537,11 +1606,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
                 <div className="px-6 pb-4 pt-3 flex flex-wrap items-center gap-2 text-[12px] leading-relaxed">
                   {[
-                    { label: 'Tastes Like Juice', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
-                    { label: 'Zero Bloating', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
-                    { label: 'Mixes Clear', bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
-                    { label: 'No Chalky Aftertaste', bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
-                    { label: 'Post-Workout Refresh', bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
+                    { label: 'Looks Like Real Gold', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
+                    { label: 'Lightweight', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
+                    { label: 'Anti-Tarnish', bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
+                    { label: 'Gift-Ready Packing', bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
+                    { label: 'Wedding Favourite', bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
                   ].map((kw) => (
                     <span
                       key={kw.label}
@@ -1588,7 +1657,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                     <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
                       <div>
                         <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">CUSTOMER PHOTOS</h3>
-                        <p className="text-sm text-stone-600">Real moments from the SUPR community</p>
+                        <p className="text-sm text-stone-600">Real moments from the Kruthika community</p>
                       </div>
                       <span className="rounded-none bg-stone-100 px-3 py-1 text-xs font-medium tabular-nums text-stone-600">
                         {customerReviewImages.length} uploads
@@ -1602,7 +1671,10 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                           <div
                             key={i}
                             className="group relative shrink-0 cursor-pointer overflow-hidden rounded-none ring-1 ring-stone-200/80 transition-shadow hover:shadow-md"
-                            onClick={() => handleImageClick(i)}
+                            onClick={() => {
+                              const idx = allReviewImages.indexOf(image);
+                              handleImageClick(idx === -1 ? i % Math.max(nReviewAssets, 1) : idx);
+                            }}
                             style={{
                               backgroundColor: '#f5f5f4',
                               width: '100px',
@@ -1817,7 +1889,10 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                             key={idx}
                             className="bg-item"
                             style={{ breakInside: 'avoid', marginBottom: '6px', cursor: 'pointer', position: 'relative', overflow: 'hidden', borderRadius: '6px', display: 'block' }}
-                            onClick={() => handleImageClick(idx)}
+                            onClick={() => {
+                              const imageIndex = allReviewImages.indexOf(src);
+                              handleImageClick(imageIndex === -1 ? idx : imageIndex);
+                            }}
                           >
                             <img
                               src={src}
@@ -2043,7 +2118,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                     const imageIndex = allReviewImages.indexOf(image);
                     if (imageIndex !== -1) {
                       setIsGridModalOpen(false);
-                      handleImageClick(imageIndex);
+                      handleImageClick(imageIndex, true);
                     }
                   }}
                 >
@@ -2066,74 +2141,209 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
         </div>
       )}
       
-      {/* Image Modal */}
+      {/* Image Modal — photo + review details, back / prev / next */}
       {isModalOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-90 z-[9999] flex items-center justify-center p-4"
+        <div
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-3 md:p-4"
           onClick={handleCloseModal}
         >
-          {/* Modal Content Container - Desktop split layout */}
-          <div 
-          className="relative w-full max-w-5xl h-[75vh] bg-white rounded-none overflow-hidden flex flex-col md:flex-row shadow-2xl"
+          <div
+            className="relative flex h-[90vh] w-full max-w-6xl flex-col overflow-hidden rounded-none bg-white shadow-2xl md:flex-row"
             onClick={(e) => e.stopPropagation()}
-        >
-          {/* Close Button */}
-          <button
-            onClick={handleCloseModal}
-              className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 transition-colors z-20 bg-white rounded-none p-2 shadow-lg"
-            aria-label="Close modal"
           >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
+            <button
+              type="button"
+              onClick={handleBackFromReview}
+              className="absolute left-3 top-3 z-20 flex items-center gap-1.5 rounded-none bg-white px-3 py-2 text-sm font-medium text-gray-800 shadow-lg hover:bg-gray-50"
+              aria-label="Back"
+            >
+              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </button>
+            <button
+              type="button"
+              onClick={handleCloseModal}
+              className="absolute right-3 top-3 z-20 rounded-none bg-white p-2 text-gray-600 shadow-lg hover:text-gray-900"
+              aria-label="Close"
+            >
+              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
 
-            {/* Left Side - Image Section (reduced info: image-only modal) */}
-            <div className="relative w-full md:w-full bg-gray-100 flex items-center justify-center p-3 md:p-6">
-              {/* Previous Button - Mobile only */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePrevious();
-            }}
-                className="md:hidden absolute left-2 top-1/2 -translate-y-1/2 text-gray-700 hover:text-gray-900 transition-colors z-10 bg-white bg-opacity-80 rounded-none p-2 shadow-lg"
-            aria-label="Previous image"
-          >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+            <div className="relative flex min-h-[42%] w-full flex-1 items-center justify-center bg-gray-100 p-4 md:w-1/2 md:p-8">
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePrevious();
+                }}
+                className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 text-stone-800 shadow hover:bg-white"
+                aria-label="Previous image"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleNext();
+                }}
+                className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 text-stone-800 shadow hover:bg-white"
+                aria-label="Next image"
+              >
+                <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
 
-              {/* Next Button - Mobile only */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNext();
-            }}
-                className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 text-gray-700 hover:text-gray-900 transition-colors z-10 bg-white bg-opacity-80 rounded-none p-2 shadow-lg"
-            aria-label="Next image"
-          >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-              {/* Image */}
-            <img
+              <img
                 src={allReviewImages[selectedModalImageIndex]}
                 alt={`Review image ${selectedModalImageIndex + 1}`}
-              className="max-w-full max-h-full object-contain rounded-none"
-            />
-            
-              {/* Image Counter - Bottom Left */}
-              <div className="absolute bottom-4 left-4 bg-black bg-opacity-75 text-white px-3 py-1.5 rounded-none text-xs md:text-sm">
-                {selectedModalImageIndex + 1} / {allReviewImages.length}
-            </div>
-          </div>
-            
-            {/* Right side removed (less info request) */}
+                className="max-h-full max-w-full object-contain"
+              />
 
-            {/* Mobile review details removed (less info request) */}
+              <div className="absolute bottom-4 left-4 rounded-none bg-black/75 px-3 py-1.5 text-xs text-white md:text-sm">
+                {selectedModalImageIndex + 1} / {allReviewImages.length}
+              </div>
+            </div>
+
+            {selectedReview && (
+              <div className="hidden w-full flex-col overflow-y-auto bg-white md:flex md:w-1/2">
+                <div className="flex flex-1 flex-col p-6 md:p-8">
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      <span className="text-lg font-semibold text-gray-900 md:text-xl">{selectedReview.name}</span>
+                      <svg className="h-5 w-5 shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div className="text-sm text-gray-500">{getDaysAgo(selectedReview.date)}</div>
+                  </div>
+
+                  <div className="mb-3 flex items-center gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="h-6 w-6"
+                        viewBox="0 0 20 20"
+                        fill={i < selectedReview.rating ? RATING_ACCENT : '#d1d5db'}
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  {selectedReview.title && (
+                    <h3 className="mb-3 text-lg font-semibold text-gray-900 md:text-xl">{selectedReview.title}</h3>
+                  )}
+                  <p className="mb-4 text-sm leading-relaxed text-gray-700 md:text-base">{selectedReview.text}</p>
+                  <span
+                    className="inline-block rounded-full px-3 py-1.5 text-xs font-medium"
+                    style={{ backgroundColor: REVIEW_SOFT, color: REVIEW_ACCENT }}
+                  >
+                    {selectedReview.type === 'product' ? 'Product Review' : 'Brand Review'}
+                  </span>
+
+                  <div className="mt-auto flex items-center justify-between border-t border-gray-200 pt-4">
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handlePrevious();
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    >
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      <span className="text-sm font-medium">Previous</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNext();
+                      }}
+                      className="flex items-center gap-2 rounded-lg px-4 py-2 text-gray-700 hover:bg-gray-50 hover:text-gray-900"
+                    >
+                      <span className="text-sm font-medium">Next</span>
+                      <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {selectedReview && (
+              <div className="max-h-[42vh] w-full overflow-y-auto border-t border-gray-200 bg-white p-4 md:hidden">
+                <div className="mb-3 flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-2">
+                    <span className="text-base font-semibold text-gray-900">{selectedReview.name}</span>
+                    <svg className="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <div className="text-xs text-gray-500">{getDaysAgo(selectedReview.date)}</div>
+                </div>
+                <div className="mb-2 flex items-center gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <svg
+                      key={i}
+                      className="h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill={i < selectedReview.rating ? RATING_ACCENT : '#d1d5db'}
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                {selectedReview.title && (
+                  <h3 className="mb-2 text-base font-medium text-gray-900">{selectedReview.title}</h3>
+                )}
+                <p className="mb-2 text-sm leading-relaxed text-gray-700">{selectedReview.text}</p>
+                <span
+                  className="mb-3 inline-block rounded-full px-3 py-1 text-xs font-medium"
+                  style={{ backgroundColor: REVIEW_SOFT, color: REVIEW_ACCENT }}
+                >
+                  {selectedReview.type === 'product' ? 'Product Review' : 'Brand Review'}
+                </span>
+                <div className="mt-3 flex items-center justify-between border-t border-gray-200 pt-3">
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevious();
+                    }}
+                    className="flex items-center gap-1.5 text-sm font-medium text-gray-700"
+                  >
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                    Previous
+                  </button>
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNext();
+                    }}
+                    className="flex items-center gap-1.5 text-sm font-medium text-gray-700"
+                  >
+                    Next
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -57,10 +57,10 @@ function RatingBadge({ value }) {
  * Single rotated trust strip — exactly 5 slides: 10K+ / Instagram / Amazon / Nykaa / comfort.
  */
 export default function InstagramTrustCarousel({
-  instagramUrl = 'https://www.instagram.com/supr.india/',
-  instagramHandle = '@supr.india',
-  followersLabel = '10.5K',
-  shopUrl = 'https://suprwater.com/',
+  instagramUrl = 'https://www.instagram.com/kruthika_jewellery/',
+  instagramHandle = '@kruthika_jewellery',
+  followersLabel = '726K',
+  shopUrl = 'https://kruthikajewellery.com/',
   amazonUrl = 'https://www.amazon.in/',
   quickCommerceUrl = 'https://blinkit.com/',
 }) {
@@ -69,15 +69,15 @@ export default function InstagramTrustCarousel({
       {
         key: 'trusted',
         href: shopUrl,
-        ariaLabel: 'Trusted customers — visit SUPR Water',
+        ariaLabel: 'Trusted customers — visit Kruthika Jewellery',
         icon: <StarRow />,
-        text: 'Trusted by 2,000+ Customers',
+        text: 'Trusted by 45,000+ Customers',
         badge: null,
       },
       {
         key: 'instagram',
         href: instagramUrl,
-        ariaLabel: 'SUPR on Instagram',
+        ariaLabel: 'Kruthika on Instagram',
         icon: <InstaRealIcon />,
         text: `${followersLabel} followers · ${instagramHandle}`,
         badge: null,
@@ -85,7 +85,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'amazon',
         href: amazonUrl,
-        ariaLabel: 'SUPR on Amazon India',
+        ariaLabel: 'Kruthika on Amazon India',
         icon: (
           <img src={AMAZON_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
@@ -95,17 +95,17 @@ export default function InstagramTrustCarousel({
       {
         key: 'quick-commerce',
         href: quickCommerceUrl,
-        ariaLabel: 'SUPR on Blinkit and Nature’s Basket',
+        ariaLabel: 'Shop Kruthika jewellery',
         icon: <QuickCommerceIcon />,
-        text: 'Now on Blinkit & Nature’s Basket',
+        text: 'Shipping worldwide · Free above ₹999',
         badge: null,
       },
       {
         key: 'formula',
         href: shopUrl,
-        ariaLabel: 'Clear whey protein water — SUPR',
+        ariaLabel: 'Premium imitation jewellery — Kruthika',
         icon: <ComfortIcon />,
-        text: 'Clear Whey · Zero Sugar · 24g Protein',
+        text: 'Anti-Tarnish · Hypoallergenic · Gold Polished',
         badge: null,
       },
     ],

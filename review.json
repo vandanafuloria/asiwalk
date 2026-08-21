@@ -1,122 +1,122 @@
 [
   {
-    "name": "Anika Sharma",
+    "name": "Ananya Reddy",
+    "location": "Hyderabad",
+    "rating": 5,
+    "title": "Looks exactly like real gold",
+    "review": "I was nervous ordering imitation jewellery online, but this necklace looks exactly like the pictures — and like real gold. Wore it for a family function and kept getting asked which jeweller I went to. The gold polish is rich, the stones sit well, and it stayed comfortable through the whole evening. Packaging was so pretty I almost did not want to open it.",
+    "type": "large"
+  },
+  {
+    "name": "Priya Sharma",
+    "location": "Bengaluru",
+    "rating": 5,
+    "title": "Everyone thought it was real gold",
+    "review": "Bought the peacock emerald necklace for my sister’s wedding and we both could not believe the finish. It is lightweight, does not pinch, and the colour did not fade even after a long outdoor function. Friends kept asking if it was temple jewellery from a big store. At this price, I have already added earrings to match.",
+    "type": "large"
+  },
+  {
+    "name": "Meera Iyer",
+    "location": "Chennai",
+    "rating": 5,
+    "title": "Perfect for my cousin’s wedding",
+    "review": "Delivery was quick and the design is elegant — wore it for my cousin’s wedding and it photographed beautifully. The antique polish looks premium in person, not cheap or brassy. I have sensitive skin and usually get a rash from costume jewellery; this was completely fine. Will order a bridal haaram next.",
+    "type": "large"
+  },
+  {
+    "name": "Radhika Malhotra",
     "location": "Delhi",
     "rating": 5,
-    "title": "Finally a protein that tastes like juice",
-    "review": "I could never finish a milky protein shake — it always felt heavy and left me bloated for hours. This is the complete opposite. It is clear, light, and honestly tastes like a chilled mango juice. I keep two bottles in the fridge and have one right after my workout. 24g of protein and zero sugar, and I actually look forward to drinking it. Delhi summer plus this cold is unbeatable.",
+    "title": "Finish still looks new after many wears",
+    "review": "Great quality and a long-lasting finish. I have worn these bangles for three functions already and they still look premium — no blackening, no dull patches. The stones catch light without looking gaudy. Packaging was gift-ready, so I sent a second set to my friend and she loved it too.",
     "type": "large"
   },
   {
-    "name": "Rohan Kapoor",
+    "name": "Sneha Patel",
+    "location": "United States",
+    "rating": 5,
+    "title": "Shipped overseas, arrived beautifully packed",
+    "review": "I was nervous ordering from abroad but everything arrived on time and packed so carefully. The necklace looks even better in person than on Instagram. I wore it for Diwali with family here and got so many compliments. Kruthika has become my go-to for festive jewellery when I cannot shop in India.",
+    "type": "large"
+  },
+  {
+    "name": "Kavya Nair",
+    "location": "Canada",
+    "rating": 5,
+    "title": "Gifted a set — she loved it",
+    "review": "The packaging was so beautiful I gifted a necklace and earring set to my friend. She thought I had spent much more. The gold-tone polish looks rich and the pieces feel well made, not hollow or flimsy.",
+    "type": "mid"
+  },
+  {
+    "name": "Anika Sharma",
     "location": "Mumbai",
     "rating": 5,
-    "title": "Zero bloating, no chalky aftertaste",
-    "review": "Bought the mango orange 3-pack to try and ended up ordering the 12-pack the same week. It mixes completely clear, no clumps, no thick milky texture sitting in your stomach. I train in the evening and used to skip my shake because it made me too full for dinner. Now I finish the bottle on the drive home and still eat properly. Digests really easy.",
-    "type": "large"
+    "title": "Lightweight all evening",
+    "review": "Wore the chandelier earrings from morning puja to the reception. No ear pain, no tarnish, and they photographed like real diamonds.",
+    "type": "mid"
   },
   {
-    "name": "Meera Pillai",
-    "location": "Bangalore",
-    "rating": 4,
-    "title": "Refreshing post-workout, not a dessert",
-    "review": "Most protein drinks taste like liquid sweets by the third sip. This one stays refreshing all the way down — more like a sports drink or a juice than a shake. The electrolytes are a nice touch after a sweaty session. Only reason for 4 stars is that I wish there were more flavours beyond mango orange, but the taste itself is genuinely good.",
-    "type": "large"
-  },
-  {
-    "name": "Divya Nair",
+    "name": "Divya Menon",
     "location": "Kochi",
-    "rating": 5,
-    "title": "Perfect for anyone lactose sensitive",
-    "review": "Whey concentrate always upset my stomach, so I mostly gave up on protein supplements. Clear whey isolate has been a completely different experience — light, no gas, no heaviness. I have the powder in the morning and keep a bottle in my gym bag for later. Hitting my protein target has stopped being a chore. The mango flavour is not artificial at all.",
-    "type": "large"
+    "rating": 4,
+    "title": "Temple look without the weight",
+    "review": "The Lakshmi motifs look authentic but the piece is so much lighter than real temple jewellery. Only wish I had ordered the matching jada billa in the same order.",
+    "type": "mid"
   },
   {
-    "name": "Sanya Khanna",
+    "name": "Tanvi Joshi",
     "location": "Pune",
     "rating": 5,
-    "title": "The 20 scoop tub is great value",
-    "review": "Started with the bottles and switched to the tub for daily use. One scoop in cold water, shake for a few seconds and it goes completely clear — no foam, no lumps stuck at the bottom. 15g protein with 3g BCAA and zero sugar fits my cut perfectly. I drink it through the day at my desk like a juice rather than forcing it down post-workout.",
-    "type": "large"
+    "title": "Skin-friendly, no rash",
+    "review": "I usually cannot wear imitation jewellery for more than an hour. This was hypoallergenic as promised — no itching, no green marks.",
+    "type": "mid"
   },
   {
     "name": "Ishita Roy",
     "location": "Kolkata",
     "rating": 5,
-    "title": "My daily hydration plus protein",
-    "review": "Tastes like a fruit drink, digests like water, and gets my protein in. Replaced my shake completely.",
-    "type": "mid"
-  },
-  {
-    "name": "Tanvi Mehta",
-    "location": "Ahmedabad",
-    "rating": 4,
-    "title": "Travel-friendly protein",
-    "review": "Carried four bottles on a work trip. No shaker, no mess, no milk to worry about. Grab, chill, drink.",
-    "type": "mid"
-  },
-  {
-    "name": "Preethi Subramanian",
-    "location": "Chennai",
-    "rating": 5,
-    "title": "Actually light on the stomach",
-    "review": "Zero carbs and zero bloat. I can drink it right before a run and feel nothing sitting in my gut.",
-    "type": "mid"
-  },
-  {
-    "name": "Arjun Qureshi",
-    "location": "Hyderabad",
-    "rating": 5,
-    "title": "Second order already",
-    "review": "Ordered the 3-pack to test, went straight to 24. Mango orange is dangerously easy to drink.",
-    "type": "mid"
-  },
-  {
-    "name": "Nidhi Gupta",
-    "location": "Lucknow",
-    "rating": 4,
-    "title": "Great in the heat",
-    "review": "Chilled after a hot walk it is genuinely refreshing. The electrolytes help more than I expected.",
+    "title": "Looks just like the photos",
+    "review": "Colour, stones, and size all matched the listing. Packed like a gift. Already browsing the bridal collection.",
     "type": "mid"
   },
   {
     "name": "Aarohi Jain",
     "location": "Jaipur",
     "rating": 5,
-    "title": "Tastes like real mango",
-    "review": "Crisp, fruity, not sugary. Hard to believe there is 24g of protein in it.",
+    "title": "Compliments all night",
+    "review": "Wore the AD necklace to a sangeet and people kept asking for the jeweller’s name.",
     "type": "small"
   },
   {
     "name": "Kritika Bose",
     "location": "Bhopal",
     "rating": 5,
-    "title": "Even my non-gym husband drinks it",
-    "review": "Bought it for myself, now we both finish a bottle a day. It just tastes like juice.",
+    "title": "Anti-tarnish really works",
+    "review": "Stored it properly and it still shines like the day it arrived.",
     "type": "small"
   },
   {
-    "name": "Karan Ahluwalia",
-    "location": "Chandigarh",
+    "name": "Nidhi Gupta",
+    "location": "Lucknow",
     "rating": 5,
-    "title": "Mixes perfectly clear",
-    "review": "No clumps, no foam, no residue at the bottom. Ten seconds of shaking and it is done.",
+    "title": "Wedding guest ready",
+    "review": "One necklace and I was fully dressed. Looks expensive, feels light.",
     "type": "small"
-  },
-  {
-    "name": "Kavya Reddy",
-    "location": "Hyderabad",
-    "rating": 5,
-    "title": "Clear whey done right",
-    "review": "Light, fruity, and zero sugar. Exactly what I wanted from a protein drink.",
-    "type": "very_small"
   },
   {
     "name": "Simran Batra",
     "location": "Chandigarh",
     "rating": 5,
-    "title": "Reaching for it every single day",
-    "review": "Keeping it stocked in the fridge now. That says everything.",
+    "title": "Second order already",
+    "review": "Came back for bangles after the necklace. Finish is consistently good.",
+    "type": "very_small"
+  },
+  {
+    "name": "Kavya Reddy",
+    "location": "Hyderabad",
+    "rating": 5,
+    "title": "Premium imitation done right",
+    "review": "Gold-like polish, neat stones, and it arrived on time.",
     "type": "very_small"
   }
 ]

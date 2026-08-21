@@ -39,6 +39,30 @@ const MARKETPLACE_BADGES = [
   },
 ];
 
+function MarketplaceChip({ badge }) {
+  return (
+    <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 bg-white px-2 py-0.5">
+      {badge.logo}
+      <svg width="10" height="10" viewBox="0 0 24 24" style={{ flexShrink: 0 }}>
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f97316" />
+      </svg>
+      <span className="text-xs font-bold text-gray-800">{badge.rating}</span>
+      <span className="text-[11px] text-gray-400">({badge.count})</span>
+    </span>
+  );
+}
+
+export function MarketplaceBadgeRow() {
+  const rowBadges = MARKETPLACE_BADGES.filter((b) => b.label === 'Amazon' || b.label === 'Myntra');
+  return (
+    <span className="inline-flex flex-wrap items-center gap-1.5" aria-label="Amazon and Myntra ratings">
+      {rowBadges.map((badge) => (
+        <MarketplaceChip key={badge.label} badge={badge} />
+      ))}
+    </span>
+  );
+}
+
 export default function MarketplaceBadgeRotator() {
   const [idx, setIdx] = React.useState(0);
   const [phase, setPhase] = React.useState('idle');
