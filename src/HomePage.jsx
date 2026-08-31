@@ -13,21 +13,22 @@ import reviewData from '../review.json';
 import './HomePage.css';
 
 
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
-const AJNAA_LINKTR_URL = 'https://kruthikajewellery.com/';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/zoukonline/';
+const AJNAA_LINKTR_URL = 'https://zouk.co.in/';
 
-const BRAND_NAME = 'SUPR Water';
-const IG_HANDLE = 'kruthika_jewellery';
-const IG_DISPLAY = 'KRUTHIKA';
-const IG_POSTS = '8,912';
-const IG_FOLLOWERS = '726K';
-const IG_FOLLOWING = '3';
-const IG_CATEGORY = 'Jewellery/watches';
+const BRAND_NAME = 'Zouk';
+const IG_HANDLE = 'zoukonline';
+const IG_DISPLAY = 'Zouk';
+const IG_POSTS = '2,180';
+const IG_FOLLOWERS = '1M';
+const IG_FOLLOWING = '28';
+const IG_CATEGORY = 'Bags / backpacks / luggage';
 /** Bio lines under the handle, mirroring the live Instagram profile */
 const IG_BIO_LINES = [
-  'Premium Imitation Jewellery',
-  'Trusted by 45,000+ Customers since 2017',
-  '4.8/5 Satisfaction Ratings | Shipping Worldwide',
+  'Bags with bold prints & proud roots',
+  'Bags. Backpacks. Luggage.',
+  '🇮🇳 Proudly Indian | 🪡 Handcrafted | 100% Vegan',
+  '👇Shop now',
 ];
 
 const getRandomSoldThisWeek = (min = 180, max = 420) =>
@@ -412,7 +413,7 @@ const HomePage = ({ onProductClick }) => {
                         type="button"
                         onClick={(e) => { e.stopPropagation(); }}
                         className="mt-2 w-full py-1.5 rounded text-xs font-bold text-white transition-opacity hover:opacity-90"
-                        style={{ background: '#C96B5A' }}
+                        style={{ background: '#1F4E5F' }}
                       >
                         Add to Cart
                       </button>
@@ -441,9 +442,9 @@ const HomePage = ({ onProductClick }) => {
                 <div className="w-32 h-32 rounded-full overflow-hidden bg-white flex items-center justify-center">
                   <span
                     className="text-2xl"
-                    style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: '#7a1f2b' }}
+                    style={{ fontFamily: "Georgia, 'Times New Roman', serif", color: '#0f4c5c' }}
                   >
-                    Kruthika
+                    zouk.
                   </span>
                 </div>
               </div>
@@ -491,7 +492,7 @@ const HomePage = ({ onProductClick }) => {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10 13a5 5 0 007.07 0l2.83-2.83a5 5 0 00-7.07-7.07l-1.5 1.5"/>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M14 11a5 5 0 00-7.07 0l-2.83 2.83a5 5 0 007.07 7.07l1.5-1.5"/>
                   </svg>
-                  kruthikajewellery.com and 1 more
+                  bit.ly/4gvUVdk and 4 more
                 </a>
               </div>
 
@@ -520,7 +521,7 @@ const HomePage = ({ onProductClick }) => {
                       className="text-base"
                       style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: '#7a1f2b' }}
                     >
-                      Kruthika
+                      zouk.
                     </span>
                   </div>
                 </div>
@@ -565,7 +566,7 @@ const HomePage = ({ onProductClick }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M10 13a5 5 0 007.07 0l2.83-2.83a5 5 0 00-7.07-7.07l-1.5 1.5"/>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M14 11a5 5 0 00-7.07 0l-2.83 2.83a5 5 0 007.07 7.07l1.5-1.5"/>
                 </svg>
-                kruthikajewellery.com and 1 more
+                bit.ly/4gvUVdk and 4 more
               </a>
             </div>
 
@@ -696,7 +697,7 @@ const HomePage = ({ onProductClick }) => {
                       <div className="flex-1 min-w-0">
                         <p className="text-white text-xs font-medium line-clamp-1">{p.title}</p>
                         <p className="text-yellow-300 text-sm font-bold">₹{p.currentPrice?.toLocaleString('en-IN')}</p>
-                        <button className="mt-1 px-3 py-0.5 rounded text-xs font-bold text-white bg-[#C96B5A]">
+                        <button className="mt-1 px-3 py-0.5 rounded text-xs font-bold text-white bg-[#1F4E5F]">
                           Add
                         </button>
                       </div>
@@ -727,7 +728,7 @@ const HomePage = ({ onProductClick }) => {
                       <p className="text-white text-sm font-bold">₹{p.currentPrice?.toLocaleString('en-IN')}</p>
                       <button
                         onClick={(e) => { e.stopPropagation(); }}
-                        className="mt-1.5 px-3 py-1 rounded text-xs font-bold text-white bg-[#C96B5A] hover:opacity-90 transition-opacity"
+                        className="mt-1.5 px-3 py-1 rounded text-xs font-bold text-white bg-[#1F4E5F] hover:opacity-90 transition-opacity"
                       >
                         Add to Cart
                       </button>
@@ -950,15 +951,15 @@ const HomePage = ({ onProductClick }) => {
                     }
                     setSelectedLookVideo(null);
                   }}
-                  className="flex-1 py-3 rounded-none text-sm font-bold text-white border border-white/40"
-                  style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}
+                  className="flex-1 py-3 rounded-none text-sm font-bold text-white"
+                  style={{ background: '#1F4E5F' }}
                 >
                   View Details
                 </button>
                 <button
                   onClick={(e) => e.stopPropagation()}
                   className="flex-1 py-3 rounded-none text-sm font-bold text-white"
-                  style={{ background: '#C96B5A' }}
+                  style={{ background: '#1F4E5F' }}
                 >
                   Add to Cart
                 </button>

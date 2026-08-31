@@ -3,22 +3,18 @@ import './PhotoGallery.css';
 
 import { bestSellerProducts } from './scrapshalaBestSellers';
 
-import galleryPhoto1 from './assets/photos/kruthika-review-01.png';
-import galleryPhoto2 from './assets/photos/kruthika-review-02.png';
-import galleryPhoto3 from './assets/photos/kruthika-review-03.png';
-import galleryPhoto4 from './assets/photos/kruthika-review-04.png';
-import galleryPhoto5 from './assets/photos/kruthika-review-05.png';
-import galleryPhoto6 from './assets/photos/kruthika-review-06.png';
-import galleryPhoto7 from './assets/photos/kruthika-review-07.png';
-import galleryPhoto8 from './assets/photos/kruthika-review-08.png';
-import galleryPhoto9 from './assets/photos/kruthika-review-09.png';
-import galleryPhoto10 from './assets/photos/kruthika-review-10.png';
-import galleryPhoto11 from './assets/photos/kruthika-review-11.png';
-import galleryPhoto12 from './assets/photos/kruthika-review-12.png';
-import galleryPhoto13 from './assets/photos/kruthika-review-13.png';
-import galleryPhoto14 from './assets/photos/kruthika-review-14.png';
+import galleryPhoto1 from './assets/photos/zouk-review-01.png';
+import galleryPhoto2 from './assets/photos/zouk-review-02.png';
+import galleryPhoto3 from './assets/photos/zouk-review-03.png';
+import galleryPhoto4 from './assets/photos/zouk-review-04.png';
+import galleryPhoto5 from './assets/photos/zouk-review-05.png';
+import galleryPhoto6 from './assets/photos/zouk-review-06.png';
+import galleryPhoto7 from './assets/photos/zouk-review-07.png';
+import galleryPhoto8 from './assets/photos/zouk-review-08.png';
+import galleryPhoto9 from './assets/photos/zouk-review-09.png';
+import galleryPhoto10 from './assets/photos/zouk-review-10.png';
 
-/** Customer gallery — Kruthika Jewellery photos, ascending by capture time */
+/** Customer gallery — Zouk bag photos */
 export const GALLERY_IMAGES = [
   galleryPhoto1,
   galleryPhoto2,
@@ -30,10 +26,6 @@ export const GALLERY_IMAGES = [
   galleryPhoto8,
   galleryPhoto9,
   galleryPhoto10,
-  galleryPhoto11,
-  galleryPhoto12,
-  galleryPhoto13,
-  galleryPhoto14,
 ];
 
 const INITIAL_SHOW = 12;
@@ -61,7 +53,7 @@ function getGalleryProductDetail(index) {
 
 export default function PhotoGallery({
   title = 'Our Gallery',
-  subtitle = 'Real moments from the SUPR community — protein, hydration, and everyday training.',
+  subtitle = 'Real moments from the Zouk community — bags, backpacks, and everyday travel.',
 }) {
   const [lightbox, setLightbox] = useState(null); // index or null
   const [showAll, setShowAll] = useState(false);
@@ -107,7 +99,7 @@ export default function PhotoGallery({
             onClick={() => setLightbox(i)}
             aria-label={`Open gallery photo ${i + 1}`}
           >
-            <img src={src} alt={`SUPR moment ${i + 1}`} loading="lazy" />
+            <img src={src} alt={`Zouk review photo ${i + 1}`} loading="lazy" />
           </button>
         ))}
       </div>
@@ -126,7 +118,7 @@ export default function PhotoGallery({
           <button type="button" className="pg-lb-nav pg-lb-prev" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">‹</button>
           <button type="button" className="pg-lb-nav pg-lb-next" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">›</button>
           <div className="pg-lb-inner" onClick={(e) => e.stopPropagation()}>
-            <img src={GALLERY_IMAGES[lightbox]} alt={`SUPR moment ${lightbox + 1}`} />
+            <img src={GALLERY_IMAGES[lightbox]} alt={`Zouk review photo ${lightbox + 1}`} />
             {(() => {
               const detail = getGalleryProductDetail(lightbox);
               return (

@@ -1,205 +1,215 @@
-.pop-collections {
+.zouk-bestsellers {
   width: 100%;
-  padding: 48px 16px 56px;
-  background: #fdf1e6;
+  padding: 40px 16px 48px;
+  background: #fff;
 }
 
-.pop-collections-heading {
-  text-align: center;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #3d1f1f;
-  margin: 0 0 24px;
-}
-
-.pop-collections-tabs {
+.zouk-bestsellers-head {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 28px;
-  margin: 0 auto 36px;
-  max-width: 1100px;
-  overflow-x: auto;
+  align-items: baseline;
+  justify-content: space-between;
+  max-width: 1280px;
+  margin: 0 auto 20px;
+  padding: 0 8px;
 }
 
-.pop-collections-tab {
-  background: none;
-  border: none;
-  padding: 4px 2px 8px;
-  font-size: 1.05rem;
+.zouk-bestsellers-head h2 {
+  margin: 0;
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #1f4e5f;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.zouk-bestsellers-head a {
+  color: #1f4e5f;
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #57534e;
-  cursor: pointer;
-  white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.pop-collections-tab:hover {
-  color: #3d1f1f;
-}
-
-.pop-collections-tab.is-active {
-  color: #c1694f;
-  border-bottom-color: #c1694f;
-}
-
-.pop-collections-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 24px;
-  max-width: 1400px;
+.zouk-bestsellers-wrap {
+  position: relative;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
-@media (max-width: 1024px) {
-  .pop-collections-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 560px) {
-  .pop-collections-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.pop-card {
-  cursor: pointer;
+.zouk-bestsellers-scroller {
   display: flex;
-  flex-direction: column;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 4px 8px 12px;
 }
 
-.pop-card-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #f2e6d8;
-  margin-bottom: 14px;
+.zouk-bestsellers-scroller::-webkit-scrollbar {
+  display: none;
 }
 
-.pop-card-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.pop-card-badge {
+.zouk-nav {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.92);
-  color: #3d1f1f;
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 999px;
-}
-
-.pop-card-market-overlay {
-  position: absolute;
-  bottom: 10px;
-  left: 8px;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(6px);
-  border-radius: 20px;
-  padding: 4px 10px 4px 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.pop-card-watermark {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  font-family: 'Brush Script MT', 'Segoe Script', cursive;
-  font-size: 1.6rem;
-  color: rgba(20, 12, 12, 0.75);
-  pointer-events: none;
-}
-
-.pop-card-title {
-  text-align: center;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #3d1f1f;
-  margin: 0 0 6px;
-  line-height: 1.35;
-}
-
-.pop-card-rating {
+  top: 42%;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #fff;
+  color: #4b5563;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  margin: 0 0 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
-.pop-card-stars {
+.zouk-nav--prev {
+  left: -8px;
+}
+
+.zouk-nav--next {
+  right: -8px;
+}
+
+.zouk-nav:hover {
+  color: #1f4e5f;
+}
+
+.zouk-card {
+  width: 100%;
   display: flex;
-  gap: 1px;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  min-width: 0;
 }
 
-.pop-card-rating-text {
-  font-size: 0.8rem;
-  color: #78716c;
+.zouk-bestsellers-scroller .zouk-card {
+  flex: 0 0 min(260px, 78vw);
+  width: auto;
+  scroll-snap-align: start;
+}
+
+.zouk-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #f3efe9;
+  overflow: hidden;
+}
+
+.zouk-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.zouk-card-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.zouk-card-body {
+  background: #f8f8f8;
+  padding: 12px 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.zouk-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1f4e5f;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.zouk-card-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.zouk-card-prices {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px;
+  min-width: 0;
+}
+
+.zouk-card-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1f4e5f;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.zouk-card-mrp {
+  font-size: 0.78rem;
+  color: #7a8a90;
   font-weight: 500;
 }
 
-.pop-card-tags {
-  display: flex;
-  justify-content: center;
-  margin: 0 0 10px;
+.zouk-card-mrp s {
+  text-decoration: line-through;
 }
 
-.pop-card-tag-rotator {
-  display: block;
-  overflow: hidden;
-  height: 22px;
-  max-width: 100%;
-}
-
-.pop-card-tag {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: #7a4a2f;
-  background: #f2e0cf;
-  border: 1px solid #e6cbaa;
-  border-radius: 999px;
-  padding: 3px 9px;
-  white-space: nowrap;
-}
-
-.pop-card-price {
-  text-align: center;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #c1694f;
-  margin: 0 0 14px;
-}
-
-.pop-card-cta {
-  width: 100%;
-  background: #c1694f;
+.zouk-card-add {
+  flex-shrink: 0;
+  background: #1f4e5f;
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 12px 0;
-  font-size: 0.95rem;
+  border-radius: 4px;
+  padding: 7px 16px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.15s ease;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
-.pop-card-cta:hover {
-  background: #a8563e;
+.zouk-card-add:hover {
+  background: #173d4a;
+}
+
+@media (min-width: 900px) {
+  .zouk-bestsellers-scroller .zouk-card {
+    flex-basis: calc((100% - 48px) / 4);
+  }
+}
+
+@media (max-width: 720px) {
+  .zouk-nav {
+    display: none;
+  }
+
+  .zouk-bestsellers-head h2 {
+    font-size: 1.2rem;
+  }
 }

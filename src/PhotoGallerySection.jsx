@@ -21,15 +21,15 @@ const GALLERY_IMAGES = GALLERY_SRCS.map((src, i) => {
     originalPrice: p.originalPrice,
     rating: p.rating,
     reviewCount: p.reviewCount,
-    category: 'Protein Water',
+    category: 'Bags',
     description:
-      'SUPR clear whey isolate — 24g of protein that drinks like a chilled juice, with zero sugar and no bloating.',
+      'Bold printed bags, backpacks, and luggage — proudly Indian, handcrafted, and 100% vegan.',
     features: [
-      '24g protein per bottle',
-      'Zero sugar, zero carbs',
-      'Mixes completely clear',
-      'Ready to drink',
-      'Formulated in the US',
+      'Bold prints',
+      '100% vegan',
+      'Handcrafted',
+      'Travel ready',
+      'Proudly Indian',
     ],
     alt: p.title,
   };
@@ -62,7 +62,7 @@ const PhotoGallerySection = () => {
       <div className="gallery-container">
         <div className="gallery-header">
           <h2 className="gallery-title">Our Collection</h2>
-          <p className="gallery-subtitle">Real moments from the SUPR community.</p>
+          <p className="gallery-subtitle">Real moments from the Zouk community.</p>
         </div>
 
         <div className="gallery-grid">

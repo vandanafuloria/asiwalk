@@ -1,8 +1,8 @@
 import React, { useId, useState } from 'react';
 import './AIBrandEngine.css';
 
-const SHOP_URL = 'https://kruthikajewellery.com/';
-const INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
+const SHOP_URL = 'https://zouk.co.in/';
+const INSTAGRAM_URL = 'https://www.instagram.com/zoukonline/';
 
 function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
   return (
@@ -100,28 +100,28 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
       iconType: 'collection',
       content: [
         {
-          label: 'Necklaces & Haarams',
-          value: 'Temple · Victorian · AD',
+          label: 'Bags & Totes',
+          value: 'Office · Everyday · Printed',
           description:
-            'From everyday CZ sets to grand peacock and Lakshmi haarams — pieces that photograph like real gold.',
+            'Structured office totes and daypacks with bold prints that hold a 15" laptop without looking bulky.',
         },
         {
-          label: 'Earrings & Bangles',
-          value: 'Chandeliers · Coin · Floral',
+          label: 'Backpacks & Slings',
+          value: 'Commute · Travel · Combo',
           description:
-            'Lightweight chandelier earrings, Lakshmi coin bangles, and CZ blossom sets made for long functions.',
+            'Laptop backpacks and flap slings built for metro days, weekend trips, and hands-free wear.',
         },
         {
-          label: 'Bridal & Hair',
-          value: 'Jada · Tikka · Vaddanam',
+          label: 'Luggage',
+          value: 'Cabin · Trolley · Sets',
           description:
-            'Maang tikkas, jada billas, earchains, and hip belts to finish a bridal or festive look.',
+            'Printed luggage that survives trips — wheels, zippers, and panels made to travel, not just look good.',
         },
       ],
       highlights: [
-        'Premium imitation jewellery trusted since 2017.',
-        'Best sellers, new arrivals, and full bridal sets in one place.',
-        'Colour options on many earrings, bangles, and necklace sets.',
+        'Bags. Backpacks. Luggage. — the full Zouk range in one place.',
+        'Bestsellers like Lattice Lace, GeoOptics, and Nawabi Couture prints.',
+        'Proudly Indian, handcrafted, and 100% vegan across the line.',
       ],
     },
     style: {
@@ -129,86 +129,86 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
       iconType: 'style',
       content: [
         {
-          label: 'Gold-Like Finish',
-          value: 'Rich Polish',
+          label: 'Bold Prints',
+          value: 'Heritage Patterns',
           description:
-            'Antique and gold-tone polish that reads as real jewellery in person and on camera — not brassy or cheap.',
+            'Lattice, mandala, and geometric prints that look even richer in person than on Instagram.',
         },
         {
-          label: 'Stone Work',
-          value: 'AD · CZ · Kemp · Jadau',
+          label: 'Vegan Leather',
+          value: 'Structured Trim',
           description:
-            'American diamond, CZ, kemp, and jadau details set to catch light without looking gaudy.',
+            'Smooth brown flaps, straps, and base panels that read luxe — not plasticky or floppy.',
         },
         {
-          label: 'Lightweight Wear',
-          value: 'All-Evening Comfort',
+          label: 'Everyday Carry',
+          value: 'Light Enough All Day',
           description:
-            'Designed to sit through puja, sangeet, and reception without pinching or pulling.',
+            'Designed to sit on the shoulder from office to dinner without digging in.',
         },
       ],
       highlights: [
-        'The most repeated line in reviews: everyone thought it was real gold.',
-        'Looks match the product photos — colour, size, and stone placement.',
-        'Temple motifs with a fraction of the weight of real temple jewellery.',
+        'The most repeated line in reviews: the print looks even better in person.',
+        'Photos match the listing — colour, size, and pattern placement.',
+        'Roomy without looking bulky — a frequent praise on office bags.',
       ],
     },
     craft: {
-      title: 'Make & Finish',
+      title: 'Make & Materials',
       iconType: 'craft',
       content: [
         {
-          label: 'Metal',
-          value: 'Gold Polished',
+          label: 'Material',
+          value: '100% Vegan',
           description:
-            'Anti-tarnish, gold-polished pieces built to stay bright after multiple wears when stored with care.',
+            'Cruelty-free bodies and trims that still feel sturdy after months of commute and rain.',
         },
         {
-          label: 'Skin',
-          value: 'Hypoallergenic',
+          label: 'Craft',
+          value: 'Handcrafted In India',
           description:
-            'Nickel-free and skin-friendly finishes for customers who usually cannot wear costume jewellery.',
+            'Printed panels, hardware, and stitching finished so zippers, rings, and feet actually last.',
         },
         {
-          label: 'Detail',
-          value: 'Premium Setting',
+          label: 'Structure',
+          value: 'Holds Its Shape',
           description:
-            'Stones sit neatly, edges are finished, and pieces feel solid rather than hollow or flimsy.',
+            'Totes sit upright, backpacks keep their form, and prints do not fade or scuff like cheap luggage.',
         },
       ],
       highlights: [
-        'Anti-tarnish and hypoallergenic tags across best sellers.',
-        'Finish that still looks premium after repeat functions.',
-        'Gift-ready packaging — many customers order a second set to send.',
+        'Vegan and still looks luxe — a core review theme.',
+        'Prints hold colour through summer and travel.',
+        'Gift-ready packing — many customers order a second bag to send.',
       ],
     },
     occasion: {
-      title: 'When To Wear It',
+      title: 'When To Carry It',
       iconType: 'occasion',
       content: [
         {
-          label: 'Weddings',
-          value: 'Bride · Guest · Family',
+          label: 'Work',
+          value: 'Office · Commute',
           description:
-            'Bridal haarams and statement necklaces that hold up through outdoor functions and evening photographs.',
+            'Laptop sleeves, dual straps, and 13L capacity that fit charger, bottle, and a change of clothes.',
         },
         {
-          label: 'Festive',
-          value: 'Diwali · Pujas · Sangeet',
+          label: 'Travel',
+          value: 'Flights · Weekends',
           description:
-            'Temple, peacock, and Lakshmi pieces that complete a silk saree without needing a gold locker.',
+            'Backpacks and trolleys that glide through airports and still look printed, not beaten up.',
         },
         {
           label: 'Gifting',
           value: 'Ready To Wrap',
           description:
-            'Arrives packed like a present — a favourite for sisters, friends, and overseas family.',
+            'Arrives packed like a present — a favourite for sisters, friends, and family overseas.',
         },
       ],
       highlights: [
-        'Wore it for a cousin’s wedding is one of the most common review lines.',
-        'Overseas customers order for Diwali and family functions abroad.',
-        'One necklace is often enough to finish a guest look.',
+        'Came back for a second bag is one of the most common review lines.',
+        'Overseas customers order for work trips and still get careful packing.',
+        'One tote is often enough to finish a work or weekend look.',
       ],
     },
     shipping: {
@@ -231,82 +231,82 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           label: 'Checkout',
           value: 'Secure Payments',
           description:
-            'Secure checkout, trusted by 45,000+ customers, so a first order feels low risk.',
+            'Secure checkout so a first Zouk order feels low risk — plus extras like a personalised tag.',
         },
       ],
       highlights: [
-        'Extra savings as the cart grows — up to 18% off on larger orders.',
+        'Most orders ship within 1–3 days.',
         'Gift-ready packing that travels well.',
-        'Support if a piece needs a second look after delivery.',
+        'Support if a bag needs a second look after delivery.',
       ],
     },
     brand: {
-      title: 'Kruthika Jewellery',
+      title: 'Zouk',
       iconType: 'brand',
       content: [
         {
           label: 'Brand Promise',
-          value: 'Looks Like Real Gold',
+          value: 'Bags With Proud Roots',
           description:
-            'Premium imitation jewellery that photographs and wears like the real thing — without the gold-locker price.',
+            'Bold prints, vegan materials, and Indian craft — bags you actually carry every day, not just photograph.',
         },
         {
           label: 'Trust',
-          value: 'Since 2017',
+          value: '1M On Instagram',
           description:
-            '45,000+ customers and a 4.8/5 satisfaction rating built on finish, packing, and repeat orders.',
+            'Loved for prints that match the photos, structure that lasts, and packing that feels like a gift.',
         },
         {
           label: 'Community',
-          value: '@kruthika_jewellery',
+          value: '@zoukonline',
           description:
-            'Bridal looks, customer photos, and new arrivals — 726K followers shopping the same collections.',
+            'New drops, customer carries, and travel looks — 1M followers shopping bags, backpacks, and luggage.',
         },
       ],
       highlights: [
-        'Premium imitation jewellery for weddings, festivals, and gifting.',
-        'Anti-tarnish, hypoallergenic, gold-polished pieces.',
-        'Loved first for how real it looks, then for how light it feels.',
+        'Proudly Indian · Handcrafted · 100% Vegan.',
+        'Office bags, slings, backpacks, and luggage under one brand.',
+        'Loved first for the print, then for how it holds up on the commute.',
       ],
     },
   };
 
   const graphData = {
     satisfaction: {
-      label: 'Looks like gold',
+      label: 'Print love',
       data: [84, 86, 88, 90, 91, 93, 95],
-      color: '#b45309',
+      color: '#1F4E5F',
     },
     results: {
-      label: 'Finish holds',
+      label: 'Holds shape',
       data: [78, 80, 83, 85, 87, 90, 92],
-      color: '#f59e0b',
+      color: '#3d7a8c',
     },
     repeat: {
       label: 'Repeat buyers',
       data: [62, 65, 68, 72, 75, 78, 82],
-      color: '#78350f',
+      color: '#0f4c5c',
     },
     delivery: {
       label: 'Delivery experience',
       data: [86, 87, 89, 90, 92, 93, 95],
-      color: '#b45309',
+      color: '#1F4E5F',
     },
     rating: {
       label: 'Avg. product rating',
       data: [4.3, 4.4, 4.5, 4.6, 4.7, 4.7, 4.8],
-      color: '#f59e0b',
+      color: '#3d7a8c',
     },
     recommend: {
       label: 'Would recommend',
       data: [81, 83, 85, 88, 90, 92, 94],
-      color: '#78350f',
+      color: '#0f4c5c',
     },
   };
 
   const metrics = [
-    { id: 'satisfaction', label: 'Look' },
-    { id: 'results', label: 'Finish' },
+    { id: 'satisfaction', label: 'Print' },
+    { id: 'results', label: 'Build' },
     { id: 'repeat', label: 'Repeat' },
     { id: 'delivery', label: 'Ship' },
     { id: 'rating', label: 'Stars' },
@@ -346,7 +346,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
     return (
       <div className="chart-container">
         <div className="chart-header">
-          <h5 className="chart-title">Kruthika jewellery snapshot</h5>
+          <h5 className="chart-title">Zouk bags snapshot</h5>
           <div className="chart-value">{displayValue}</div>
         </div>
         <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} className="chart-svg" preserveAspectRatio="xMidYMid meet">
@@ -418,7 +418,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           ))}
         </div>
         <p className="chart-footnote">
-          Illustrative trend only. Based on customer themes: real-gold look, finish, repeat orders, and delivery.
+          Illustrative trend only. Based on customer themes: prints, build, repeat orders, and delivery.
         </p>
       </div>
     );
@@ -428,8 +428,8 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
     { id: 'metrics', label: 'Signals', iconType: 'metrics' },
     { id: 'collection', label: 'Range', iconType: 'collection' },
     { id: 'style', label: 'Look', iconType: 'style' },
-    { id: 'craft', label: 'Finish', iconType: 'craft' },
-    { id: 'occasion', label: 'Wear', iconType: 'occasion' },
+    { id: 'craft', label: 'Craft', iconType: 'craft' },
+    { id: 'occasion', label: 'Carry', iconType: 'occasion' },
     { id: 'shipping', label: 'Ship', iconType: 'shipping' },
     { id: 'brand', label: 'Brand', iconType: 'brand' },
   ];
@@ -445,7 +445,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             type="button"
             className={`ai-brand-engine-trigger${compact ? ' abe-compact' : ''}`}
             onClick={() => setIsExpanded(true)}
-            aria-label="Open jewellery insights for Kruthika"
+            aria-label="Open bag insights for Zouk"
           >
             <div className="trigger-icon">
               <span className="ai-gemini-rotator" aria-hidden="true">
@@ -454,21 +454,21 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             </div>
             {!compact && (
               <div className="trigger-text">
-                <span className="trigger-label">Jewellery insights</span>
-                <span className="trigger-sublabel">Kruthika</span>
+                <span className="trigger-label">Bag insights</span>
+                <span className="trigger-sublabel">Zouk</span>
               </div>
             )}
             <span className="trigger-badge">AI</span>
           </button>
           {!compact && (
             <div className="ai-brand-engine-tooltip" role="note">
-              Collections, finish & how it wears — tap to explore
+              Collections, prints & how it carries — tap to explore
               <span className="ai-brand-engine-tooltip__arrow" aria-hidden />
             </div>
           )}
         </div>
       ) : (
-        <div className="ai-brand-engine-panel" role="dialog" aria-label="Kruthika jewellery insights">
+        <div className="ai-brand-engine-panel" role="dialog" aria-label="Zouk bag insights">
           <div className="panel-header">
             <div className="header-left">
               <div className="header-icon">
@@ -476,7 +476,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
               </div>
               <div>
                 <h3 className="panel-title">AI Brand Engine</h3>
-                <p className="panel-subtitle">Kruthika Jewellery · Premium Imitation</p>
+                <p className="panel-subtitle">Zouk · Bags. Backpacks. Luggage.</p>
               </div>
             </div>
             <button type="button" className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -541,7 +541,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
                 </div>
                 <div className="panel-content-cta">
                   <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--primary">
-                    Shop Kruthika
+                    Shop Zouk
                   </a>
                   <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--ghost">
                     Instagram
@@ -556,12 +556,12 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
               <span className="footer-badge-icon" aria-hidden>
                 <PremiumAIIcon gradientId={`${baseId}-foot`} size={18} />
               </span>
-              <span>Anti-Tarnish · Hypoallergenic · Gold Polished</span>
+              <span>Proudly Indian · Handcrafted · 100% Vegan</span>
             </div>
             <p className="footer-note">
-              Style notes are for general guidance. Check size, colour, and care on{' '}
+              Style notes are for general guidance. Check size, capacity, and care on{' '}
               <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
-                kruthikajewellery.com
+                zouk.co.in
               </a>{' '}
               before you buy.
             </p>

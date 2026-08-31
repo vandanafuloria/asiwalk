@@ -1,5 +1,4 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import instagramTrustReal from './assets/instagram-trust-real.jpg';
 
 const AMAZON_LOGO =
   'https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg';
@@ -10,15 +9,19 @@ const QuickCommerceIcon = () => (
 );
 
 const InstaRealIcon = () => (
-  <img
-    src={instagramTrustReal}
-    alt=""
-    width={16}
-    height={16}
-    className="h-4 w-4 shrink-0 rounded-[4px] object-cover"
-    loading="lazy"
-    decoding="async"
-  />
+  <svg width="16" height="16" viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden>
+    <defs>
+      <linearGradient id="igTrustGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stopColor="#f09433" />
+        <stop offset="50%" stopColor="#dc2743" />
+        <stop offset="100%" stopColor="#bc1888" />
+      </linearGradient>
+    </defs>
+    <path
+      fill="url(#igTrustGrad)"
+      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+    />
+  </svg>
 );
 
 const StarRow = () => (
@@ -57,10 +60,10 @@ function RatingBadge({ value }) {
  * Single rotated trust strip — exactly 5 slides: 10K+ / Instagram / Amazon / Nykaa / comfort.
  */
 export default function InstagramTrustCarousel({
-  instagramUrl = 'https://www.instagram.com/kruthika_jewellery/',
-  instagramHandle = '@kruthika_jewellery',
-  followersLabel = '726K',
-  shopUrl = 'https://kruthikajewellery.com/',
+  instagramUrl = 'https://www.instagram.com/zoukonline/',
+  instagramHandle = '@zoukonline',
+  followersLabel = '1M',
+  shopUrl = 'https://zouk.co.in/',
   amazonUrl = 'https://www.amazon.in/',
   quickCommerceUrl = 'https://blinkit.com/',
 }) {
@@ -69,7 +72,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'trusted',
         href: shopUrl,
-        ariaLabel: 'Trusted customers — visit Kruthika Jewellery',
+        ariaLabel: 'Trusted customers — visit Zouk',
         icon: <StarRow />,
         text: 'Trusted by 45,000+ Customers',
         badge: null,
@@ -77,7 +80,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'instagram',
         href: instagramUrl,
-        ariaLabel: 'Kruthika on Instagram',
+        ariaLabel: 'Zouk on Instagram',
         icon: <InstaRealIcon />,
         text: `${followersLabel} followers · ${instagramHandle}`,
         badge: null,
@@ -85,7 +88,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'amazon',
         href: amazonUrl,
-        ariaLabel: 'Kruthika on Amazon India',
+        ariaLabel: 'Zouk on Amazon India',
         icon: (
           <img src={AMAZON_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
@@ -95,7 +98,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'quick-commerce',
         href: quickCommerceUrl,
-        ariaLabel: 'Shop Kruthika jewellery',
+        ariaLabel: 'Shop Zouk bags',
         icon: <QuickCommerceIcon />,
         text: 'Shipping worldwide · Free above ₹999',
         badge: null,
@@ -103,9 +106,9 @@ export default function InstagramTrustCarousel({
       {
         key: 'formula',
         href: shopUrl,
-        ariaLabel: 'Premium imitation jewellery — Kruthika',
+        ariaLabel: 'Bags, backpacks and luggage — Zouk',
         icon: <ComfortIcon />,
-        text: 'Anti-Tarnish · Hypoallergenic · Gold Polished',
+        text: 'Bags · Backpacks · Luggage',
         badge: null,
       },
     ],

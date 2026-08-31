@@ -1,32 +1,57 @@
 /**
- * Saada Designs — Local video assets with Instagram links.
+ * Shop videos — Zouk reels with Instagram links.
  * Single source for home "Shop videos", header reels, and PDP reel strip.
  */
 export const MUUN_SHOP_VIDEO_CLIPS = [
   {
-    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/562ee5d4dbc24ebca53706e886a03f05/562ee5d4dbc24ebca53706e886a03f05.HD-1080p-4.8Mbps-56671200.mp4?v=0',
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_dv4aloh3rosdcj7n94rrtbah.mp4?v=1',
     title: 'Elegant designs for everyday',
-    instagramUrl: 'https://www.instagram.com/p/DcShHhHhq2L/'
+    instagramUrl: 'https://www.instagram.com/p/Dcqkkzuzg_2/?hl=en',
   },
   {
-    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/73a8236b639145cba991b4c4360c3782/73a8236b639145cba991b4c4360c3782.HD-1080p-2.5Mbps-54813077.mp4?v=0',
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_y4k4fmuc54vsojb1dzj9i9l5.mp4',
     title: 'Crafted with care',
-    instagramUrl: 'https://www.instagram.com/p/DcQ58j7huqP/'
+    instagramUrl: 'https://www.instagram.com/p/Dci6k7DDdfi/?hl=en&img_index=1',
   },
   {
-    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/acc16b8e9dd04545872da55eb29e8a3b/acc16b8e9dd04545872da55eb29e8a3b.HD-1080p-2.5Mbps-54813076.mp4?v=0',
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_ado6wy5ew00xv66rj6kno1qk.mp4',
     title: 'Style meets function',
-    instagramUrl: 'https://www.instagram.com/p/DcQTa3Zhqwv/'
+    instagramUrl: 'https://www.instagram.com/p/DcjOB5vuRYo/?hl=en',
   },
   {
-    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/86b5e4fa4609430a85a90dbd75a3aa7a/86b5e4fa4609430a85a90dbd75a3aa7a.HD-1080p-2.5Mbps-54813083.mp4?v=0',
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_ado6wy5ew00xv66rj6kno1qk.mp4',
     title: 'Timeless pieces',
-    instagramUrl: 'https://www.instagram.com/p/DcP888-BNDl/'
+    instagramUrl: 'https://www.instagram.com/p/DcbYgHQqR3J/?hl=en',
   },
   {
-    url: 'https://kruthikajewellery.com/cdn/shop/videos/c/vp/34028910391244cbb5c0df753c432926/34028910391244cbb5c0df753c432926.HD-1080p-2.5Mbps-54813590.mp4?v=0',
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_ecwqewi797xa05hinp93ve0i.mp4',
     title: 'Modern aesthetics',
-    instagramUrl: 'https://www.instagram.com/p/DcQTa3Zhqwv/'
+    instagramUrl: 'https://www.instagram.com/p/DcWJeKZMfai/?hl=en',
+  },
+  {
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_m8zp2x2n3e3grcurmovp1b51.mp4',
+    title: 'Everyday essentials',
+    instagramUrl: 'https://www.instagram.com/p/DcGoSdCDbZG/?hl=en&img_index=1',
+  },
+  {
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_izd04gg8mcm9n3bd0q5ua1th.mp4',
+    title: 'Statement looks',
+    instagramUrl: 'https://www.instagram.com/p/Db8NNloRo7Y/?hl=en',
+  },
+  {
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_spcntobuz9veamgoc6tui5yj.mp4?v=1',
+    title: 'On the go',
+    instagramUrl: 'https://www.instagram.com/p/Db2_KCmNFjy/?hl=en',
+  },
+  {
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_zp6xnwm9maa6vo2ke1j853i7.mp4',
+    title: 'Handcrafted details',
+    instagramUrl: 'https://www.instagram.com/p/DbhlM4VscGG/?hl=en',
+  },
+  {
+    url: 'https://zouk.co.in/cdn/shop/files/quinn_uirianhtxdfwlou8pexm3tbn.mp4',
+    title: 'New season favourites',
+    instagramUrl: 'https://www.instagram.com/p/DbVpvqHjYEo/?hl=en&img_index=1',
   },
 ];
 

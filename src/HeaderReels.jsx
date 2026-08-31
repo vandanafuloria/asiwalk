@@ -3,12 +3,12 @@ import { MUUN_SHOP_VIDEO_CLIPS, SCRAPSHALA_SHOP_VIDEOS } from './scrapshalaShopV
 import { bestSellerProducts } from './scrapshalaBestSellers';
 
 const REEL_URLS = SCRAPSHALA_SHOP_VIDEOS;
-const SHOP_CTA_URL = 'https://www.instagram.com/supr.india/';
+const SHOP_CTA_URL = 'https://www.instagram.com/zoukonline/';
 
 const IG_STORY_RING =
   'rounded-full bg-[linear-gradient(135deg,#feda75_0%,#fa7e1e_35%,#d62976_68%,#962fbf_100%)] p-[2.5px] sm:p-[3px]';
 
-const BRAND_NAME = 'SUPR';
+const BRAND_NAME = 'Zouk';
 
 function IconClose() {
   return (
@@ -370,7 +370,7 @@ export default function HeaderReels({ onViewProduct }) {
                           onViewProduct(productForReel);
                           setViewerOpen(false);
                         }}
-                        className="w-full rounded-md border border-white/90 bg-white/95 px-3 py-2.5 text-center text-xs font-semibold uppercase tracking-wide text-stone-900 shadow-lg backdrop-blur-sm transition hover:bg-white md:text-sm"
+                        className="w-full rounded-md border border-[#1F4E5F] bg-[#1F4E5F] px-3 py-2.5 text-center text-xs font-semibold uppercase tracking-wide text-white shadow-lg transition hover:opacity-90 md:text-sm"
                       >
                         View details
                       </button>
@@ -379,7 +379,7 @@ export default function HeaderReels({ onViewProduct }) {
                       href={SHOP_CTA_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-black px-3 py-2.5 text-center text-xs font-semibold uppercase tracking-wide text-white shadow-lg transition hover:bg-stone-900 md:text-sm"
+                      className="bg-[#1F4E5F] px-3 py-2.5 text-center text-xs font-semibold uppercase tracking-wide text-white shadow-lg transition hover:opacity-90 md:text-sm"
                     >
                       Add to cart
                     </a>

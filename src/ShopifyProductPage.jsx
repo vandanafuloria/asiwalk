@@ -50,20 +50,20 @@ function formatSoldLabel(n) {
 const PRODUCT_PAGE_IMAGES = [...MUUN_HOME_GALLERY_IMAGES];
 
 // Brand Name
-const BRAND_NAME = 'Kruthika Jewellery';
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/kruthika_jewellery/';
-const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '726K';
-const AJNAA_INSTAGRAM_HANDLE = '@kruthika_jewellery';
-const AJNAA_INSTAGRAM_DISPLAY = 'KRUTHIKA';
-const AJNAA_INSTAGRAM_POSTS = '8,912';
-const AJNAA_INSTAGRAM_FOLLOWING = '3';
+const BRAND_NAME = 'Zouk';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/zoukonline/';
+const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '1M';
+const AJNAA_INSTAGRAM_HANDLE = '@zoukonline';
+const AJNAA_INSTAGRAM_DISPLAY = 'Zouk';
+const AJNAA_INSTAGRAM_POSTS = '2,180';
+const AJNAA_INSTAGRAM_FOLLOWING = '28';
 
 /** Reviews & star ratings — black */
-const REVIEW_ACCENT = '#C96B5A';
+const REVIEW_ACCENT = '#1F4E5F';
 const REVIEW_RING_TRACK = '#e7e5e4';
-const REVIEW_SOFT = 'rgba(201, 107, 90, 0.08)';
-const REVIEW_ACCENT_BORDER = 'rgba(201, 107, 90, 0.25)';
-const RATING_ACCENT = '#C96B5A';
+const REVIEW_SOFT = 'rgba(31, 78, 95, 0.08)';
+const REVIEW_ACCENT_BORDER = 'rgba(31, 78, 95, 0.25)';
+const RATING_ACCENT = '#1F4E5F';
 /** Price text & primary CTAs */
 const PDP_CTA = '#111111';
 const PDP_ACCENT = '#c41e3a';
@@ -72,14 +72,14 @@ const PDP_ACCENT = '#c41e3a';
 const PRODUCT_VIDEO = PDP_DRAGGABLE_VIDEO;
 
 // Product Details
-const PRODUCT_NAME = 'MANGO ORANGE (MULTI PACK)';
-const PRODUCT_SUBTITLE = 'PROTEIN WATER';
-const PRODUCT_PRICE = 999;
-const PRODUCT_ORIGINAL_PRICE = 1199;
-const PRODUCT_DISCOUNT = 17;
+const PRODUCT_NAME = "GeoOptics Women's Office Bag";
+const PRODUCT_SUBTITLE = 'Fits 15" Laptop · Dual Shoulder Straps · 13L Capacity';
+const PRODUCT_PRICE = 1499;
+const PRODUCT_ORIGINAL_PRICE = 1999;
+const PRODUCT_DISCOUNT = 25;
 const PRODUCT_DESCRIPTION =
-  "Experience the invigorating tanginess and abundant protein in every sip. SuprWater's Mango Orange Protein Water not only satisfies your thirst but also energizes your body with a lively citrus kick. Elevate your hydration routine today!";
-const PRODUCT_BRAND = 'SUPR Water';
+  'A structured office tote with a bold GeoOptics print, dual shoulder straps, and space for a 15" laptop. Proudly Indian, handcrafted, and 100% vegan.';
+const PRODUCT_BRAND = 'Zouk';
 
 /** Bullet highlights under the description */
 const PRODUCT_HIGHLIGHTS = [
@@ -98,8 +98,8 @@ const PRODUCT_PACKS = [
   { id: 'p24', label: 'Pack of 24 (330 ml each)', bottles: 24, price: 6999, originalPrice: 9592, sku: 'SUPR-MO-330-P24' },
 ];
 /** Social proof — shown next to rating & reviews on the buy box */
-const PRODUCT_REVIEW_COUNT = 548;
-const PRODUCT_SOLD_COUNT = 860;
+const PRODUCT_REVIEW_COUNT = 10000;
+const PRODUCT_SOLD_COUNT = 391;
 
 // You May Also Like — aligned with best sellers
 const RELATED_PRODUCTS = bestSellerProducts.slice(0, 4).map((p) => ({
@@ -115,19 +115,19 @@ const RELATED_PRODUCTS = bestSellerProducts.slice(0, 4).map((p) => ({
 /** Reel pill captions — same order & copy as `MUUN_SHOP_VIDEO_CLIPS` on the home page */
 const PDP_REEL_LABELS = MUUN_SHOP_VIDEO_CLIPS.map((c) => c.title);
 
-const PDP_BREADCRUMB_MID = 'SPECIAL PRICES';
-const PDP_BREADCRUMB_LAST = 'MANGO ORANGE (MULTI PACK)';
+const PDP_BREADCRUMB_MID = 'Office Bags';
+const PDP_BREADCRUMB_LAST = "GeoOptics Women's Office Bag";
 const PDP_GIFT_PROMO = 'Free shipping on packs of 12 and above';
 const PDP_COUPON_CODE = 'SUPR10';
 const PDP_COUPON_COPY = 'Get 10% off on your first order — use code SUPR10';
 
 /** Feature keyword pills under the product title */
 const PDP_KEYWORD_TAGS = [
-  'Anti-Tarnish',
-  'Hypoallergenic',
-  'Gold Polished',
-  'Lightweight',
-  'Skin Friendly',
+  'Bold Prints',
+  '100% Vegan',
+  'Handcrafted',
+  'Travel Ready',
+  'Proudly Indian',
   'Premium Finish',
 ];
 
@@ -173,16 +173,16 @@ const PDP_TRUST_FEATURES = [
 
 // Fallback blurbs for image modals
 const dummyReviews = [
-  { name: 'Priya Sharma', rating: 5, title: 'Looks like real gold', text: 'Wore this for a wedding and everyone asked which jeweller I went to. The polish is rich and it stayed comfortable all evening.', date: '1/20/2025', type: 'product' },
-  { name: 'Anjali Mehta', rating: 5, title: 'No tarnish, no rash', text: 'I have sensitive skin and this was completely fine. Finish still looks new after two functions.', date: '1/18/2025', type: 'product' },
-  { name: 'Riya Patel', rating: 4, title: 'Gifted to my sister', text: 'Bought the necklace as a gift — she loved the packaging and the stones. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
-  { name: 'Kavya Reddy', rating: 5, title: 'Wedding guest ready', text: 'One piece and the outfit was complete. Lightweight, photographs beautifully, looks expensive.', date: '1/12/2025', type: 'product' },
-  { name: 'Meera Singh', rating: 5, title: 'Exactly like the photos', text: 'Colour and size matched the listing. Packed like a gift. Already browsing matching earrings.', date: '1/10/2025', type: 'product' },
-  { name: 'Sneha Verma', rating: 5, title: 'Shipped overseas perfectly', text: 'Ordered from the US and it arrived beautifully packed. Wore it for Diwali — so many compliments.', date: '1/08/2025', type: 'product' },
-  { name: 'Divya Nair', rating: 4, title: 'Temple look, light weight', text: 'Lakshmi motifs look authentic without the heaviness of real temple jewellery. Wish I had ordered the matching set.', date: '1/05/2025', type: 'product' },
-  { name: 'Pooja Mehta', rating: 5, title: 'Bought a second set', text: 'Gifted one set, then ordered bangles for myself. Finish is consistently premium.', date: '1/03/2025', type: 'product' },
-  { name: 'Neha Kapoor', rating: 5, title: 'Compliments all night', text: 'Wore the AD necklace to a sangeet and people kept asking for the jeweller’s name.', date: '12/30/2024', type: 'product' },
-  { name: 'Aarti Desai', rating: 5, title: 'Anti-tarnish really holds', text: 'Stored it properly and it still shines like the day it arrived. Will order bridal next.', date: '12/28/2024', type: 'product' },
+  { name: 'Priya Sharma', rating: 5, title: 'Prints look luxe', text: 'Used this tote all week — structured, bold print, and people kept asking where I got it.', date: '1/20/2025', type: 'product' },
+  { name: 'Anjali Mehta', rating: 5, title: 'Commute backpack done right', text: 'Laptop sleeve is snug and the straps don’t dig in. Still looks new after rain.', date: '1/18/2025', type: 'product' },
+  { name: 'Riya Patel', rating: 4, title: 'Gifted to my sister', text: 'Bought the printed tote as a gift — she loved the packaging. 4 stars only because delivery took an extra day.', date: '1/15/2025', type: 'product' },
+  { name: 'Kavya Reddy', rating: 5, title: 'Travel-ready luggage', text: 'Wheels glide and the print didn’t scuff. Looks expensive, feels light.', date: '1/12/2025', type: 'product' },
+  { name: 'Meera Singh', rating: 5, title: 'Exactly like the photos', text: 'Colour, size, and print matched the listing. Packed like a gift. Already browsing backpacks.', date: '1/10/2025', type: 'product' },
+  { name: 'Sneha Verma', rating: 5, title: 'Shipped overseas perfectly', text: 'Ordered from the US and the backpack arrived beautifully packed. So many compliments.', date: '1/08/2025', type: 'product' },
+  { name: 'Divya Nair', rating: 4, title: 'Roomy without looking bulky', text: 'Fits a laptop, bottle, and a change of clothes. Wish I had ordered the matching pouch.', date: '1/05/2025', type: 'product' },
+  { name: 'Pooja Mehta', rating: 5, title: 'Bought a second bag', text: 'Gifted one tote, then ordered luggage for myself. Finish is consistently premium.', date: '1/03/2025', type: 'product' },
+  { name: 'Neha Kapoor', rating: 5, title: 'Compliments every outing', text: 'Wore the printed sling to brunch and people kept asking for the brand.', date: '12/30/2024', type: 'product' },
+  { name: 'Aarti Desai', rating: 5, title: 'Vegan and still looks luxe', text: 'Cruelty-free without looking cheap. Print still pops after months of use.', date: '12/28/2024', type: 'product' },
 ];
 
 
@@ -285,23 +285,24 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
   // Use passed product data when available, fall back to the selected pack
   const productName    = passedProduct?.title         || PRODUCT_NAME;
-  const productPrice   = passedProduct?.currentPrice  || selectedPack.price;
-  const productOriginal= passedProduct?.originalPrice || selectedPack.originalPrice;
+  const productPrice   = passedProduct?.currentPrice  || PRODUCT_PRICE;
+  const productOriginal= passedProduct?.originalPrice || PRODUCT_ORIGINAL_PRICE;
   const productDiscount= passedProduct?.originalPrice
     ? Math.round(((passedProduct.originalPrice - passedProduct.currentPrice) / passedProduct.originalPrice) * 100)
-    : Math.round(((selectedPack.originalPrice - selectedPack.price) / selectedPack.originalPrice) * 100);
+    : Math.round(((PRODUCT_ORIGINAL_PRICE - PRODUCT_PRICE) / PRODUCT_ORIGINAL_PRICE) * 100);
   const productImages = passedProduct?.galleryImages?.length
     ? passedProduct.galleryImages
     : passedProduct?.image
       ? [passedProduct.image, ...PRODUCT_PAGE_IMAGES.filter((u) => u !== passedProduct.image)]
       : PRODUCT_PAGE_IMAGES;
-  const productRating  = passedProduct?.rating        ?? 4.8;
+  const productRating  = passedProduct?.rating        ?? 4.83;
   const productReviews = passedProduct?.reviewCount   ?? PRODUCT_REVIEW_COUNT;
   const productSoldCount =
     passedProduct?.soldCount ?? passedProduct?.sold ?? PRODUCT_SOLD_COUNT;
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [wishlisted, setWishlisted] = useState(false);
+  const [personaliseTag, setPersonaliseTag] = useState(false);
   const [selectedColorIndex, setSelectedColorIndex] = useState(0);
   const [stockLeft] = useState(() => Math.floor(Math.random() * 8) + 3);
   const deliveryWindow = (() => {
@@ -762,61 +763,56 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
           {/* ── Desktop: [main image + thumbs] [buy box] ── */}
           <div className="flex flex-col lg:flex-row items-start gap-5 lg:gap-10">
 
-            {/* Gallery cluster */}
+            {/* Gallery cluster — thumbs left, main image right */}
             {(() => {
               const imgs = productImages.length ? productImages : [productHeader];
               return (
-                <div className="w-full lg:w-[50%] shrink-0 flex flex-col gap-3 lg:sticky lg:top-6 self-start">
-                  {/* Main image */}
-                  <div className="relative w-full overflow-hidden bg-[#f2e6d8] rounded-lg" style={{ aspectRatio: '4/5' }}>
-                    <img
-                      src={imgs[selectedImage] || imgs[0]}
-                      alt={productName}
-                      className="w-full h-full object-cover cursor-zoom-in"
-                    />
-                    <button
-                      type="button"
-                      className="absolute top-3 left-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-[#c1694f] shadow-sm"
-                      aria-label="Zoom image"
-                    >
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path strokeLinecap="round" d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                      </svg>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setWishlisted((w) => !w)}
-                      className="absolute top-3 right-3 flex h-9 w-9 items-center justify-center rounded-full bg-white/90 shadow-sm"
-                      aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
-                    >
-                      <svg width="17" height="17" viewBox="0 0 24 24" fill={wishlisted ? '#c1694f' : 'none'} stroke="#c1694f" strokeWidth="2">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                      </svg>
-                    </button>
-                    <span
-                      className="absolute bottom-4 right-4 text-2xl"
-                      style={{ fontFamily: "'Brush Script MT', 'Segoe Script', cursive", color: 'rgba(20,12,12,0.8)' }}
-                    >
-                      Kruthika
-                    </span>
-                  </div>
-
-                  {/* Thumbs */}
+                <div className="flex w-full shrink-0 flex-col gap-3 self-start lg:sticky lg:top-6 lg:w-[52%] lg:flex-row">
                   {imgs.length > 1 && (
-                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                    <div className="hidden max-h-[560px] w-[76px] shrink-0 flex-col gap-2 overflow-y-auto lg:flex">
                       {imgs.map((img, i) => (
                         <button
                           key={i}
                           type="button"
                           onClick={() => setSelectedImage(i)}
-                          className="shrink-0 overflow-hidden bg-white border-2 rounded transition-all"
-                          style={{
-                            width: '68px',
-                            height: '68px',
-                            borderColor: selectedImage === i ? '#c1694f' : '#e5e7eb',
-                          }}
+                          className="h-[76px] w-[76px] shrink-0 overflow-hidden rounded-lg border-2 bg-white"
+                          style={{ borderColor: selectedImage === i ? '#1F4E5F' : '#e5e7eb' }}
                         >
-                          <img src={img} alt={`${productName} ${i + 1}`} className="w-full h-full object-cover" />
+                          <img src={img} alt={`${productName} ${i + 1}`} className="h-full w-full object-cover" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  <div className="relative w-full flex-1 overflow-hidden rounded-2xl bg-[#f4f1ec]" style={{ aspectRatio: '1 / 1' }}>
+                    <img
+                      src={imgs[selectedImage] || imgs[0]}
+                      alt={productName}
+                      className="h-full w-full cursor-zoom-in object-cover"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setWishlisted((w) => !w)}
+                      className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm"
+                      aria-label={wishlisted ? 'Remove from wishlist' : 'Add to wishlist'}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill={wishlisted ? '#1F4E5F' : 'none'} stroke="#9ca3af" strokeWidth="1.8">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                      </svg>
+                    </button>
+                  </div>
+
+                  {imgs.length > 1 && (
+                    <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide lg:hidden">
+                      {imgs.map((img, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setSelectedImage(i)}
+                          className="h-[64px] w-[64px] shrink-0 overflow-hidden rounded-lg border-2 bg-white"
+                          style={{ borderColor: selectedImage === i ? '#1F4E5F' : '#e5e7eb' }}
+                        >
+                          <img src={img} alt={`${productName} ${i + 1}`} className="h-full w-full object-cover" />
                         </button>
                       ))}
                     </div>
@@ -826,42 +822,29 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
             })()}
 
             {/* Buy box */}
-            <div className="flex-1 flex flex-col gap-0 min-w-0 pt-1">
+            <div className="flex min-w-0 flex-1 flex-col pt-1">
+              <p className="mb-2 text-sm font-medium" style={{ color: '#e67a3a' }}>
+                {productSoldCount}+ bought this week
+              </p>
 
-              <h1 className="mb-2 text-2xl md:text-3xl font-bold leading-snug" style={{ color: '#3d1f1f' }}>
-                {productName}
-              </h1>
-
-              {/* Rating, reviews, Amazon + Myntra */}
               <div className="mb-2 flex flex-wrap items-center gap-x-3 gap-y-2">
-                <div className="flex items-center gap-1.5">
-                  <span className="flex gap-0.5" aria-hidden>
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <svg key={i} width="15" height="15" viewBox="0 0 24 24">
-                        <path
-                          d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                          fill={i <= Math.round(productRating) ? RATING_ACCENT : 'none'}
-                          stroke={RATING_ACCENT}
-                          strokeWidth="1.4"
-                        />
-                      </svg>
-                    ))}
-                  </span>
-                  <span className="text-sm font-semibold tabular-nums" style={{ color: '#3d1f1f' }}>
-                    {Number(productRating).toFixed(1)}
-                  </span>
-                  <a
-                    href="#reviews-section"
-                    className="text-sm text-gray-500 underline-offset-2 hover:underline"
-                  >
-                    ({Number(productReviews).toLocaleString('en-IN')} reviews)
-                  </a>
-                </div>
+                <a href="#reviews-section" className="flex items-center gap-1.5 text-sm text-gray-800">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f97316" />
+                  </svg>
+                  <span className="font-semibold tabular-nums">{Number(productRating).toFixed(2)}</span>
+                  <span className="text-gray-600">({Number(productReviews).toLocaleString('en-IN')} reviews)</span>
+                </a>
                 <span className="hidden h-4 w-px bg-gray-200 sm:inline" aria-hidden />
                 <MarketplaceBadgeRow />
               </div>
 
-              {/* Keywords */}
+              <h1 className="mb-1.5 text-[26px] font-bold leading-snug text-gray-900 md:text-[32px]">
+                {productName}
+              </h1>
+              <p className="mb-3 text-sm text-gray-500">{PRODUCT_SUBTITLE}</p>
+
+              {/* Keywords — keep as-is */}
               <div className="mb-4 flex flex-wrap gap-1.5">
                 {(passedProduct?.tags?.length ? passedProduct.tags : PDP_KEYWORD_TAGS).map((tag, i) => {
                   const colors = [
@@ -885,31 +868,32 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                 })}
               </div>
 
-              {/* Price */}
-              <div className="mb-3 flex items-center gap-2.5 flex-wrap">
-                {productOriginal > productPrice && (
-                  <span className="text-base text-gray-400 line-through">
-                    Rs. {Number(productOriginal).toLocaleString('en-IN')}.00
-                  </span>
-                )}
-                <span className="text-2xl font-bold" style={{ color: '#3d1f1f' }}>
-                  Rs. {Number(productPrice).toLocaleString('en-IN')}.00
+              <div className="mb-2 flex flex-wrap items-baseline gap-2">
+                <span className="text-3xl font-bold text-gray-900">
+                  ₹ {Number(productPrice).toLocaleString('en-IN')}
                 </span>
                 {productOriginal > productPrice && (
                   <>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-600">Sale</span>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold text-white" style={{ background: '#3d1f1f' }}>
-                      -{productDiscount}%
+                    <span className="text-lg text-gray-400 line-through">
+                      ₹ {Number(productOriginal).toLocaleString('en-IN')}
                     </span>
+                    <span className="text-base font-semibold text-green-600">({productDiscount}% OFF)</span>
                   </>
                 )}
               </div>
+              {productOriginal > productPrice && (
+                <div className="mb-5 flex flex-wrap items-center gap-2">
+                  <span className="rounded-md bg-green-50 px-3 py-1 text-sm font-medium text-green-700">
+                    You save ₹ {(productOriginal - productPrice).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                  </span>
+                  <span className="text-xs text-gray-400">(Incl. of all taxes)</span>
+                </div>
+              )}
 
-              {/* Color variants — only shown when the product actually has them */}
               {Array.isArray(passedProduct?.colorVariants) && passedProduct.colorVariants.length > 0 && (
                 <div className="mb-4">
                   <p className="mb-2 text-sm text-gray-700">
-                    Color: <span className="font-semibold" style={{ color: '#3d1f1f' }}>{passedProduct.colorVariants[selectedColorIndex]}</span>
+                    Color: <span className="font-semibold text-gray-900">{passedProduct.colorVariants[selectedColorIndex]}</span>
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {passedProduct.colorVariants.map((color, i) => (
@@ -917,11 +901,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                         key={color}
                         type="button"
                         onClick={() => setSelectedColorIndex(i)}
-                        className="px-4 py-2.5 text-sm rounded-md transition-colors"
+                        className="rounded-md px-4 py-2.5 text-sm"
                         style={{
-                          border: `1px solid ${selectedColorIndex === i ? '#3d1f1f' : '#e5e7eb'}`,
+                          border: `1px solid ${selectedColorIndex === i ? '#1F4E5F' : '#e5e7eb'}`,
                           color: selectedColorIndex === i ? '#fff' : '#57534e',
-                          backgroundColor: selectedColorIndex === i ? '#3d1f1f' : '#fff',
+                          backgroundColor: selectedColorIndex === i ? '#1F4E5F' : '#fff',
                         }}
                       >
                         {color}
@@ -931,115 +915,89 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                 </div>
               )}
 
-              {/* Low stock indicator */}
+              <button
+                type="button"
+                className="mb-4 flex h-14 w-full items-center justify-center gap-2 rounded-lg text-[15px] font-bold tracking-wide text-white"
+                style={{ backgroundColor: '#1F4E5F' }}
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 7h15l-1.5 9h-12L5 4H2" />
+                  <circle cx="9" cy="20" r="1.4" fill="currentColor" />
+                  <circle cx="18" cy="20" r="1.4" fill="currentColor" />
+                </svg>
+                ADD TO BAG
+              </button>
+
+              <div className="mb-6 flex flex-wrap gap-2">
+                {['Proudly Indian', 'Handcrafted', '100% Vegan'].map((label) => (
+                  <span
+                    key={label}
+                    className="inline-flex items-center gap-1 rounded-full bg-sky-50 px-3 py-1.5 text-xs font-medium text-sky-800"
+                  >
+                    <span className="text-sky-600">✓</span> {label}
+                  </span>
+                ))}
+              </div>
+
               <div className="mb-5">
-                <p className="mb-1.5 text-sm font-semibold" style={{ color: '#3d1f1f' }}>
-                  Low stock: {stockLeft} left
-                </p>
-                <div className="h-1.5 w-full max-w-[280px] rounded-full bg-[#1c1c1c] overflow-hidden">
-                  <div
-                    className="h-full rounded-full"
-                    style={{ width: `${Math.min(100, (stockLeft / 15) * 100)}%`, background: '#e08a4e' }}
-                  />
+                <div className="mb-2 flex items-center justify-between">
+                  <p className="text-sm font-semibold text-gray-900">Personalise Your Bag</p>
+                  <button type="button" className="text-xs text-gray-500 underline underline-offset-2">ⓘ More info</button>
+                </div>
+                <div className="flex items-center gap-3 rounded-xl border border-gray-200 px-3 py-3">
+                  <div className="h-12 w-12 shrink-0 overflow-hidden rounded-md bg-[#5c3a2e]">
+                    <img src={productImages[0] || PRODUCT_PAGE_IMAGES[0]} alt="" className="h-full w-full object-cover opacity-80" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-gray-900">Personalised Tag (Brown)</p>
+                    <p className="text-xs text-gray-500">Makes it thoughtful and personal</p>
+                  </div>
+                  <span className="shrink-0 text-sm font-semibold text-gray-900">₹ 149</span>
+                  <button
+                    type="button"
+                    role="switch"
+                    aria-checked={personaliseTag}
+                    onClick={() => setPersonaliseTag((v) => !v)}
+                    className={`relative h-6 w-11 shrink-0 rounded-full transition-colors ${personaliseTag ? 'bg-[#1F4E5F]' : 'bg-gray-300'}`}
+                  >
+                    <span className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${personaliseTag ? 'left-[22px]' : 'left-0.5'}`} />
+                  </button>
                 </div>
               </div>
 
-              {/* Quantity */}
-              <p className="mb-2 text-sm font-semibold" style={{ color: '#3d1f1f' }}>Quantity</p>
-              <div className="mb-5 inline-flex items-center border border-gray-300 rounded-lg w-fit">
-                <button
-                  type="button"
-                  className="flex h-11 w-11 items-center justify-center text-lg text-gray-700 hover:bg-gray-50"
-                  onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                  aria-label="Decrease quantity"
-                >
-                  −
-                </button>
-                <span className="flex h-11 min-w-[48px] items-center justify-center border-x border-gray-300 text-sm font-medium tabular-nums">
-                  {quantity}
+              <div className="mb-6 flex items-start gap-3 rounded-xl border border-amber-100 bg-amber-50 px-4 py-3">
+                <span className="mt-0.5 shrink-0 rounded bg-amber-400 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
+                  Free Gift
                 </span>
-                <button
-                  type="button"
-                  className="flex h-11 w-11 items-center justify-center text-lg text-gray-700 hover:bg-gray-50"
-                  onClick={() => setQuantity((q) => q + 1)}
-                  aria-label="Increase quantity"
-                >
-                  +
-                </button>
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">One more reason to check out!</p>
+                  <p className="text-sm text-gray-600">FREE Phone Sling worth ₹1,499</p>
+                </div>
               </div>
 
-              {/* CTAs */}
-              <div className="mb-5 flex gap-3 flex-wrap">
-                <button
-                  type="button"
-                  className="flex h-12 flex-1 min-w-[160px] items-center justify-center gap-2 rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#C96B5A' }}
-                >
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                  </svg>
-                  Add To Cart
-                </button>
-                <button
-                  type="button"
-                  className="flex h-12 flex-1 min-w-[160px] items-center justify-center rounded-lg text-sm font-bold text-white transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#7a2e2e' }}
-                >
-                  Buy Now
-                </button>
-              </div>
-
-              {/* Guaranteed safe checkout */}
-              <div className="mb-3 flex items-center gap-2 text-sm text-gray-700">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                Guaranteed safe checkout
-              </div>
-
-              {/* Live social proof — cart / purchases / viewers */}
-              <SocialProofTicker />
-
-              {/* Delivery estimate */}
-              <div className="mb-2 flex items-center justify-between gap-3 flex-wrap border border-dashed border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-700">
-                <span className="flex items-center gap-2">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="9"/><path strokeLinecap="round" d="M12 7v5l3 3"/>
-                  </svg>
-                  Estimated delivery between <strong>{deliveryWindow}</strong>
-                </span>
-                <button type="button" className="text-sm underline underline-offset-2 hover:text-gray-900">Know More</button>
-              </div>
-
-              {/* Shipping info */}
-              <p className="mb-1 text-sm text-gray-600">📦 Most orders ship within 1–3 days. Pre-order items ship within 10–15 days.</p>
+              <p className="mb-1 text-sm text-gray-600">📦 Most orders ship within 1–3 days.</p>
               <p className="mb-5 text-sm text-gray-600">🚚 Free shipping in India on orders above ₹ 999</p>
 
-              {/* Accordions */}
               {[
                 {
                   label: 'PRODUCT DETAILS',
                   content: PRODUCT_DESCRIPTION,
                 },
                 {
-                  label: 'NUTRITION & INGREDIENTS',
-                  content:
-                    'Per 330ml bottle: 24g clear whey isolate protein, 7g BCAA, 130 calories, zero added sugar, zero carbs. Water, whey protein isolate, natural mango and orange flavour, electrolytes, citric acid, sucralose.',
+                  label: 'SIZE & CAPACITY',
+                  content: 'Fits a 15" laptop. Dual shoulder straps. 13L capacity — room for charger, bottle, and daily essentials without looking bulky.',
                 },
                 {
-                  label: 'HOW TO USE',
-                  content:
-                    'Ready to drink — no shaker, no mixing. Best served chilled. Have one bottle post-workout, between meals, or any time you need protein on the go. Store in a cool, dry place and refrigerate after opening.',
+                  label: 'CARE',
+                  content: 'Wipe with a soft damp cloth. Keep away from prolonged rain. Store stuffed so the structure holds.',
                 },
                 {
                   label: 'RETURN POLICY',
-                  content:
-                    'As a consumable product, opened bottles cannot be returned. Damaged or leaking packs are replaced free — raise a request within 48 hours of delivery with an unboxing photo.',
+                  content: 'Unused bags in original packing can be returned as per site policy. Damaged items are replaced — raise a request within 48 hours of delivery with photos.',
                 },
                 {
                   label: 'SHIPPING POLICY',
-                  content:
-                    'Fast dispatch across India with COD available. Free shipping on packs of 12 and above. Orders are packed in protective cartons to prevent transit damage.',
+                  content: 'Fast dispatch across India. Free shipping on orders above ₹999. Packed to protect prints and hardware in transit.',
                 },
               ].map(({ label, content }) => (
                 <AccordionRow key={label} label={label} content={content} />
@@ -1317,7 +1275,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                         href={AJNAA_INSTAGRAM_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex w-full items-center justify-center py-3 rounded-none text-sm font-bold text-white bg-[#B99B7B] hover:opacity-95 transition-opacity"
+                        className="inline-flex w-full items-center justify-center py-3 rounded-none text-sm font-bold text-white bg-[#1F4E5F] hover:opacity-95 transition-opacity"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Follow {AJNAA_INSTAGRAM_HANDLE}
@@ -1418,7 +1376,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                       ))}
                     </div>
                     <p className="mb-3 text-sm text-stone-600">
-                      Based on <strong className="font-semibold text-stone-900">2,180</strong> reviews
+                      Based on <strong className="font-semibold text-stone-900">10,000</strong> reviews
                     </p>
                     <div
                       className="inline-flex items-center gap-2 rounded-none border border-stone-200/70 px-3.5 py-1.5 text-xs font-medium"
@@ -1550,7 +1508,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                           <p className="text-[11px] leading-snug text-stone-600">
                             <span className="font-semibold tabular-nums text-stone-800">{AJNAA_INSTAGRAM_FOLLOWERS_LABEL}</span>
                             {' '}
-                            followers · Premium imitation jewellery.
+                            followers · Bags. Backpacks. Luggage.
                           </p>
                         </div>
                       </div>
@@ -1575,12 +1533,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
                 <div className="px-6 pb-2 pt-4">
                   <h4 className="mb-2.5 font-serif text-lg font-normal tracking-tight text-stone-900 md:text-xl">
-                    What Kruthika customers are saying
+                    What Zouk customers are saying
                   </h4>
                   <p className="text-[14px] leading-[1.65] text-stone-600">
                     {isAISummaryExpanded ? (
                       <>
-                        Customers say the pieces look like real gold in person and photograph even better. Reviews highlight the rich polish, lightweight wear through long functions, and finishes that stay bright after multiple uses. Shoppers frequently praise the gift-ready packaging, skin-friendly metal, and reliable shipping — including orders that arrive well packed overseas.{' '}
+                        Customers say the prints look even better in person and the bags hold their shape. Reviews highlight sturdy vegan leather, roomy backpacks for commute and travel, and luggage that survives trips without scuffing. Shoppers frequently praise gift-ready packing and reliable shipping — including orders that arrive well packed overseas.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(false)}
@@ -1591,7 +1549,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                       </>
                     ) : (
                       <>
-                        Customers love that it looks like real gold — rich polish, lightweight, and it holds up through weddings and functions.{' '}
+                        Customers love the bold prints — structured totes, commute backpacks, and luggage that actually lasts.{' '}
                         <button
                           type="button"
                           onClick={() => setIsAISummaryExpanded(true)}
@@ -1606,11 +1564,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
                 <div className="px-6 pb-4 pt-3 flex flex-wrap items-center gap-2 text-[12px] leading-relaxed">
                   {[
-                    { label: 'Looks Like Real Gold', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
-                    { label: 'Lightweight', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
-                    { label: 'Anti-Tarnish', bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
+                    { label: 'Bold Prints', bg: '#fefce8', text: '#854d0e', border: '#fef08a' },
+                    { label: '100% Vegan', bg: '#f0fdf4', text: '#166534', border: '#bbf7d0' },
+                    { label: 'Travel Ready', bg: '#eff6ff', text: '#1e40af', border: '#bfdbfe' },
                     { label: 'Gift-Ready Packing', bg: '#f5f3ff', text: '#5b21b6', border: '#ddd6fe' },
-                    { label: 'Wedding Favourite', bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
+                    { label: 'Proudly Indian', bg: '#fff7ed', text: '#9a3412', border: '#fed7aa' },
                   ].map((kw) => (
                     <span
                       key={kw.label}
@@ -1657,7 +1615,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                     <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
                       <div>
                         <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">CUSTOMER PHOTOS</h3>
-                        <p className="text-sm text-stone-600">Real moments from the Kruthika community</p>
+                        <p className="text-sm text-stone-600">Real moments from the Zouk community</p>
                       </div>
                       <span className="rounded-none bg-stone-100 px-3 py-1 text-xs font-medium tabular-nums text-stone-600">
                         {customerReviewImages.length} uploads
