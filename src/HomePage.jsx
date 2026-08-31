@@ -292,6 +292,7 @@ const HomePage = ({ onProductClick }) => {
       
       {/* Live User Counter */}
       <LiveUserCounter className={`fixed left-4 z-50 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-[46px]'}`} />
+      <InstagramTrustCarousel />
 
       {/* Popular Collections Section */}
       <PopularCollections

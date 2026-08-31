@@ -2,11 +2,8 @@ import React, { useEffect, useMemo, useState } from 'react';
 
 const AMAZON_LOGO =
   'https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg';
-const QuickCommerceIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB2A20" aria-hidden>
-    <path d="M13 2L4.5 13.5H11l-1 8.5 8.5-11.5H12l1-8.5z" />
-  </svg>
-);
+const FLIPKART_LOGO =
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxggIt5CPQqUxKi3eW4QhNIKv5eH5LdhRwMA&s';
 
 const InstaRealIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" className="h-4 w-4 shrink-0" aria-hidden>
@@ -35,7 +32,7 @@ const StarRow = () => (
 );
 
 const ComfortIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB2A20" aria-hidden>
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="#1F4E5F" aria-hidden>
     <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 6 4 4 6.5 4c1.74 0 3.41 1.01 4.22 2.44C11.09 5.01 12.76 4 14.5 4 17 4 19 6 19 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
   </svg>
 );
@@ -44,7 +41,7 @@ function RatingBadge({ value }) {
   return (
     <div
       className="flex items-center gap-1 px-2 py-0.5 rounded-md shrink-0"
-      style={{ backgroundColor: '#DB2A20' }}
+      style={{ backgroundColor: '#1F4E5F' }}
     >
       <svg width="10" height="10" viewBox="0 0 24 24" fill="#FFEA00" aria-hidden>
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
@@ -57,7 +54,7 @@ function RatingBadge({ value }) {
 }
 
 /**
- * Single rotated trust strip — exactly 5 slides: 10K+ / Instagram / Amazon / Nykaa / comfort.
+ * Right-edge trust strip — rotated 270deg, slides star / love / Amazon / Flipkart / overall.
  */
 export default function InstagramTrustCarousel({
   instagramUrl = 'https://www.instagram.com/zoukonline/',
@@ -65,24 +62,32 @@ export default function InstagramTrustCarousel({
   followersLabel = '1M',
   shopUrl = 'https://zouk.co.in/',
   amazonUrl = 'https://www.amazon.in/',
-  quickCommerceUrl = 'https://blinkit.com/',
+  flipkartUrl = 'https://www.flipkart.com/',
 }) {
   const trustSlides = useMemo(
     () => [
       {
-        key: 'trusted',
+        key: 'stars',
         href: shopUrl,
-        ariaLabel: 'Trusted customers — visit Zouk',
+        ariaLabel: '4.8 star product rating',
         icon: <StarRow />,
-        text: 'Trusted by 45,000+ Customers',
+        text: '4.8 star rating on this product',
+        badge: '4.8',
+      },
+      {
+        key: 'loved-product',
+        href: shopUrl,
+        ariaLabel: 'Customers who loved this product',
+        icon: <ComfortIcon />,
+        text: '10,000+ customers loved this product',
         badge: null,
       },
       {
-        key: 'instagram',
+        key: 'loved-brand',
         href: instagramUrl,
-        ariaLabel: 'Zouk on Instagram',
+        ariaLabel: 'Customers who love Zouk',
         icon: <InstaRealIcon />,
-        text: `${followersLabel} followers · ${instagramHandle}`,
+        text: `${followersLabel} love Zouk · ${instagramHandle}`,
         badge: null,
       },
       {
@@ -92,27 +97,29 @@ export default function InstagramTrustCarousel({
         icon: (
           <img src={AMAZON_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
-        text: '980+ ratings · Amazon India',
+        text: '14K+ ratings · Amazon',
         badge: '4.5',
       },
       {
-        key: 'quick-commerce',
-        href: quickCommerceUrl,
-        ariaLabel: 'Shop Zouk bags',
-        icon: <QuickCommerceIcon />,
-        text: 'Shipping worldwide · Free above ₹999',
-        badge: null,
+        key: 'flipkart',
+        href: flipkartUrl,
+        ariaLabel: 'Zouk on Flipkart',
+        icon: (
+          <img src={FLIPKART_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
+        ),
+        text: '8K+ ratings · Flipkart',
+        badge: '4.3',
       },
       {
-        key: 'formula',
+        key: 'overall',
         href: shopUrl,
-        ariaLabel: 'Bags, backpacks and luggage — Zouk',
-        icon: <ComfortIcon />,
-        text: 'Bags · Backpacks · Luggage',
-        badge: null,
+        ariaLabel: 'Overall marketplace rating',
+        icon: <StarRow />,
+        text: '4.6 overall across marketplaces',
+        badge: '4.6',
       },
     ],
-    [followersLabel, instagramHandle, instagramUrl, shopUrl, amazonUrl, quickCommerceUrl]
+    [followersLabel, instagramHandle, instagramUrl, shopUrl, amazonUrl, flipkartUrl]
   );
 
   const [trustIdx, setTrustIdx] = useState(0);
@@ -149,12 +156,12 @@ export default function InstagramTrustCarousel({
         }
       `}</style>
       <div
-        className="fixed right-0 rounded-none px-4 py-2.5 shadow-lg z-30 overflow-hidden border border-gray-200/80 bg-white"
+        className="fixed right-4 rounded-none px-4 py-2.5 shadow-lg z-30 overflow-hidden border border-gray-200/80 bg-white"
         style={{
           top: '226px',
           transform: 'rotate(270deg)',
           transformOrigin: 'right center',
-          minWidth: '230px',
+          minWidth: '280px',
           height: '36px',
         }}
         role="region"
@@ -165,7 +172,7 @@ export default function InstagramTrustCarousel({
           href={slide.href}
           target="_blank"
           rel="noopener noreferrer"
-          className="insta-trust-slide flex items-center gap-2 whitespace-nowrap h-full text-inherit no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#DB2A20] focus-visible:ring-offset-1 rounded"
+          className="insta-trust-slide flex items-center gap-2 whitespace-nowrap h-full text-inherit no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1F4E5F] focus-visible:ring-offset-1 rounded"
           aria-label={slide.ariaLabel}
         >
           {row}

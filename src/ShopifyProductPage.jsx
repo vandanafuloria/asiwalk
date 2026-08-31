@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useCallback } from 'react';
-import { MarketplaceBadgeRow } from './MarketplaceBadgeRotator';
+import MarketplaceBadgeRotator from './MarketplaceBadgeRotator';
+import InstagramTrustCarousel from './InstagramTrustCarousel';
 import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
 import AIBrandEngine from './AIBrandEngine';
@@ -193,7 +194,7 @@ const SOCIAL_PROOF_MESSAGES = [
         <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
       </svg>
     ),
-    text: (n) => `${n} people added this to cart`,
+    text: (n) => `${n} people have this in their cart`,
   },
   {
     icon: (
@@ -235,7 +236,7 @@ function SocialProofTicker() {
   return (
     <div
       className="mb-4 flex items-center gap-1.5 w-fit max-w-full px-3 py-1.5 rounded-full"
-      style={{ backgroundColor: 'rgba(196,30,58,0.08)', border: '1px solid rgba(196,30,58,0.18)' }}
+      style={{ backgroundColor: 'rgba(31,78,95,0.08)', border: '1px solid rgba(31,78,95,0.18)' }}
       aria-live="polite"
     >
       <span
@@ -243,10 +244,10 @@ function SocialProofTicker() {
         style={{
           transition: 'opacity 350ms ease',
           opacity: visible ? 1 : 0,
-          color: '#c41e3a',
+          color: '#1F4E5F',
         }}
       >
-        <span className="shrink-0" style={{ color: '#c41e3a' }}>{icon}</span>
+        <span className="shrink-0" style={{ color: '#1F4E5F' }}>{icon}</span>
         {text(nums[idx])}
       </span>
     </div>
@@ -641,6 +642,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 relative">
+      <InstagramTrustCarousel />
 
       {/* Floating draggable video card */}
       {showVideoCard && (
@@ -836,7 +838,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                   <span className="text-gray-600">({Number(productReviews).toLocaleString('en-IN')} reviews)</span>
                 </a>
                 <span className="hidden h-4 w-px bg-gray-200 sm:inline" aria-hidden />
-                <MarketplaceBadgeRow />
+                <span className="inline-flex items-center rounded-full border border-gray-200 bg-white px-1.5 py-0.5 shadow-sm">
+                  <MarketplaceBadgeRotator />
+                </span>
               </div>
 
               <h1 className="mb-1.5 text-[26px] font-bold leading-snug text-gray-900 md:text-[32px]">
@@ -889,6 +893,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                   <span className="text-xs text-gray-400">(Incl. of all taxes)</span>
                 </div>
               )}
+
+              <SocialProofTicker />
 
               {Array.isArray(passedProduct?.colorVariants) && passedProduct.colorVariants.length > 0 && (
                 <div className="mb-4">

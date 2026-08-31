@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import MarketplaceBadgeRotator from './MarketplaceBadgeRotator';
 import './PopularCollections.css';
 
 function formatInr(amount) {
@@ -12,6 +13,9 @@ export function ProductCollectionCard({ product, onClick }) {
   return (
     <div className="zouk-card" onClick={() => onClick && onClick(product)}>
       <div className="zouk-card-img-wrap">
+        <div className="zouk-card-market-overlay" onClick={(e) => e.stopPropagation()}>
+          <MarketplaceBadgeRotator />
+        </div>
         <img src={product.image} alt={product.title} loading="lazy" className="zouk-card-img" />
         <button
           type="button"

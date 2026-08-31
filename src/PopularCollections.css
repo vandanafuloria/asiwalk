@@ -111,6 +111,18 @@
   display: block;
 }
 
+.zouk-card-market-overlay {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 4px 10px 4px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
 .zouk-card-heart {
   position: absolute;
   top: 10px;
