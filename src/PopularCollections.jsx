@@ -1,9 +1,48 @@
 import React, { useRef, useState } from 'react';
 import MarketplaceBadgeRotator from './MarketplaceBadgeRotator';
 import './PopularCollections.css';
+import './AsiwalkProductCard.css';
 
 function formatInr(amount) {
   return `₹ ${Number(amount).toLocaleString('en-IN')}`;
+}
+
+export function AsiwalkProductCard({ product, onClick }) {
+  if (!product) return null;
+
+  return (
+    <div className="asiwalk-card" onClick={() => onClick && onClick(product)}>
+      <div className="asiwalk-card-img-wrap">
+        <img src={product.image} alt={product.title} loading="lazy" className="asiwalk-card-img" />
+        <div className="asiwalk-card-market-overlay" onClick={(e) => e.stopPropagation()}>
+          <MarketplaceBadgeRotator />
+        </div>
+      </div>
+
+      <div className="asiwalk-card-body">
+        <h3 className="asiwalk-card-title">{product.title}</h3>
+        <p className="asiwalk-card-tagline">{product.tagline}</p>
+        {(product.rating || product.reviewCount) && (
+          <p className="asiwalk-card-rating">
+            {product.rating && <span className="asiwalk-card-rating-star">★ {Number(product.rating).toFixed(1)}</span>}
+            {product.reviewCount && <span className="asiwalk-card-rating-count">({Number(product.reviewCount).toLocaleString('en-IN')})</span>}
+          </p>
+        )}
+        <span className="asiwalk-card-price">{formatInr(product.currentPrice)}</span>
+      </div>
+
+      <button
+        type="button"
+        className="asiwalk-card-add"
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick && onClick(product);
+        }}
+      >
+        Add to cart
+      </button>
+    </div>
+  );
 }
 
 export function ProductCollectionCard({ product, onClick }) {
@@ -63,13 +102,15 @@ export function ProductCollectionCard({ product, onClick }) {
   );
 }
 
-const PopularCollections = ({ products = [], onProductClick }) => {
+const PopularCollections = ({ products = [], onProductClick, cardVariant = 'zouk' }) => {
   const scrollerRef = useRef(null);
+  const Card = cardVariant === 'asiwalk' ? AsiwalkProductCard : ProductCollectionCard;
+  const cardSelector = cardVariant === 'asiwalk' ? '.asiwalk-card' : '.zouk-card';
 
   const scrollByCards = (dir) => {
     const el = scrollerRef.current;
     if (!el) return;
-    const card = el.querySelector('.zouk-card');
+    const card = el.querySelector(cardSelector);
     const step = card ? card.getBoundingClientRect().width + 16 : 280;
     el.scrollBy({ left: dir * step, behavior: 'smooth' });
   };
@@ -78,7 +119,7 @@ const PopularCollections = ({ products = [], onProductClick }) => {
     <section className="zouk-bestsellers">
       <div className="zouk-bestsellers-head">
         <h2>Explore Bestsellers</h2>
-        <a href="https://zouk.co.in/" target="_blank" rel="noopener noreferrer">
+        <a href="https://asiwalk.com/" target="_blank" rel="noopener noreferrer">
           View All
         </a>
       </div>
@@ -90,9 +131,12 @@ const PopularCollections = ({ products = [], onProductClick }) => {
           </svg>
         </button>
 
-        <div className="zouk-bestsellers-scroller" ref={scrollerRef}>
+        <div
+          className={`zouk-bestsellers-scroller${cardVariant === 'asiwalk' ? ' zouk-bestsellers-scroller--flush' : ''}`}
+          ref={scrollerRef}
+        >
           {products.map((product) => (
-            <ProductCollectionCard key={product.id} product={product} onClick={onProductClick} />
+            <Card key={product.id} product={product} onClick={onProductClick} />
           ))}
         </div>
 

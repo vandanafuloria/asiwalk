@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { bestSellerProducts } from './scrapshalaBestSellers';
+import { ASIWALK_PRODUCTS } from './asiwalkProducts';
+import { GALLERY_IMAGES } from './PhotoGallery';
 
 const DISPLAY_NAMES = [
   ['Rahul', 'M.'],
@@ -37,14 +38,15 @@ const TIME_LABELS = [
   '8 min ago',
 ];
 
-/** Social-proof rotator — product titles & imagery from Scrapshala catalog */
-function buildActivitiesFromScrapshala(products) {
+/** Social-proof rotator — asiwalk product names paired with customer gallery photos */
+function buildActivities(products, images) {
   if (!products.length) return [];
   const out = [];
   const pattern = ['purchase', 'review', 'purchase', 'review', 'purchase', 'review'];
   const n = Math.max(pattern.length, products.length * 2);
   for (let i = 0; i < n; i++) {
     const p = products[i % products.length];
+    const photo = images.length ? images[i % images.length] : p.image;
     const type = pattern[i % pattern.length];
     const [first, last] = DISPLAY_NAMES[i % DISPLAY_NAMES.length];
     const name = `${first} ${last}`;
@@ -55,7 +57,7 @@ function buildActivitiesFromScrapshala(products) {
       location,
       product: p.title,
       time,
-      productImage: p.image,
+      productImage: photo,
     };
     if (type === 'purchase') {
       out.push({ type: 'purchase', ...base });
@@ -65,14 +67,14 @@ function buildActivitiesFromScrapshala(products) {
         type: 'review',
         ...base,
         stars,
-        reviewImage: p.image,
+        reviewImage: photo,
       });
     }
   }
   return out;
 }
 
-const activities = buildActivitiesFromScrapshala(bestSellerProducts);
+const activities = buildActivities(ASIWALK_PRODUCTS, GALLERY_IMAGES);
 
 const Stars = ({ count }) => (
   <span style={{ display: 'flex', gap: '2px', alignItems: 'center' }}>

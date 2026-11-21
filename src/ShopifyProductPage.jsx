@@ -5,9 +5,11 @@ import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
 import AIBrandEngine from './AIBrandEngine';
 import PhotoGallery, { GALLERY_IMAGES } from './PhotoGallery';
-import { ProductCollectionCard } from './PopularCollections';
+import { ProductCollectionCard, AsiwalkProductCard } from './PopularCollections';
 import TrustSignalsRotator from './TrustSignals';
 import PdpHeroReviewRotator from './PdpHeroReviewRotator';
+import MarketplaceReviewsScroller from './MarketplaceReviewsScroller';
+import { ASIWALK_PRODUCTS, ASIWALK_FACTS } from './asiwalkProducts';
 
 // ============================================
 // EDIT THESE VALUES TO CUSTOMIZE YOUR PRODUCT
@@ -24,7 +26,7 @@ import {
 } from './scrapshalaBestSellers';
 
 import reviewData from '../review.json';
-import { INSTAGRAM_POST_URLS } from './instagramPosts';
+import InstagramFloatingButton from './InstagramFloatingButton';
 
 /** Review images — use gallery images */
 const BRAND_REVIEW_IMAGES = GALLERY_IMAGES;
@@ -51,20 +53,20 @@ function formatSoldLabel(n) {
 const PRODUCT_PAGE_IMAGES = [...MUUN_HOME_GALLERY_IMAGES];
 
 // Brand Name
-const BRAND_NAME = 'Zouk';
-const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/zoukonline/';
-const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '1M';
-const AJNAA_INSTAGRAM_HANDLE = '@zoukonline';
-const AJNAA_INSTAGRAM_DISPLAY = 'Zouk';
+const BRAND_NAME = 'asiwalk';
+const AJNAA_INSTAGRAM_URL = 'https://www.instagram.com/asiwalk.in/';
+const AJNAA_INSTAGRAM_FOLLOWERS_LABEL = '5K';
+const AJNAA_INSTAGRAM_HANDLE = '@asiwalk.in';
+const AJNAA_INSTAGRAM_DISPLAY = 'asiwalk';
 const AJNAA_INSTAGRAM_POSTS = '2,180';
 const AJNAA_INSTAGRAM_FOLLOWING = '28';
 
 /** Reviews & star ratings — black */
-const REVIEW_ACCENT = '#1F4E5F';
+const REVIEW_ACCENT = '#111111';
 const REVIEW_RING_TRACK = '#e7e5e4';
-const REVIEW_SOFT = 'rgba(31, 78, 95, 0.08)';
-const REVIEW_ACCENT_BORDER = 'rgba(31, 78, 95, 0.25)';
-const RATING_ACCENT = '#1F4E5F';
+const REVIEW_SOFT = 'rgba(17, 17, 17, 0.06)';
+const REVIEW_ACCENT_BORDER = 'rgba(17, 17, 17, 0.18)';
+const RATING_ACCENT = '#111111';
 /** Price text & primary CTAs */
 const PDP_CTA = '#111111';
 const PDP_ACCENT = '#c41e3a';
@@ -80,7 +82,7 @@ const PRODUCT_ORIGINAL_PRICE = 1999;
 const PRODUCT_DISCOUNT = 25;
 const PRODUCT_DESCRIPTION =
   'A structured office tote with a bold GeoOptics print, dual shoulder straps, and space for a 15" laptop. Proudly Indian, handcrafted, and 100% vegan.';
-const PRODUCT_BRAND = 'Zouk';
+const PRODUCT_BRAND = 'asiwalk';
 
 /** Bullet highlights under the description */
 const PRODUCT_HIGHLIGHTS = [
@@ -294,12 +296,17 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
   const productImages = passedProduct?.galleryImages?.length
     ? passedProduct.galleryImages
     : passedProduct?.image
-      ? [passedProduct.image, ...PRODUCT_PAGE_IMAGES.filter((u) => u !== passedProduct.image)]
+      ? passedProduct.category === 'perfume'
+        ? [passedProduct.image]
+        : [passedProduct.image, ...PRODUCT_PAGE_IMAGES.filter((u) => u !== passedProduct.image)]
       : PRODUCT_PAGE_IMAGES;
   const productRating  = passedProduct?.rating        ?? 4.83;
   const productReviews = passedProduct?.reviewCount   ?? PRODUCT_REVIEW_COUNT;
   const productSoldCount =
     passedProduct?.soldCount ?? passedProduct?.sold ?? PRODUCT_SOLD_COUNT;
+  const isPerfume = passedProduct?.category === 'perfume';
+  const relatedAsiwalkProducts = ASIWALK_PRODUCTS.filter((p) => p.id !== passedProduct?.id);
+  const [activeNoteTab, setActiveNoteTab] = useState('top');
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [wishlisted, setWishlisted] = useState(false);
@@ -333,8 +340,6 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, []);
-  const [showInstagramModal, setShowInstagramModal] = useState(false);
-  const [instagramLoading, setInstagramLoading] = useState(true);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [showVideoCard, setShowVideoCard] = useState(true);
   const [wildVideoIdx, setWildVideoIdx] = useState(null);
@@ -362,56 +367,6 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
       dragVideoRef.current.play().catch(() => {});
     }
   }, [showVideoCard]);
-
-  const instagramPosts = INSTAGRAM_POST_URLS;
-
-
-  // Load Instagram embed script
-  useEffect(() => {
-    const scriptId = 'instagram-embed-script';
-    if (!document.getElementById(scriptId)) {
-      const script = document.createElement('script');
-      script.id = scriptId;
-      script.src = 'https://www.instagram.com/embed.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
-  // Process embeds when modal opens
-  useEffect(() => {
-    if (!showInstagramModal) return;
-    
-    // Set loading state asynchronously to avoid linter warning
-    setTimeout(() => setInstagramLoading(true), 0);
-    
-      const processEmbeds = () => {
-        if (window.instgrm && window.instgrm.Embeds) {
-          window.instgrm.Embeds.process();
-        // Hide loading after embeds are processed
-        setTimeout(() => {
-          setInstagramLoading(false);
-        }, 2000);
-        }
-      };
-      
-    // Process embeds with delays to ensure DOM is ready
-    const timers = [
-      setTimeout(processEmbeds, 500),
-      setTimeout(processEmbeds, 1500),
-      setTimeout(processEmbeds, 2500)
-    ];
-
-    // Fallback: hide loading after max wait time
-    const fallbackTimer = setTimeout(() => {
-      setInstagramLoading(false);
-    }, 5000);
-
-      return () => {
-      timers.forEach(timer => clearTimeout(timer));
-      clearTimeout(fallbackTimer);
-      };
-  }, [showInstagramModal]);
 
   const pdpReelCount = SCRAPSHALA_SHOP_VIDEOS.length;
 
@@ -641,7 +596,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
   }, [isModalOpen, allReviewImages, findReviewForImage]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 relative">
+    <div className={`min-h-screen flex flex-col bg-gray-50 relative ${isPerfume ? 'pb-20 lg:pb-0' : ''}`}>
       <InstagramTrustCarousel />
 
       {/* Floating draggable video card */}
@@ -757,9 +712,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
           <nav className="mb-5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-xs text-gray-500">
             <button type="button" onClick={onHomeClick} className="text-gray-500 transition-colors hover:text-gray-800">Home</button>
             <span className="text-gray-400" aria-hidden>/</span>
-            <span className="text-gray-500">{PDP_BREADCRUMB_MID}</span>
+            <span className="text-gray-500">{isPerfume ? 'Perfumes' : PDP_BREADCRUMB_MID}</span>
             <span className="text-gray-400" aria-hidden>/</span>
-            <span className="font-medium text-gray-800">{PDP_BREADCRUMB_LAST}</span>
+            <span className="font-medium text-gray-800">{productName}</span>
           </nav>
 
           {/* ── Desktop: [main image + thumbs] [buy box] ── */}
@@ -843,12 +798,23 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                 </span>
               </div>
 
+              {isPerfume && passedProduct?.longevity && (
+                <div className="mb-3 inline-flex w-fit items-center gap-1.5 rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-gray-800">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#e67a3a" strokeWidth="2">
+                    <circle cx="12" cy="12" r="9" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 3" />
+                  </svg>
+                  {passedProduct.longevity}
+                </div>
+              )}
+
               <h1 className="mb-1.5 text-[26px] font-bold leading-snug text-gray-900 md:text-[32px]">
                 {productName}
               </h1>
-              <p className="mb-3 text-sm text-gray-500">{PRODUCT_SUBTITLE}</p>
+              <p className="mb-3 text-sm text-gray-500">{passedProduct?.subtitle || PRODUCT_SUBTITLE}</p>
 
               {/* Keywords — keep as-is */}
+              {!isPerfume && (
               <div className="mb-4 flex flex-wrap gap-1.5">
                 {(passedProduct?.tags?.length ? passedProduct.tags : PDP_KEYWORD_TAGS).map((tag, i) => {
                   const colors = [
@@ -871,6 +837,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                   );
                 })}
               </div>
+              )}
 
               <div className="mb-2 flex flex-wrap items-baseline gap-2">
                 <span className="text-3xl font-bold text-gray-900">
@@ -881,13 +848,13 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                     <span className="text-lg text-gray-400 line-through">
                       ₹ {Number(productOriginal).toLocaleString('en-IN')}
                     </span>
-                    <span className="text-base font-semibold text-green-600">({productDiscount}% OFF)</span>
+                    <span className="text-base font-semibold text-gray-900">({productDiscount}% OFF)</span>
                   </>
                 )}
               </div>
               {productOriginal > productPrice && (
                 <div className="mb-5 flex flex-wrap items-center gap-2">
-                  <span className="rounded-md bg-green-50 px-3 py-1 text-sm font-medium text-green-700">
+                  <span className="rounded-md bg-gray-100 px-3 py-1 text-sm font-medium text-gray-900">
                     You save ₹ {(productOriginal - productPrice).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                   <span className="text-xs text-gray-400">(Incl. of all taxes)</span>
@@ -924,16 +891,17 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
               <button
                 type="button"
                 className="mb-4 flex h-14 w-full items-center justify-center gap-2 rounded-lg text-[15px] font-bold tracking-wide text-white"
-                style={{ backgroundColor: '#1F4E5F' }}
+                style={{ backgroundColor: isPerfume ? '#111111' : '#1F4E5F' }}
               >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 7h15l-1.5 9h-12L5 4H2" />
                   <circle cx="9" cy="20" r="1.4" fill="currentColor" />
                   <circle cx="18" cy="20" r="1.4" fill="currentColor" />
                 </svg>
-                ADD TO BAG
+                {isPerfume ? 'ADD TO CART' : 'ADD TO BAG'}
               </button>
 
+              {!isPerfume && (
               <div className="mb-6 flex flex-wrap gap-2">
                 {['Proudly Indian', 'Handcrafted', '100% Vegan'].map((label) => (
                   <span
@@ -944,7 +912,107 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                   </span>
                 ))}
               </div>
+              )}
 
+              {isPerfume ? (
+                <>
+                  <p className="mb-5 text-sm leading-relaxed text-gray-600">
+                    {passedProduct?.description || PRODUCT_DESCRIPTION}
+                  </p>
+
+                  {Array.isArray(passedProduct?.accords) && passedProduct.accords.length > 0 && (
+                    <div className="mb-6">
+                      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-gray-900">Accords</p>
+                      <div className="flex flex-wrap gap-2 overflow-x-auto pb-1 scrollbar-hide">
+                        {passedProduct.accords.map((accord, i) => {
+                          const accordColors = ['#e9c65f', '#1F4E5F', '#8fcf9f', '#c97a9a', '#7a8fc9'];
+                          return (
+                            <span
+                              key={accord}
+                              className="shrink-0 rounded-full px-4 py-1.5 text-sm font-medium text-white"
+                              style={{ backgroundColor: accordColors[i % accordColors.length] }}
+                            >
+                              {accord}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+
+                  {passedProduct?.notes && (
+                    <div className="mb-6">
+                      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-gray-900">Notes</p>
+                      <div className="mb-3 flex border-b border-gray-200">
+                        {['top', 'heart', 'base'].map((tab) => (
+                          <button
+                            key={tab}
+                            type="button"
+                            onClick={() => setActiveNoteTab(tab)}
+                            className={`-mb-px border-b-2 px-4 py-2 text-sm font-semibold uppercase tracking-wide ${
+                              activeNoteTab === tab ? 'border-gray-900 text-gray-900' : 'border-transparent text-gray-400'
+                            }`}
+                          >
+                            {tab}
+                          </button>
+                        ))}
+                      </div>
+                      <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
+                        {(passedProduct.notes[activeNoteTab] || []).map((note) => (
+                          <div key={note} className="flex w-20 shrink-0 flex-col items-center gap-1.5 text-center">
+                            <span
+                              className="flex h-14 w-14 items-center justify-center rounded-full text-lg"
+                              style={{ background: '#f4f1ec' }}
+                              aria-hidden
+                            >
+                              🌿
+                            </span>
+                            <span className="text-xs leading-tight text-gray-700">{note}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mb-6 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-gray-900">
+                    {ASIWALK_FACTS.map((fact) => (
+                      <div key={fact.label} className="flex flex-col items-center gap-1.5 bg-gray-900 px-2 py-4 text-center">
+                        <span className="text-white/90" aria-hidden>
+                          {fact.icon === 'drop' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M12 2.5s6.5 7.5 6.5 12a6.5 6.5 0 11-13 0c0-4.5 6.5-12 6.5-12z"/></svg>
+                          )}
+                          {fact.icon === 'moon' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+                          )}
+                          {fact.icon === 'leaf' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 21c8 0 14-6 14-14V5h-2C9 5 5 11 5 19v2z"/></svg>
+                          )}
+                          {fact.icon === 'badge' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.6-4a12 12 0 01-8.6 3 12 12 0 01-8.6-3A12 12 0 003 9c0 5.6 3.8 10.3 9 11.6 5.2-1.3 9-6 9-11.6 0-1-.1-2-.4-3z"/></svg>
+                          )}
+                          {fact.icon === 'hourglass' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" d="M6 2h12M6 22h12M6 2c0 6 12 10 12 10S6 16 6 22M18 2c0 6-12 10-12 10s12 4 12 10"/></svg>
+                          )}
+                          {fact.icon === 'leaf2' && (
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path strokeLinecap="round" strokeLinejoin="round" d="M12 22s-8-4.5-8-11.5A6.5 6.5 0 0112 5a6.5 6.5 0 018 5.5C20 17.5 12 22 12 22z"/></svg>
+                          )}
+                        </span>
+                        <span className="text-[11px] font-medium leading-tight text-white/90">{fact.label}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {[
+                    { label: 'INGREDIENTS', content: 'Perfumer\'s alcohol (30% oil concentration), fragrance oils, and water. IFRA certified — no phthalates or parabens.' },
+                    { label: 'HOW TO APPLY', content: 'Spray on pulse points — wrists, neck, behind the ears. Avoid rubbing the skin together, which breaks down the top notes faster.' },
+                    { label: 'RETURN POLICY', content: 'Unopened bottles in original packing can be returned within 7 days. Opened bottles cannot be returned for hygiene reasons.' },
+                    { label: 'SHIPPING POLICY', content: 'Fast dispatch across India. Free shipping on orders above ₹999. Bottles are bubble-wrapped and boxed to survive transit.' },
+                  ].map(({ label, content }) => (
+                    <AccordionRow key={label} label={label} content={content} />
+                  ))}
+                </>
+              ) : (
+                <>
               <div className="mb-5">
                 <div className="mb-2 flex items-center justify-between">
                   <p className="text-sm font-semibold text-gray-900">Personalise Your Bag</p>
@@ -1008,12 +1076,26 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
               ].map(({ label, content }) => (
                 <AccordionRow key={label} label={label} content={content} />
               ))}
+                </>
+              )}
 
             </div>
           </div>
         </div>
       </main>
 
+      {isPerfume && (
+        <div className="fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-black py-4 text-sm font-semibold text-white lg:hidden">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 7h15l-1.5 9h-12L5 4H2" />
+            <circle cx="9" cy="20" r="1.4" fill="currentColor" />
+            <circle cx="18" cy="20" r="1.4" fill="currentColor" />
+          </svg>
+          Add to cart
+          <span className="text-white/50">·</span>
+          ₹ {Number(productPrice).toLocaleString('en-IN')}
+        </div>
+      )}
 
       {false && (() => {
         const WILD_VIDEOS = SCRAPSHALA_SHOP_VIDEOS;
@@ -1330,12 +1412,16 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
           </div>
           <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
             <div className="flex gap-4 md:gap-6 min-w-max pb-2">
-              {bestSellerProducts.map((product) => (
+              {(isPerfume ? relatedAsiwalkProducts : bestSellerProducts).map((product) => (
                 <div
                   key={product.id}
                   className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0"
                 >
-                  <ProductCollectionCard product={product} onClick={onProductClick} />
+                  {isPerfume ? (
+                    <AsiwalkProductCard product={product} onClick={onProductClick} />
+                  ) : (
+                    <ProductCollectionCard product={product} onClick={onProductClick} />
+                  )}
                 </div>
               ))}
             </div>
@@ -1346,9 +1432,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
       {/* Reviews Section - premium layout, full content */}
       <div id="reviews-section" className="w-full border-t border-stone-200/70 bg-white py-14 md:py-20">
         <div className="mx-auto w-full max-w-7xl px-4 md:px-6">
-          <div className="mb-11 md:mb-14 text-center">
+          <div className="mb-8 text-center">
             <h2 className="font-serif text-3xl font-medium tracking-tight text-stone-900 md:text-4xl">Customer Reviews</h2>
           </div>
+
+          <MarketplaceReviewsScroller />
 
           <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-14">
             {/* Left Side - Rating Breakdown — full row height so sticky has room to track while scrolling reviews */}
@@ -1539,7 +1627,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
 
                 <div className="px-6 pb-2 pt-4">
                   <h4 className="mb-2.5 font-serif text-lg font-normal tracking-tight text-stone-900 md:text-xl">
-                    What Zouk customers are saying
+                    What asiwalk customers are saying
                   </h4>
                   <p className="text-[14px] leading-[1.65] text-stone-600">
                     {isAISummaryExpanded ? (
@@ -1621,7 +1709,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                     <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
                       <div>
                         <h3 className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-stone-500">CUSTOMER PHOTOS</h3>
-                        <p className="text-sm text-stone-600">Real moments from the Zouk community</p>
+                        <p className="text-sm text-stone-600">Real moments from the asiwalk community</p>
                       </div>
                       <span className="rounded-none bg-stone-100 px-3 py-1 text-xs font-medium tabular-nums text-stone-600">
                         {customerReviewImages.length} uploads
@@ -1751,7 +1839,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                                 })}
                               </div>
                               <span className="truncate text-xs font-semibold text-stone-900">{review.name}</span>
-                              <svg className="h-4 w-4 shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                              <svg className="h-4 w-4 shrink-0 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                                 <path
                                   fillRule="evenodd"
                                   d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
@@ -1886,100 +1974,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
         </div>
       </div>
 
-      {/* Floating Instagram Button — icon only on mobile, pill on desktop */}
-      <button
-        className="fixed bottom-5 left-5 w-12 h-12 md:w-auto md:h-auto md:px-5 md:py-3 rounded-none flex items-center justify-center md:gap-2.5 text-sm font-semibold text-white cursor-pointer z-[1000] transition-all duration-300 hover:scale-105 active:scale-95"
-        style={{
-          background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
-          boxShadow: '0 4px 15px rgba(188, 24, 136, 0.4)'
-        }}
-        onClick={() => setShowInstagramModal(true)}
-        aria-label="See Our Instagram"
-      >
-        <svg className="w-6 h-6 flex-shrink-0" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-        </svg>
-        <span className="hidden md:inline whitespace-nowrap">See Our Instagram</span>
-      </button>
-
-      {/* Instagram Modal */}
-      {showInstagramModal && (
-        <div
-          className="fixed inset-0 z-[10000] flex items-stretch md:items-center justify-center bg-black/40 backdrop-blur-sm"
-          onClick={() => setShowInstagramModal(false)}
-        >
-          <div
-            className="relative flex flex-col w-full h-full md:h-[90vh] md:w-[420px] md:max-w-[95vw] md:rounded-2xl bg-white shadow-2xl overflow-hidden"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between border-b border-gray-100 px-4 py-3 flex-shrink-0">
-              <div className="flex items-center gap-2.5">
-                <svg width="22" height="22" viewBox="0 0 24 24" className="shrink-0">
-                  <defs>
-                    <linearGradient id="igGradModal" x1="0%" y1="100%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#f09433"/>
-                      <stop offset="50%" stopColor="#dc2743"/>
-                      <stop offset="100%" stopColor="#bc1888"/>
-                    </linearGradient>
-                  </defs>
-                  <path fill="url(#igGradModal)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <div>
-                  <p className="text-sm font-bold text-gray-900 leading-tight">{AJNAA_INSTAGRAM_HANDLE}</p>
-                  <p className="text-xs text-gray-600">{AJNAA_INSTAGRAM_DISPLAY}</p>
-                  <p className="text-xs text-gray-500">{AJNAA_INSTAGRAM_FOLLOWERS_LABEL} followers · {AJNAA_INSTAGRAM_POSTS} posts</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowInstagramModal(false)}
-                className="w-9 h-9 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
-                aria-label="Close"
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-                  <path d="M18 6L6 18M6 6l12 12"/>
-                </svg>
-              </button>
-            </div>
-
-            {/* Scrollable posts */}
-            <div className="flex-1 overflow-y-auto">
-              <div className="w-full max-w-sm mx-auto px-3 py-3 space-y-3">
-                {/* Loading Skeleton */}
-                {instagramLoading && (
-                  <div className="space-y-3">
-                    {[1, 2, 3].map((i) => (
-                      <div key={`skeleton-${i}`} className="w-full rounded-xl bg-gray-100 animate-pulse" style={{ height: '340px' }} />
-                    ))}
-                    <div className="flex items-center justify-center py-4 gap-2 text-gray-400 text-sm">
-                      <svg className="animate-spin h-4 w-4" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
-                      </svg>
-                      Loading posts...
-                    </div>
-                  </div>
-                )}
-
-                {/* Instagram Posts */}
-                <div style={{ display: instagramLoading ? 'none' : 'block' }} className="space-y-3">
-                  {instagramPosts.map((url) => (
-                    <div key={url} className="w-full flex justify-center">
-                      <blockquote
-                        className="instagram-media"
-                        data-instgrm-permalink={url}
-                        data-instgrm-version="14"
-                        style={{ width: '100%', maxWidth: '100%', minWidth: 0 }}
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <div className={isPerfume ? 'hidden lg:block' : ''}>
+        <InstagramFloatingButton />
+      </div>
 
       {/* Video Modal */}
       {selectedVideo && (
@@ -2023,12 +2020,16 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
           </div>
           <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
             <div className="flex gap-6 md:gap-8 min-w-max">
-              {bestSellerProducts.map((product) => (
+              {(isPerfume ? relatedAsiwalkProducts : bestSellerProducts).map((product) => (
                 <div
                   key={product.id}
                   className="w-[90vw] md:w-[340px] lg:w-[380px] flex-shrink-0"
                 >
-                  <ProductCollectionCard product={product} onClick={onProductClick} />
+                  {isPerfume ? (
+                    <AsiwalkProductCard product={product} onClick={onProductClick} />
+                  ) : (
+                    <ProductCollectionCard product={product} onClick={onProductClick} />
+                  )}
                 </div>
               ))}
             </div>
@@ -2182,7 +2183,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                   <div className="mb-4 flex items-start justify-between gap-3">
                     <div className="flex items-center gap-2">
                       <span className="text-lg font-semibold text-gray-900 md:text-xl">{selectedReview.name}</span>
-                      <svg className="h-5 w-5 shrink-0 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="h-5 w-5 shrink-0 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                     </div>
@@ -2250,7 +2251,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick, onProductClic
                 <div className="mb-3 flex items-start justify-between gap-3">
                   <div className="flex items-center gap-2">
                     <span className="text-base font-semibold text-gray-900">{selectedReview.name}</span>
-                    <svg className="h-4 w-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="h-4 w-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </div>

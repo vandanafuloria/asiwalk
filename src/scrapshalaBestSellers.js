@@ -1,4 +1,4 @@
-/** Best sellers — Zouk product imagery */
+/** Best sellers — Zouk product imagery (legacy bag catalog, kept for fallback) */
 
 export const MUUN_HOME_PRODUCT_IMAGES = [
   'https://zouk.co.in/cdn/shop/files/WOB_LL_04_a94640db-2897-4ea0-91ab-0419df1b7f8a.jpg?v=1777025154&width=1000',

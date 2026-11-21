@@ -40,13 +40,13 @@ const ComfortIcon = () => (
 function RatingBadge({ value }) {
   return (
     <div
-      className="flex items-center gap-1 px-2 py-0.5 rounded-md shrink-0"
-      style={{ backgroundColor: '#1F4E5F' }}
+      className="flex items-center gap-0.5 px-1.5 py-0.5 rounded shrink-0"
+      style={{ backgroundColor: '#111111' }}
     >
-      <svg width="10" height="10" viewBox="0 0 24 24" fill="#FFEA00" aria-hidden>
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="#FFEA00" aria-hidden>
         <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
       </svg>
-      <span className="font-bold text-white" style={{ fontSize: '11px' }}>
+      <span className="font-bold text-white" style={{ fontSize: '9px' }}>
         {value}
       </span>
     </div>
@@ -57,10 +57,9 @@ function RatingBadge({ value }) {
  * Right-edge trust strip — rotated 270deg, slides star / love / Amazon / Flipkart / overall.
  */
 export default function InstagramTrustCarousel({
-  instagramUrl = 'https://www.instagram.com/zoukonline/',
-  instagramHandle = '@zoukonline',
-  followersLabel = '1M',
-  shopUrl = 'https://zouk.co.in/',
+  instagramUrl = 'https://www.instagram.com/asiwalk.in/',
+  followersLabel = '5K',
+  shopUrl = 'https://asiwalk.com/',
   amazonUrl = 'https://www.amazon.in/',
   flipkartUrl = 'https://www.flipkart.com/',
 }) {
@@ -85,15 +84,15 @@ export default function InstagramTrustCarousel({
       {
         key: 'loved-brand',
         href: instagramUrl,
-        ariaLabel: 'Customers who love Zouk',
+        ariaLabel: 'Customers who love asiwalk',
         icon: <InstaRealIcon />,
-        text: `${followersLabel} love Zouk · ${instagramHandle}`,
+        text: `${followersLabel} love asiwalk`,
         badge: null,
       },
       {
         key: 'amazon',
         href: amazonUrl,
-        ariaLabel: 'Zouk on Amazon India',
+        ariaLabel: 'asiwalk on Amazon India',
         icon: (
           <img src={AMAZON_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
@@ -103,7 +102,7 @@ export default function InstagramTrustCarousel({
       {
         key: 'flipkart',
         href: flipkartUrl,
-        ariaLabel: 'Zouk on Flipkart',
+        ariaLabel: 'asiwalk on Flipkart',
         icon: (
           <img src={FLIPKART_LOGO} alt="" className="h-4 w-auto object-contain" style={{ maxHeight: '16px' }} />
         ),
@@ -119,7 +118,7 @@ export default function InstagramTrustCarousel({
         badge: '4.6',
       },
     ],
-    [followersLabel, instagramHandle, instagramUrl, shopUrl, amazonUrl, flipkartUrl]
+    [followersLabel, instagramUrl, shopUrl, amazonUrl, flipkartUrl]
   );
 
   const [trustIdx, setTrustIdx] = useState(0);
@@ -138,8 +137,8 @@ export default function InstagramTrustCarousel({
 
   const row = (
     <>
-      <span className="shrink-0 flex items-center">{slide.icon}</span>
-      <span className="text-xs font-semibold text-gray-900">{slide.text}</span>
+      <span className="shrink-0 flex items-center scale-90">{slide.icon}</span>
+      <span className="text-[10px] font-semibold text-gray-900">{slide.text}</span>
       {slide.badge ? <RatingBadge value={slide.badge} /> : null}
     </>
   );
@@ -156,13 +155,13 @@ export default function InstagramTrustCarousel({
         }
       `}</style>
       <div
-        className="fixed right-4 rounded-none px-4 py-2.5 shadow-lg z-30 overflow-hidden border border-gray-200/80 bg-white"
+        className="fixed right-4 rounded-none px-2.5 py-1.5 shadow-lg z-30 overflow-hidden border border-gray-200/80 bg-white"
         style={{
           top: '226px',
           transform: 'rotate(270deg)',
           transformOrigin: 'right center',
-          minWidth: '280px',
-          height: '36px',
+          minWidth: '200px',
+          height: '26px',
         }}
         role="region"
         aria-label="Trust highlights carousel"

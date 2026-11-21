@@ -1,122 +1,122 @@
 [
   {
-    "name": "Ananya Reddy",
-    "location": "Hyderabad",
+    "name": "Aarav Mehta",
+    "location": "Mumbai",
     "rating": 5,
-    "title": "Prints look even better in person",
-    "review": "I was nervous ordering a printed bag online, but this tote looks exactly like the pictures — bold, structured, and so much more premium in hand. Used it for a work week and a weekend trip and it still sits upright. The vegan leather feels sturdy, not plasticky, and I kept getting asked where I got it.",
+    "title": "Fresh and sophisticated fragrance",
+    "review": "Cold Call has such a refreshing opening. The citrus notes are noticeable immediately, but what I really love is how it settles into a warm woody fragrance. Perfect for office and evening outings.",
     "type": "large"
   },
   {
-    "name": "Priya Sharma",
-    "location": "Bengaluru",
+    "name": "Ananya Sharma",
+    "location": "Delhi",
     "rating": 5,
-    "title": "Best backpack for daily commute",
-    "review": "Bought the backpack for office and travel days. Laptop sleeve is snug, straps don’t dig in, and the print still looks fresh after rain. Friends keep thinking it is a much more expensive brand. At this price I have already added a matching sling.",
+    "title": "My new everyday perfume",
+    "review": "Absolutely loving this fragrance! It smells clean, fresh and expensive without being overpowering. The bergamot and grapefruit combination is beautiful. Definitely something I would wear every day.",
+    "type": "large"
+  },
+  {
+    "name": "Rohan Kapoor",
+    "location": "Bangalore",
+    "rating": 4,
+    "title": "Great citrus and woody combination",
+    "review": "The first spray feels very energetic and citrusy. After some time, the woody notes become more prominent, which I personally enjoy. Good fragrance for someone who likes fresh aromatic perfumes.",
+    "type": "large"
+  },
+  {
+    "name": "Priya Nair",
+    "location": "Kochi",
+    "rating": 5,
+    "title": "Smells incredibly premium",
+    "review": "I was not expecting to like this perfume so much. It has a very balanced fragrance profile. Not too sweet, not too sharp. The dry down is probably my favourite part. ❤️",
+    "type": "large"
+  },
+  {
+    "name": "Kabir Malhotra",
+    "location": "Jaipur",
+    "rating": 5,
+    "title": "Perfect for daytime wear",
+    "review": "If you enjoy fresh perfumes with a slightly spicy character, this is worth exploring. The ginger and citrus combination gives it a distinctive personality. The packaging is also quite elegant.",
+    "type": "large"
+  },
+  {
+    "name": "Ishita Verma",
+    "location": "Pune",
+    "rating": 4,
+    "title": "A refreshing fragrance",
+    "review": "Really liked the fresh opening of this perfume. It has a citrusy feel initially and gradually becomes more woody. I would have preferred a little more sweetness, but overall a lovely fragrance.",
+    "type": "large"
+  },
+  {
+    "name": "Arjun Singh",
+    "location": "Chandigarh",
+    "rating": 5,
+    "title": "Worth trying for fragrance lovers",
+    "review": "The combination of bergamot, grapefruit and vetiver is really interesting. It smells modern and classy. I especially like that it doesn't feel like another generic sweet perfume.",
     "type": "large"
   },
   {
     "name": "Meera Iyer",
     "location": "Chennai",
     "rating": 5,
-    "title": "Luggage that actually lasts",
-    "review": "Took the trolley on a two-week trip — wheels glide, zippers didn’t snag, and the print didn’t scuff the way cheap luggage does. Delivery was quick and the bag arrived well packed. Proud it is Indian and vegan. Will order a cabin bag next.",
+    "title": "Love the fresh citrus opening",
+    "review": "The citrus notes are absolutely beautiful. It gives such a fresh and energetic feeling. Later the woody and musky notes make it feel more mature. A very interesting fragrance journey.",
     "type": "large"
   },
   {
-    "name": "Radhika Malhotra",
-    "location": "Delhi",
-    "rating": 5,
-    "title": "Holds up after months of use",
-    "review": "Great quality and a long-lasting finish. I have used this satchel for three months of metro commutes and it still looks new — no peeling, no sagging. Compartments actually make sense. Packaging was gift-ready, so I sent a second bag to my sister and she loved it too.",
-    "type": "large"
-  },
-  {
-    "name": "Sneha Patel",
-    "location": "United States",
-    "rating": 5,
-    "title": "Shipped overseas, arrived perfectly packed",
-    "review": "I was nervous ordering from abroad but the backpack arrived on time and packed so carefully. It looks even better in person than on Instagram. I wore it for a work trip here and got so many compliments. Zouk is my go-to for printed bags when I cannot shop in India.",
-    "type": "large"
-  },
-  {
-    "name": "Kavya Nair",
-    "location": "Canada",
-    "rating": 5,
-    "title": "Gifted a tote — she loved it",
-    "review": "The packaging was so beautiful I gifted a printed tote to my friend. She thought I had spent much more. The print is rich and the bag feels well made, not floppy.",
-    "type": "mid"
-  },
-  {
-    "name": "Anika Sharma",
-    "location": "Mumbai",
-    "rating": 5,
-    "title": "Light enough for all-day wear",
-    "review": "Carried the sling from office to dinner. No shoulder ache, and the print photographed beautifully.",
-    "type": "mid"
-  },
-  {
-    "name": "Divya Menon",
-    "location": "Kochi",
+    "name": "Dev Khanna",
+    "location": "Gurgaon",
     "rating": 4,
-    "title": "Roomy without looking bulky",
-    "review": "Fits a laptop, bottle, and a change of clothes. Only wish I had ordered the matching pouch in the same order.",
-    "type": "mid"
+    "title": "Clean masculine fragrance",
+    "review": "A very nice fresh aromatic perfume. The ginger and peppermint add something different to the usual citrus fragrance profile. Works nicely for casual outings and professional settings.",
+    "type": "large"
   },
   {
-    "name": "Tanvi Joshi",
-    "location": "Pune",
-    "rating": 5,
-    "title": "Vegan and still looks luxe",
-    "review": "I wanted something cruelty-free that didn’t look cheap. This is exactly that — structured, printed, and easy to wipe down.",
-    "type": "mid"
-  },
-  {
-    "name": "Ishita Roy",
-    "location": "Kolkata",
-    "rating": 5,
-    "title": "Looks just like the photos",
-    "review": "Colour, size, and print all matched the listing. Packed like a gift. Already browsing backpacks.",
-    "type": "mid"
-  },
-  {
-    "name": "Aarohi Jain",
-    "location": "Jaipur",
-    "rating": 5,
-    "title": "Compliments every time I step out",
-    "review": "Wore the printed tote to a brunch and people kept asking for the brand.",
-    "type": "small"
-  },
-  {
-    "name": "Kritika Bose",
-    "location": "Bhopal",
-    "rating": 5,
-    "title": "Print hasn’t faded",
-    "review": "Used it through summer and the colours still pop like day one.",
-    "type": "small"
-  },
-  {
-    "name": "Nidhi Gupta",
-    "location": "Lucknow",
-    "rating": 5,
-    "title": "Travel-ready backpack",
-    "review": "One bag for flight and city days. Looks expensive, feels light.",
-    "type": "small"
-  },
-  {
-    "name": "Simran Batra",
-    "location": "Chandigarh",
-    "rating": 5,
-    "title": "Second order already",
-    "review": "Came back for luggage after the tote. Quality is consistently good.",
-    "type": "very_small"
-  },
-  {
-    "name": "Kavya Reddy",
+    "name": "Sana Sheikh",
     "location": "Hyderabad",
     "rating": 5,
-    "title": "Proudly Indian bags done right",
-    "review": "Bold print, sturdy zippers, and it arrived on time.",
-    "type": "very_small"
+    "title": "Such a beautiful dry down",
+    "review": "The opening is bright and refreshing, but the dry down is where this perfume really shines. The patchouli and ambergris notes give it a lovely warm character. Very sophisticated.",
+    "type": "large"
+  },
+  {
+    "name": "Vihaan Joshi",
+    "location": "Ahmedabad",
+    "rating": 5,
+    "title": "Not your typical citrus perfume",
+    "review": "I usually find citrus perfumes too simple, but Cold Call has much more depth. The spices and woody base make it interesting. It transitions beautifully from fresh to warm.",
+    "type": "large"
+  },
+  {
+    "name": "Tanya Kapoor",
+    "location": "Lucknow",
+    "rating": 4,
+    "title": "Elegant and refreshing",
+    "review": "The fragrance feels very polished. I like the balance between fresh citrus and earthy woody notes. It is not an overly sweet fragrance, which is exactly what I was looking for.",
+    "type": "large"
+  },
+  {
+    "name": "Aditya Rao",
+    "location": "Indore",
+    "rating": 5,
+    "title": "A great addition to my collection",
+    "review": "The 30% oil concentration caught my attention, and I really like the fragrance profile. The grapefruit and bergamot opening is excellent. The bottle also looks minimal and premium.",
+    "type": "large"
+  },
+  {
+    "name": "Nisha Agarwal",
+    "location": "Kolkata",
+    "rating": 5,
+    "title": "Fresh spicy and woody perfection",
+    "review": "This is such a well-rounded fragrance. The initial citrus freshness is uplifting, while the ginger and lavender give it a little complexity. The woody base makes it feel very elegant. ✨",
+    "type": "large"
+  },
+  {
+    "name": "Reyansh Bhatia",
+    "location": "Noida",
+    "rating": 3,
+    "title": "Nice fragrance but quite different",
+    "review": "The perfume opens with a strong citrus character, which I enjoyed. However, the woody and earthy dry down was a little different from what I usually wear. Still a good option for people who enjoy aromatic fragrances.",
+    "type": "large"
   }
 ]

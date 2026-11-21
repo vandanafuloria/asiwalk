@@ -1,57 +1,44 @@
+import asiwalkClip1 from './assets/videos/asiwalk.in_1790336137_3993950693000742262_79522519501.mp4';
+import asiwalkClip2 from './assets/videos/asiwalk.in_1792065003_4008451641672783861_79522519501.mp4';
+import asiwalkClip3 from './assets/videos/asiwalk.in_1792681151_4013622612218299177_79522519501.mp4';
+import asiwalkClip4 from './assets/videos/asiwalk.in_1794657287_4030198418470693106_79522519501.mp4';
+import rohanGuptaClip from './assets/videos/byrohan.gupta_1792083702_4008607618627483212_63905253478.mp4';
+import styledByHemsClip from './assets/videos/styledbyhems_1795009959_4032417754286492518_28467797908.mp4';
+
 /**
- * Shop videos — Zouk reels with Instagram links.
+ * Shop videos — asiwalk reels with Instagram links.
  * Single source for home "Shop videos", header reels, and PDP reel strip.
  */
 export const MUUN_SHOP_VIDEO_CLIPS = [
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_dv4aloh3rosdcj7n94rrtbah.mp4?v=1',
+    url: asiwalkClip1,
     title: 'Elegant designs for everyday',
-    instagramUrl: 'https://www.instagram.com/p/Dcqkkzuzg_2/?hl=en',
+    instagramUrl: 'https://www.instagram.com/asiwalk.in/',
   },
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_y4k4fmuc54vsojb1dzj9i9l5.mp4',
+    url: asiwalkClip2,
     title: 'Crafted with care',
-    instagramUrl: 'https://www.instagram.com/p/Dci6k7DDdfi/?hl=en&img_index=1',
+    instagramUrl: 'https://www.instagram.com/asiwalk.in/',
   },
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_ado6wy5ew00xv66rj6kno1qk.mp4',
+    url: asiwalkClip3,
     title: 'Style meets function',
-    instagramUrl: 'https://www.instagram.com/p/DcjOB5vuRYo/?hl=en',
+    instagramUrl: 'https://www.instagram.com/asiwalk.in/',
   },
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_ado6wy5ew00xv66rj6kno1qk.mp4',
+    url: asiwalkClip4,
     title: 'Timeless pieces',
-    instagramUrl: 'https://www.instagram.com/p/DcbYgHQqR3J/?hl=en',
+    instagramUrl: 'https://www.instagram.com/asiwalk.in/',
   },
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_ecwqewi797xa05hinp93ve0i.mp4',
-    title: 'Modern aesthetics',
-    instagramUrl: 'https://www.instagram.com/p/DcWJeKZMfai/?hl=en',
-  },
-  {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_m8zp2x2n3e3grcurmovp1b51.mp4',
-    title: 'Everyday essentials',
-    instagramUrl: 'https://www.instagram.com/p/DcGoSdCDbZG/?hl=en&img_index=1',
-  },
-  {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_izd04gg8mcm9n3bd0q5ua1th.mp4',
+    url: rohanGuptaClip,
     title: 'Statement looks',
-    instagramUrl: 'https://www.instagram.com/p/Db8NNloRo7Y/?hl=en',
+    instagramUrl: 'https://www.instagram.com/byrohan.gupta/',
   },
   {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_spcntobuz9veamgoc6tui5yj.mp4?v=1',
-    title: 'On the go',
-    instagramUrl: 'https://www.instagram.com/p/Db2_KCmNFjy/?hl=en',
-  },
-  {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_zp6xnwm9maa6vo2ke1j853i7.mp4',
-    title: 'Handcrafted details',
-    instagramUrl: 'https://www.instagram.com/p/DbhlM4VscGG/?hl=en',
-  },
-  {
-    url: 'https://zouk.co.in/cdn/shop/files/quinn_uirianhtxdfwlou8pexm3tbn.mp4',
-    title: 'New season favourites',
-    instagramUrl: 'https://www.instagram.com/p/DbVpvqHjYEo/?hl=en&img_index=1',
+    url: styledByHemsClip,
+    title: 'Modern aesthetics',
+    instagramUrl: 'https://www.instagram.com/styledbyhems/',
   },
 ];
 

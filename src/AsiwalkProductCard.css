@@ -1,0 +1,121 @@
+.zouk-bestsellers-scroller--flush {
+  gap: 0;
+}
+
+.asiwalk-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  cursor: pointer;
+  min-width: 0;
+}
+
+.zouk-bestsellers-scroller .asiwalk-card {
+  flex: 0 0 min(260px, 78vw);
+  width: auto;
+  scroll-snap-align: start;
+}
+
+.asiwalk-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: linear-gradient(180deg, #ffffff 0%, #faf5ee 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.asiwalk-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 20px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.asiwalk-card-body {
+  padding: 14px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asiwalk-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.asiwalk-card-tagline {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+  line-height: 1.35;
+}
+
+.asiwalk-card-rating {
+  margin: 2px 0 0;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+.asiwalk-card-rating-star {
+  color: #111;
+  font-weight: 600;
+}
+
+.asiwalk-card-rating-count {
+  color: #9ca3af;
+}
+
+.asiwalk-card-price {
+  margin: 4px 0 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #111;
+}
+
+.asiwalk-card-market-overlay {
+  position: absolute;
+  bottom: 10px;
+  right: 8px;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 4px 10px 4px 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.asiwalk-card-add {
+  width: 100%;
+  background: none;
+  border: none;
+  border-top: 1px solid #e5e5e5;
+  padding: 13px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #111;
+  cursor: pointer;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.asiwalk-card-add:hover {
+  background: #f7f7f7;
+}
+
+@media (min-width: 900px) {
+  .zouk-bestsellers-scroller .asiwalk-card {
+    flex-basis: calc((100% - 48px) / 4);
+  }
+}

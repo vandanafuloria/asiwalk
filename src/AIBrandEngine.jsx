@@ -1,8 +1,8 @@
 import React, { useId, useState } from 'react';
 import './AIBrandEngine.css';
 
-const SHOP_URL = 'https://zouk.co.in/';
-const INSTAGRAM_URL = 'https://www.instagram.com/zoukonline/';
+const SHOP_URL = 'https://asiwalk.com/';
+const INSTAGRAM_URL = 'https://www.instagram.com/asiwalk.in/';
 
 function PremiumAIIcon({ gradientId, className, style, size = 40 }) {
   return (
@@ -119,7 +119,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
         },
       ],
       highlights: [
-        'Bags. Backpacks. Luggage. — the full Zouk range in one place.',
+        'Bags. Backpacks. Luggage. — the full asiwalk range in one place.',
         'Bestsellers like Lattice Lace, GeoOptics, and Nawabi Couture prints.',
         'Proudly Indian, handcrafted, and 100% vegan across the line.',
       ],
@@ -231,7 +231,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           label: 'Checkout',
           value: 'Secure Payments',
           description:
-            'Secure checkout so a first Zouk order feels low risk — plus extras like a personalised tag.',
+            'Secure checkout so a first asiwalk order feels low risk — plus extras like a personalised tag.',
         },
       ],
       highlights: [
@@ -241,7 +241,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
       ],
     },
     brand: {
-      title: 'Zouk',
+      title: 'asiwalk',
       iconType: 'brand',
       content: [
         {
@@ -346,7 +346,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
     return (
       <div className="chart-container">
         <div className="chart-header">
-          <h5 className="chart-title">Zouk bags snapshot</h5>
+          <h5 className="chart-title">asiwalk bags snapshot</h5>
           <div className="chart-value">{displayValue}</div>
         </div>
         <svg width="100%" height={height} viewBox={`0 0 ${width} ${height}`} className="chart-svg" preserveAspectRatio="xMidYMid meet">
@@ -445,7 +445,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             type="button"
             className={`ai-brand-engine-trigger${compact ? ' abe-compact' : ''}`}
             onClick={() => setIsExpanded(true)}
-            aria-label="Open bag insights for Zouk"
+            aria-label="Open bag insights for asiwalk"
           >
             <div className="trigger-icon">
               <span className="ai-gemini-rotator" aria-hidden="true">
@@ -455,7 +455,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             {!compact && (
               <div className="trigger-text">
                 <span className="trigger-label">Bag insights</span>
-                <span className="trigger-sublabel">Zouk</span>
+                <span className="trigger-sublabel">asiwalk</span>
               </div>
             )}
             <span className="trigger-badge">AI</span>
@@ -468,7 +468,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
           )}
         </div>
       ) : (
-        <div className="ai-brand-engine-panel" role="dialog" aria-label="Zouk bag insights">
+        <div className="ai-brand-engine-panel" role="dialog" aria-label="asiwalk bag insights">
           <div className="panel-header">
             <div className="header-left">
               <div className="header-icon">
@@ -476,7 +476,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
               </div>
               <div>
                 <h3 className="panel-title">AI Brand Engine</h3>
-                <p className="panel-subtitle">Zouk · Bags. Backpacks. Luggage.</p>
+                <p className="panel-subtitle">asiwalk · Bags. Backpacks. Luggage.</p>
               </div>
             </div>
             <button type="button" className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -541,7 +541,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
                 </div>
                 <div className="panel-content-cta">
                   <a href={SHOP_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--primary">
-                    Shop Zouk
+                    Shop asiwalk
                   </a>
                   <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" className="abe-cta abe-cta--ghost">
                     Instagram
@@ -561,7 +561,7 @@ function AIBrandEngine({ showExtras = true, compact = false }) {
             <p className="footer-note">
               Style notes are for general guidance. Check size, capacity, and care on{' '}
               <a href={SHOP_URL} target="_blank" rel="noopener noreferrer">
-                zouk.co.in
+                asiwalk.com
               </a>{' '}
               before you buy.
             </p>

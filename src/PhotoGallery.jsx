@@ -11,10 +11,8 @@ import galleryPhoto5 from './assets/photos/zouk-review-05.png';
 import galleryPhoto6 from './assets/photos/zouk-review-06.png';
 import galleryPhoto7 from './assets/photos/zouk-review-07.png';
 import galleryPhoto8 from './assets/photos/zouk-review-08.png';
-import galleryPhoto9 from './assets/photos/zouk-review-09.png';
-import galleryPhoto10 from './assets/photos/zouk-review-10.png';
 
-/** Customer gallery — Zouk bag photos */
+/** Customer gallery — asiwalk bag photos */
 export const GALLERY_IMAGES = [
   galleryPhoto1,
   galleryPhoto2,
@@ -24,8 +22,6 @@ export const GALLERY_IMAGES = [
   galleryPhoto6,
   galleryPhoto7,
   galleryPhoto8,
-  galleryPhoto9,
-  galleryPhoto10,
 ];
 
 const INITIAL_SHOW = 12;
@@ -53,7 +49,7 @@ function getGalleryProductDetail(index) {
 
 export default function PhotoGallery({
   title = 'Our Gallery',
-  subtitle = 'Real moments from the Zouk community — bags, backpacks, and everyday travel.',
+  subtitle = 'Real moments from the asiwalk community — bags, backpacks, and everyday travel.',
 }) {
   const [lightbox, setLightbox] = useState(null); // index or null
   const [showAll, setShowAll] = useState(false);
@@ -99,7 +95,7 @@ export default function PhotoGallery({
             onClick={() => setLightbox(i)}
             aria-label={`Open gallery photo ${i + 1}`}
           >
-            <img src={src} alt={`Zouk review photo ${i + 1}`} loading="lazy" />
+            <img src={src} alt={`asiwalk review photo ${i + 1}`} loading="lazy" />
           </button>
         ))}
       </div>
@@ -118,7 +114,7 @@ export default function PhotoGallery({
           <button type="button" className="pg-lb-nav pg-lb-prev" onClick={(e) => { e.stopPropagation(); prev(); }} aria-label="Previous">‹</button>
           <button type="button" className="pg-lb-nav pg-lb-next" onClick={(e) => { e.stopPropagation(); next(); }} aria-label="Next">›</button>
           <div className="pg-lb-inner" onClick={(e) => e.stopPropagation()}>
-            <img src={GALLERY_IMAGES[lightbox]} alt={`Zouk review photo ${lightbox + 1}`} />
+            <img src={GALLERY_IMAGES[lightbox]} alt={`asiwalk review photo ${lightbox + 1}`} />
             {(() => {
               const detail = getGalleryProductDetail(lightbox);
               return (

@@ -62,7 +62,7 @@ const PhotoGallerySection = () => {
       <div className="gallery-container">
         <div className="gallery-header">
           <h2 className="gallery-title">Our Collection</h2>
-          <p className="gallery-subtitle">Real moments from the Zouk community.</p>
+          <p className="gallery-subtitle">Real moments from the asiwalk community.</p>
         </div>
 
         <div className="gallery-grid">
