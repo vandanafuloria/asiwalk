@@ -54,7 +54,7 @@ export default function InstagramFloatingButton() {
         style={{
           background: 'linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)',
           boxShadow: '0 4px 15px rgba(188, 24, 136, 0.4)',
-          borderRadius: '50%',
+          borderRadius: '9999px',
           WebkitAppearance: 'none',
           appearance: 'none',
         }}
